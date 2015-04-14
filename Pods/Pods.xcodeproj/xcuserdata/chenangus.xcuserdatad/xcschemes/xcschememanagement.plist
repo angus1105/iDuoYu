@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iDuoYu-NSObject-ObjectMap.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iDuoYu-Toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B9BDA76D449BFBB848E33D5</key>
+		<key>28C91E825F009DC10B3EC150</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>19C08E98231CB6A43DCAF7C6</key>
+		<key>5E207F306423BFF24FEE7763</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5DB27A5F860951694AC9226</key>
+		<key>8049D5BE7648CEDBB82E96AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1CDCA7DEBFEB82B170BBF7E</key>
+		<key>99356E3A0BE8056153F7E52B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7CF02FACEEF632B7B02B787</key>
+		<key>CCA816CEC63C3DCA1D48A441</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F63F18CA6E01CC8AE9ECE0E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

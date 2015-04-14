@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_MJRefresh 4
 #define COCOAPODS_VERSION_PATCH_MJRefresh 5
 
+// NSObject-ObjectMap
+#define COCOAPODS_POD_AVAILABLE_NSObject_ObjectMap
+#define COCOAPODS_VERSION_MAJOR_NSObject_ObjectMap 2
+#define COCOAPODS_VERSION_MINOR_NSObject_ObjectMap 3
+#define COCOAPODS_VERSION_PATCH_NSObject_ObjectMap 1
+
 // Toast
 #define COCOAPODS_POD_AVAILABLE_Toast
 #define COCOAPODS_VERSION_MAJOR_Toast 2

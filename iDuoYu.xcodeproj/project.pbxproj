@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D21ADCAD5B00962988 /* AFNetworking.strings */; };
+		5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */; };
+		5D1468D91ADCF66E00962988 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468D81ADCF66E00962988 /* Company.m */; };
+		5D1468DC1ADCF7DE00962988 /* CompanyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468DB1ADCF7DE00962988 /* CompanyList.m */; };
 		5D1918F21ADB990D00C7AE60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F11ADB990D00C7AE60 /* main.m */; };
 		5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F41ADB990D00C7AE60 /* AppDelegate.m */; };
 		5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F71ADB990D00C7AE60 /* ViewController.m */; };
@@ -32,6 +35,11 @@
 		5D1468C91ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5D1468CA1ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D1468D11ADCAD5B00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
+		5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonCompanyListTest.json; sourceTree = "<group>"; };
+		5D1468D71ADCF66E00962988 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		5D1468D81ADCF66E00962988 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		5D1468DA1ADCF7DE00962988 /* CompanyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyList.h; sourceTree = "<group>"; };
+		5D1468DB1ADCF7DE00962988 /* CompanyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyList.m; sourceTree = "<group>"; };
 		5D1918EC1ADB990D00C7AE60 /* iDuoYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDuoYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1918F01ADB990D00C7AE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D1918F11ADB990D00C7AE60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +93,17 @@
 			path = Localized;
 			sourceTree = "<group>";
 		};
+		5D1468D61ADCF61F00962988 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D1468D71ADCF66E00962988 /* Company.h */,
+				5D1468D81ADCF66E00962988 /* Company.m */,
+				5D1468DA1ADCF7DE00962988 /* CompanyList.h */,
+				5D1468DB1ADCF7DE00962988 /* CompanyList.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5D1918E31ADB990D00C7AE60 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +127,7 @@
 		5D1918EE1ADB990D00C7AE60 /* iDuoYu */ = {
 			isa = PBXGroup;
 			children = (
+				5D1468D61ADCF61F00962988 /* Model */,
 				5D1918F31ADB990D00C7AE60 /* AppDelegate.h */,
 				5D1918F41ADB990D00C7AE60 /* AppDelegate.m */,
 				5D1918F61ADB990D00C7AE60 /* ViewController.h */,
@@ -123,6 +143,7 @@
 		5D1918EF1ADB990D00C7AE60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */,
 				5D1468CD1ADCAD2200962988 /* Localized */,
 				5D1918F01ADB990D00C7AE60 /* Info.plist */,
 				5D1918F11ADB990D00C7AE60 /* main.m */,
@@ -240,6 +261,7 @@
 			files = (
 				5D1918FB1ADB990D00C7AE60 /* Main.storyboard in Resources */,
 				5D1919001ADB990D00C7AE60 /* LaunchScreen.xib in Resources */,
+				5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */,
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
 				5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */,
 			);
@@ -294,7 +316,9 @@
 			files = (
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
 				5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */,
+				5D1468DC1ADCF7DE00962988 /* CompanyList.m in Sources */,
 				5D1918F21ADB990D00C7AE60 /* main.m in Sources */,
+				5D1468D91ADCF66E00962988 /* Company.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

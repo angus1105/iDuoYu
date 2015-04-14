@@ -10,6 +10,9 @@
 #import <AFNetworking/UIKit+AFNetworking.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import <Toast/UIView+Toast.h>
+#import <NSObject+ObjectMap.h>
+#import "Company.h"
+#import "CompanyList.h"
 
 @interface AppDelegate ()
 
@@ -20,26 +23,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        NSLog(@"%@", [[AFNetworkReachabilityManager sharedManager] localizedNetworkReachabilityStatusString]);
-        
-        switch (status) {
-            case AFNetworkReachabilityStatusNotReachable:
-                [self.window makeToast:[[AFNetworkReachabilityManager sharedManager] localizedNetworkReachabilityStatusString]];
-                break;
-            case AFNetworkReachabilityStatusUnknown:
-                NSLog(@"Should not unknow");
-                break;
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-            default:
-                [self.window makeToastActivity];
-                break;
-        }
-    }];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"jsonCompanyListTest" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+    
+    CompanyList *companyList = [[CompanyList alloc] initWithJSONData:jsonData];
+    
+    for (Company *company in companyList.Companys) {
+        NSLog(@"CompanyName = %@", company.CompanyName);
+        NSLog(@"CompanyAddress = %@", company.CompanyAddress);
+    }
+    
+    
+    NSLog(@"jsonString = %@", [companyList JSONString]);
+    
     return YES;
 }
 
