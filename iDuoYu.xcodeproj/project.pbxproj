@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D21ADCAD5B00962988 /* AFNetworking.strings */; };
 		5D1918F21ADB990D00C7AE60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F11ADB990D00C7AE60 /* main.m */; };
 		5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F41ADB990D00C7AE60 /* AppDelegate.m */; };
 		5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F71ADB990D00C7AE60 /* ViewController.m */; };
@@ -28,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D1468C91ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5D1468CA1ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5D1468D11ADCAD5B00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
 		5D1918EC1ADB990D00C7AE60 /* iDuoYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDuoYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1918F01ADB990D00C7AE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D1918F11ADB990D00C7AE60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +77,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D1468CD1ADCAD2200962988 /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				5D1468D21ADCAD5B00962988 /* AFNetworking.strings */,
+			);
+			path = Localized;
+			sourceTree = "<group>";
+		};
 		5D1918E31ADB990D00C7AE60 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 		5D1918EF1ADB990D00C7AE60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D1468CD1ADCAD2200962988 /* Localized */,
 				5D1918F01ADB990D00C7AE60 /* Info.plist */,
 				5D1918F11ADB990D00C7AE60 /* main.m */,
 			);
@@ -228,6 +241,7 @@
 				5D1918FB1ADB990D00C7AE60 /* Main.storyboard in Resources */,
 				5D1919001ADB990D00C7AE60 /* LaunchScreen.xib in Resources */,
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
+				5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +317,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5D1468D21ADCAD5B00962988 /* AFNetworking.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D1468D11ADCAD5B00962988 /* zh-Hans */,
+			);
+			name = AFNetworking.strings;
+			sourceTree = "<group>";
+		};
 		5D1918F91ADB990D00C7AE60 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5D1918FA1ADB990D00C7AE60 /* Base */,
+				5D1468C91ADCAC8E00962988 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -315,6 +338,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5D1918FF1ADB990D00C7AE60 /* Base */,
+				5D1468CA1ADCAC8E00962988 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -411,7 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iDuoYu/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -424,7 +448,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = iDuoYu/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

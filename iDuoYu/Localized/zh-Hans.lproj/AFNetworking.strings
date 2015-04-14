@@ -1,0 +1,15 @@
+/* 
+  AFNetworking.strings
+  iDuoYu
+
+  Created by ChenAngus on 15/4/14.
+  Copyright (c) 2015年 iduoyu.com. All rights reserved.
+*/
+
+"Not Reachable" = "网络通信中断";
+
+"Reachable via WWAN" = "2G/3G/4G移动数据通信";
+
+"Reachable via WiFi" = "wifi无线网络";
+
+"Unknown" = "网络情况未知";

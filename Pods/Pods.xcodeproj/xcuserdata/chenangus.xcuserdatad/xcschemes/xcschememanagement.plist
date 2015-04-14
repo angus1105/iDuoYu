@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iDuoYu-ECSlidingViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iDuoYu-MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iDuoYu-Toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>18D39D88D77FF4FACA94E143</key>
+		<key>0B9BDA76D449BFBB848E33D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>98FF22D590F22E49A0315E4C</key>
+		<key>19C08E98231CB6A43DCAF7C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA5E71CF4C60FEB4BE474B76</key>
+		<key>A5DB27A5F860951694AC9226</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1CDCA7DEBFEB82B170BBF7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7CF02FACEEF632B7B02B787</key>
 		<dict>
 			<key>primary</key>
 			<true/>

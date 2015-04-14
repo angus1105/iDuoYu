@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking/UIKit+AFNetworking.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
+#import <Toast/UIView+Toast.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +20,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        NSLog(@"%@", [[AFNetworkReachabilityManager sharedManager] localizedNetworkReachabilityStatusString]);
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                [self.window makeToast:[[AFNetworkReachabilityManager sharedManager] localizedNetworkReachabilityStatusString]];
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"Should not unknow");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            default:
+                [self.window makeToastActivity];
+                break;
+        }
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     return YES;
 }
 
