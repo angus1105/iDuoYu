@@ -33,7 +33,6 @@
         NSLog(@"CompanyAddress = %@", company.CompanyAddress);
     }
     
-    
     NSLog(@"jsonString = %@", [companyList JSONString]);
     
     return YES;
