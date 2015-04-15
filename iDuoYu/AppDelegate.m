@@ -19,6 +19,7 @@
 
 @end
 
+
 @implementation AppDelegate
 
 
@@ -36,6 +37,7 @@
     
     NSLog(@"jsonString = %@", [companyList JSONString]);
     NSLog(@"pysical memory = %@", [[GBDeviceInfo deviceInfo] modelString]);
+
     return YES;
     
     

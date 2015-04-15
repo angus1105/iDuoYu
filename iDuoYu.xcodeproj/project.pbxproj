@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5D0FEF3A1ADE046E00AA5A47 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */; };
+		5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */; };
+		5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */; };
 		5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D21ADCAD5B00962988 /* AFNetworking.strings */; };
 		5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */; };
 		5D1468D91ADCF66E00962988 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468D81ADCF66E00962988 /* Company.m */; };
@@ -34,7 +36,10 @@
 
 /* Begin PBXFileReference section */
 		5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		5D1468C91ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5D0FEF3D1ADE0AE600AA5A47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseAlert.xib; sourceTree = "<group>"; };
+		5D0FEF431ADE43E700AA5A47 /* ChooseAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAlert.h; sourceTree = "<group>"; };
+		5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAlert.m; sourceTree = "<group>"; };
 		5D1468CA1ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D1468D11ADCAD5B00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
 		5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonCompanyListTest.json; sourceTree = "<group>"; };
@@ -96,6 +101,16 @@
 			path = Untils;
 			sourceTree = "<group>";
 		};
+		5D0FEF3E1ADE3D4A00AA5A47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */,
+				5D0FEF431ADE43E700AA5A47 /* ChooseAlert.h */,
+				5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5D1468CD1ADCAD2200962988 /* Localized */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +153,7 @@
 		5D1918EE1ADB990D00C7AE60 /* iDuoYu */ = {
 			isa = PBXGroup;
 			children = (
+				5D0FEF3E1ADE3D4A00AA5A47 /* Views */,
 				5D0FEF381ADE043600AA5A47 /* Untils */,
 				5D1468D61ADCF61F00962988 /* Model */,
 				5D1918F31ADB990D00C7AE60 /* AppDelegate.h */,
@@ -254,6 +270,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 5D1918E31ADB990D00C7AE60;
 			productRefGroup = 5D1918ED1ADB990D00C7AE60 /* Products */;
@@ -274,6 +291,7 @@
 				5D1918FB1ADB990D00C7AE60 /* Main.storyboard in Resources */,
 				5D1919001ADB990D00C7AE60 /* LaunchScreen.xib in Resources */,
 				5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */,
+				5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */,
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
 				5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */,
 			);
@@ -327,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
+				5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */,
 				5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */,
 				5D1468DC1ADCF7DE00962988 /* CompanyList.m in Sources */,
 				5D1918F21ADB990D00C7AE60 /* main.m in Sources */,
@@ -365,7 +384,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5D1918FA1ADB990D00C7AE60 /* Base */,
-				5D1468C91ADCAC8E00962988 /* zh-Hans */,
+				5D0FEF3D1ADE0AE600AA5A47 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -470,10 +489,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tingting An (J73724HL64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tingting An (J73724HL64)";
 				INFOPLIST_FILE = iDuoYu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "377bd6c6-3149-4c4c-be72-e7e2ac7eaf3c";
 			};
 			name = Debug;
 		};
@@ -487,6 +509,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "377bd6c6-3149-4c4c-be72-e7e2ac7eaf3c";
 			};
 			name = Release;
 		};
