@@ -11,12 +11,14 @@
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import <Toast/UIView+Toast.h>
 #import <NSObject+ObjectMap.h>
+#import <GBDeviceInfo.h>
 #import "Company.h"
 #import "CompanyList.h"
 
 @interface AppDelegate ()
 
 @end
+
 
 @implementation AppDelegate
 
@@ -34,7 +36,8 @@
     }
     
     NSLog(@"jsonString = %@", [companyList JSONString]);
-    
+    NSLog(@"pysical memory = %@", [[GBDeviceInfo deviceInfo] modelString]);
+
     return YES;
     
     

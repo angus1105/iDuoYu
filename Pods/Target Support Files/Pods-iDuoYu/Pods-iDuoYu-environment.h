@@ -54,6 +54,18 @@
 #define COCOAPODS_VERSION_MINOR_ECSlidingViewController 3
 #define COCOAPODS_VERSION_PATCH_ECSlidingViewController 3
 
+// GBDeviceInfo
+#define COCOAPODS_POD_AVAILABLE_GBDeviceInfo
+#define COCOAPODS_VERSION_MAJOR_GBDeviceInfo 3
+#define COCOAPODS_VERSION_MINOR_GBDeviceInfo 1
+#define COCOAPODS_VERSION_PATCH_GBDeviceInfo 0
+
+// INTULocationManager
+#define COCOAPODS_POD_AVAILABLE_INTULocationManager
+#define COCOAPODS_VERSION_MAJOR_INTULocationManager 3
+#define COCOAPODS_VERSION_MINOR_INTULocationManager 0
+#define COCOAPODS_VERSION_PATCH_INTULocationManager 1
+
 // MJRefresh
 #define COCOAPODS_POD_AVAILABLE_MJRefresh
 #define COCOAPODS_VERSION_MAJOR_MJRefresh 1
@@ -71,4 +83,10 @@
 #define COCOAPODS_VERSION_MAJOR_Toast 2
 #define COCOAPODS_VERSION_MINOR_Toast 4
 #define COCOAPODS_VERSION_PATCH_Toast 0
+
+// UIImageView-PlayGIF
+#define COCOAPODS_POD_AVAILABLE_UIImageView_PlayGIF
+#define COCOAPODS_VERSION_MAJOR_UIImageView_PlayGIF 1
+#define COCOAPODS_VERSION_MINOR_UIImageView_PlayGIF 0
+#define COCOAPODS_VERSION_PATCH_UIImageView_PlayGIF 2
 

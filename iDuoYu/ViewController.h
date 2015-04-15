@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *alertViewTest;
 
+@property (strong, nonatomic) IBOutlet UILabel *carrierLabel;
 
 @end
 

@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iDuoYu-GBDeviceInfo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iDuoYu-INTULocationManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iDuoYu-MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iDuoYu-UIImageView-PlayGIF.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iDuoYu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>28C91E825F009DC10B3EC150</key>
+		<key>26B0B022973770EDB0CD3C38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E207F306423BFF24FEE7763</key>
+		<key>4F5B1E5CA4A6ABCF6E2779E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8049D5BE7648CEDBB82E96AE</key>
+		<key>5740A45532A29A6CD1B86EDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99356E3A0BE8056153F7E52B</key>
+		<key>59D837DEC6C94FEBABE2E77B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCA816CEC63C3DCA1D48A441</key>
+		<key>AFF4215BCC3DC8606CE708D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F63F18CA6E01CC8AE9ECE0E8</key>
+		<key>C43F79ACDE96439193753527</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9DDA28A1A66F895F2246A3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5AA86B0FC5318714870E714</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E00F15668F015E9D6D70B5C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
