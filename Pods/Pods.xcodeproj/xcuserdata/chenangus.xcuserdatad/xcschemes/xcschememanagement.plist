@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iDuoYu-GBDeviceInfo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iDuoYu-MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>28C91E825F009DC10B3EC150</key>
+		<key>23D4610EB72A4E165DC3F27D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E207F306423BFF24FEE7763</key>
+		<key>2DD909D9E921DAAA6C0E756C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8049D5BE7648CEDBB82E96AE</key>
+		<key>2F58B93CCC79DA179D2FF5B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99356E3A0BE8056153F7E52B</key>
+		<key>48E62729B1A1A74DF7D17FF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCA816CEC63C3DCA1D48A441</key>
+		<key>4CC46ED0F4F8C0EF9E706DEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F63F18CA6E01CC8AE9ECE0E8</key>
+		<key>A16A6953298240978FE21743</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F84B11A767224D1ABF5FB193</key>
 		<dict>
 			<key>primary</key>
 			<true/>

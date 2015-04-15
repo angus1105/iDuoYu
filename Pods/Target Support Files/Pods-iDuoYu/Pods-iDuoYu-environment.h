@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_ECSlidingViewController 3
 #define COCOAPODS_VERSION_PATCH_ECSlidingViewController 3
 
+// GBDeviceInfo
+#define COCOAPODS_POD_AVAILABLE_GBDeviceInfo
+#define COCOAPODS_VERSION_MAJOR_GBDeviceInfo 3
+#define COCOAPODS_VERSION_MINOR_GBDeviceInfo 1
+#define COCOAPODS_VERSION_PATCH_GBDeviceInfo 0
+
 // MJRefresh
 #define COCOAPODS_POD_AVAILABLE_MJRefresh
 #define COCOAPODS_VERSION_MAJOR_MJRefresh 1

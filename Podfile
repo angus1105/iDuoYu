@@ -6,6 +6,7 @@ pod 'MJRefresh', '~> 1.4'
 pod 'Toast', '~> 2.4'
 pod 'ECSlidingViewController', '~> 1.3'
 pod 'NSObject-ObjectMap', '~> 2.3'
+pod 'GBDeviceInfo', '~> 3.1'
 end
 
 target 'iDuoYuTests' do
