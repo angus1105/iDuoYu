@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0FEF3A1ADE046E00AA5A47 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */; };
 		5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D21ADCAD5B00962988 /* AFNetworking.strings */; };
 		5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */; };
 		5D1468D91ADCF66E00962988 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468D81ADCF66E00962988 /* Company.m */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5D1468C91ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5D1468CA1ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D1468D11ADCAD5B00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0FEF3A1ADE046E00AA5A47 /* CoreTelephony.framework in Frameworks */,
 				C9B27A28C80142D6D92B4F0E /* libPods-iDuoYu.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,9 +83,17 @@
 		13ACEE2E785C10D36A7A2C38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */,
 				D625CC8E8B25749F98B502EF /* libPods-iDuoYu.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D0FEF381ADE043600AA5A47 /* Untils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Untils;
 			sourceTree = "<group>";
 		};
 		5D1468CD1ADCAD2200962988 /* Localized */ = {
@@ -127,6 +138,7 @@
 		5D1918EE1ADB990D00C7AE60 /* iDuoYu */ = {
 			isa = PBXGroup;
 			children = (
+				5D0FEF381ADE043600AA5A47 /* Untils */,
 				5D1468D61ADCF61F00962988 /* Model */,
 				5D1918F31ADB990D00C7AE60 /* AppDelegate.h */,
 				5D1918F41ADB990D00C7AE60 /* AppDelegate.m */,
