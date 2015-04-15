@@ -465,7 +465,7 @@
 			children = (
 				B87BEA49810FCBE2185BE66A /* Pods-iDuoYu */,
 			);
-			name = "Targets Support Files";
+			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 		768556571BDD1DF8EFBD10FD /* Resources */ = {
@@ -473,7 +473,7 @@
 			children = (
 				3BA49BDA16D1B0C9CED85688 /* MJRefresh.bundle */,
 			);
-			name = Resources;
+			path = "NSObject-ObjectMap";
 			sourceTree = "<group>";
 		};
 		78E8CE78F4914B8F626222BE /* Support Files */ = {
@@ -583,7 +583,7 @@
 				AFCF2D172A18E9AB43F2AE02 /* Security.framework */,
 				BEDB32644BFA5615372B3EDA /* SystemConfiguration.framework */,
 			);
-			name = iOS;
+			name = UIKit;
 			sourceTree = "<group>";
 		};
 		8E2EA2D09D8FF3E0D0DCEF07 /* Pods */ = {
@@ -837,6 +837,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				0D1ED532C972D4EB36B3BB6E /* PBXTargetDependency */,
+				532E1069B62AD17A7DC60A61 /* PBXTargetDependency */,
+				6E632E7E9BE1736A8C73AAB0 /* PBXTargetDependency */,
+				073362E62A9F0F4B26430228 /* PBXTargetDependency */,
+				5725E7B4E14BC7EA686762FB /* PBXTargetDependency */,
 			);
 			name = "Pods-iDuoYu-NSObject-ObjectMap";
 			productName = "Pods-iDuoYu-NSObject-ObjectMap";
@@ -1092,7 +1097,30 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F84302B3C2AABF95C9415AA /* Pods-iDuoYu.release.xcconfig */;
 			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1231,7 +1259,7 @@
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1239,7 +1267,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		C0C0B3AD416EE37108A69997 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1248,14 +1276,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-Toast/Pods-iDuoYu-Toast-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		CD57337AEBEE1E5FC0BFD24E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1278,11 +1306,11 @@
 			baseConfigurationReference = 0C220276E23A7C77F433CE3E /* Pods-iDuoYu-Toast-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-Toast/Pods-iDuoYu-Toast-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

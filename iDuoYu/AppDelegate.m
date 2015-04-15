@@ -37,6 +37,8 @@
     NSLog(@"jsonString = %@", [companyList JSONString]);
     NSLog(@"pysical memory = %@", [[GBDeviceInfo deviceInfo] modelString]);
     return YES;
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
