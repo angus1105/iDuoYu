@@ -36,6 +36,7 @@
     NSLog(@"jsonString = %@", [companyList JSONString]);
     
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
