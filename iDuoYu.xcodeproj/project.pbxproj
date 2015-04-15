@@ -153,6 +153,8 @@
 		5D1918EE1ADB990D00C7AE60 /* iDuoYu */ = {
 			isa = PBXGroup;
 			children = (
+				5D0FEF3E1ADE3D4A00AA5A47 /* Views */,
+				5D0FEF381ADE043600AA5A47 /* Untils */,
 				EC0914F91ADE31DB001599C1 /* View Controller */,
 				5D1468D61ADCF61F00962988 /* Model */,
 				5D1918F31ADB990D00C7AE60 /* AppDelegate.h */,
