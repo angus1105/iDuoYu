@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChooseAlert.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <ChooseAlertProtocol>
 @property (strong, nonatomic) IBOutlet UIButton *alertViewTest;
 
 @property (strong, nonatomic) IBOutlet UILabel *carrierLabel;

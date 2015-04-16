@@ -7,31 +7,39 @@
 //
 
 #import "ViewController.h"
+#import "ChooseAlert.h"
+#import <GBDeviceInfo.h>
+
 @import CoreTelephony;
-@interface ViewController ()
+@interface ViewController  ()
 
 @end
 
+
+
 @implementation ViewController
 
-UIWindow *_window;
++ (NSString *)carrierName {
+    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
+    CTCarrier *carrier = [netinfo subscriberCellularProvider];
+#if TARGET_IPHONE_SIMULATOR
+    return @"Simulator";
+#else
+    if (carrier.carrierName == nil || carrier.carrierName.length <= 0)
+        return @"N/A";
+#endif
+    return [carrier carrierName];
+}
+
++ (NSNumber *)totalDiskSpace
+{
+    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    return [fattributes objectForKey:NSFileSystemSize];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
-    CTCarrier *carrier = [netinfo subscriberCellularProvider];
-    NSString *carr = @"";
-#if TARGET_IPHONE_SIMULATOR
-    carr = @"Simulator";
-    self.carrierLabel.text = @"Simulator";
-#else
-    if (carrier.carrierName == nil || carrier.carrierName.length <= 0)
-        self.carrierLabel.text = @"N/A";
-#endif
-    self.carrierLabel.text = [carrier carrierName];
-    
-    NSLog(@"carrierName = %@", carr);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,8 +48,17 @@ UIWindow *_window;
 }
 
 - (IBAction)alertViewTest:(id)sender {
-
+    ChooseAlert *alertView = [ChooseAlert newChooseAlert];
+    alertView.modelDescriptionLabel.text = [NSString stringWithFormat:@"%@ - %@", [[GBDeviceInfo deviceInfo] modelString], [ViewController carrierName]];
+    alertView.ramLabel.text = [NSString stringWithFormat:@"%3.0f GB", [[ViewController totalDiskSpace] floatValue]/1000/1000/1000];
+    alertView.chooseAlertDelegate = self;
+    [alertView show];
+    
 }
 
+- (void)chooseAlert:(ChooseAlert *)alert didSelectAtIndex:(NSInteger)index {
+    NSLog(@"index = %ld", (long)index);
+    [alert hide];
+}
 
 @end
