@@ -31,6 +31,10 @@
 		EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0915191ADE5E79001599C1 /* MenuViewController.m */; };
 		EC8423231ADF6120008D4804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8423211ADF6120008D4804 /* Main.storyboard */; };
 		EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */; };
+		EC8423281ADF85A7008D4804 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8423271ADF85A7008D4804 /* ImageIO.framework */; };
+		EC84232A1ADF8815008D4804 /* banner.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC8423291ADF8815008D4804 /* banner.gif */; };
+		EC8423301ADF8C30008D4804 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84232C1ADF8C30008D4804 /* Common.m */; };
+		EC8423311ADF8C30008D4804 /* Context.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84232F1ADF8C30008D4804 /* Context.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,13 @@
 		EC8423221ADF6120008D4804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = iDuoYu/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC8423241ADF61AD008D4804 /* NavigationFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationFirstViewController.h; path = "View Controller/NavigationFirstViewController.h"; sourceTree = "<group>"; };
 		EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationFirstViewController.m; path = "View Controller/NavigationFirstViewController.m"; sourceTree = "<group>"; };
+		EC8423271ADF85A7008D4804 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		EC8423291ADF8815008D4804 /* banner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = banner.gif; sourceTree = "<group>"; };
+		EC84232B1ADF8C30008D4804 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		EC84232C1ADF8C30008D4804 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		EC84232D1ADF8C30008D4804 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		EC84232E1ADF8C30008D4804 /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
+		EC84232F1ADF8C30008D4804 /* Context.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Context.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8423281ADF85A7008D4804 /* ImageIO.framework in Frameworks */,
 				EC0915011ADE4BA8001599C1 /* UIKit.framework in Frameworks */,
 				EC0914FF1ADE4B9B001599C1 /* QuartzCore.framework in Frameworks */,
 				EC0914FD1ADE4B8D001599C1 /* Foundation.framework in Frameworks */,
@@ -114,6 +126,7 @@
 		13ACEE2E785C10D36A7A2C38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC8423271ADF85A7008D4804 /* ImageIO.framework */,
 				EC0915001ADE4BA8001599C1 /* UIKit.framework */,
 				EC0914FE1ADE4B9B001599C1 /* QuartzCore.framework */,
 				EC0914FC1ADE4B8D001599C1 /* Foundation.framework */,
@@ -127,6 +140,11 @@
 		5D0FEF381ADE043600AA5A47 /* Untils */ = {
 			isa = PBXGroup;
 			children = (
+				EC84232B1ADF8C30008D4804 /* Common.h */,
+				EC84232C1ADF8C30008D4804 /* Common.m */,
+				EC84232D1ADF8C30008D4804 /* Constants.h */,
+				EC84232E1ADF8C30008D4804 /* Context.h */,
+				EC84232F1ADF8C30008D4804 /* Context.m */,
 			);
 			path = Untils;
 			sourceTree = "<group>";
@@ -193,6 +211,7 @@
 				5D1918F71ADB990D00C7AE60 /* ViewController.m */,
 				EC8423211ADF6120008D4804 /* Main.storyboard */,
 				5D1918F91ADB990D00C7AE60 /* Menu.storyboard */,
+				EC8423291ADF8815008D4804 /* banner.gif */,
 				5D1918FC1ADB990D00C7AE60 /* Images.xcassets */,
 				5D1918FE1ADB990D00C7AE60 /* LaunchScreen.xib */,
 				5D1918EF1ADB990D00C7AE60 /* Supporting Files */,
@@ -339,6 +358,7 @@
 				5D1919001ADB990D00C7AE60 /* LaunchScreen.xib in Resources */,
 				5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */,
 				EC8423231ADF6120008D4804 /* Main.storyboard in Resources */,
+				EC84232A1ADF8815008D4804 /* banner.gif in Resources */,
 				5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */,
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
 				5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */,
@@ -392,6 +412,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8423301ADF8C30008D4804 /* Common.m in Sources */,
+				EC8423311ADF8C30008D4804 /* Context.m in Sources */,
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
 				EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */,
 				5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */,
