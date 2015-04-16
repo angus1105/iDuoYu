@@ -58,7 +58,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIx-Jo-X8p">
                     <rect key="frame" x="570" y="8" width="22" height="22"/>
                     <connections>
-                        <action selector="buttonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZyJ-al-WZn"/>
+                        <action selector="close" destination="iN0-l3-epB" eventType="touchUpInside" id="hSa-Iv-c3Z"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16GB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHd-eK-POg">

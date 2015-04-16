@@ -12,6 +12,10 @@
 
 UIWindow *_backgroundWindow;
 
+- (void)dealloc {
+    NSLog(@"dealloced");
+}
+
 + (id)newChooseAlert {
     
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"ChooseAlert"
@@ -37,9 +41,13 @@ UIWindow *_backgroundWindow;
     if ([self.chooseAlertDelegate respondsToSelector:@selector(chooseAlert:didSelectAtIndex:)]) {
         [self.chooseAlertDelegate chooseAlert:self
                              didSelectAtIndex:[sender tag]];
-    }else {
-        [self hide];
     }
+    
+    [self hide];
+}
+
+- (IBAction)close {
+    [self hide];
 }
 
 - (void)show {

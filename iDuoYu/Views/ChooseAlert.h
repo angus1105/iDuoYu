@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 'ChooseAlert' 简单的实现了iDuoYu需要用到的选择对话框，仅支持竖屏下显示
+ @TODO: 待切图完成后需要重新调整下xib约束，加入动画效果
+ */
 
 @protocol ChooseAlertProtocol;
 
