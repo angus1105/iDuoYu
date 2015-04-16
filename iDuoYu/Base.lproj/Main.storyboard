@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--快鱼闪修-->
+        <scene sceneID="flm-zN-aMY">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rsH-c9-qEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="Main" id="Xvx-XY-1tX" customClass="MainViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h0O-XR-Ama">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-L7-pfa">
-                                <rect key="frame" x="254" y="285" width="92" height="30"/>
-                                <state key="normal" title="AlertViewTest">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="alertViewTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bzW-8I-pZB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运营商" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exB-qW-kS6">
-                                <rect key="frame" x="184" y="197" width="233" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="233" id="Yya-1l-c8W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="exB-qW-kS6" firstAttribute="centerX" secondItem="mvY-L7-pfa" secondAttribute="centerX" id="FLe-EO-X5A"/>
-                            <constraint firstItem="mvY-L7-pfa" firstAttribute="top" secondItem="exB-qW-kS6" secondAttribute="bottom" constant="67" id="W3p-ma-d8g"/>
-                            <constraint firstItem="mvY-L7-pfa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qRD-HT-7ST"/>
-                            <constraint firstItem="mvY-L7-pfa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zhN-pn-JEw"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="alertViewTest" destination="mvY-L7-pfa" id="xaG-MZ-9Xw"/>
-                        <outlet property="carrierLabel" destination="exB-qW-kS6" id="Mwz-uN-d1o"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="E8m-p7-Vtu">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E8m-p7-Vtu" id="d5g-bh-fPw">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xvx-XY-1tX" id="BSF-Pf-Xn6"/>
+                            <outlet property="delegate" destination="Xvx-XY-1tX" id="Bgh-6B-i4g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="快鱼闪修" id="FJJ-Jk-lfB">
+                        <barButtonItem key="leftBarButtonItem" image="navigation" id="Qb1-bf-SdI">
+                            <connections>
+                                <action selector="revealMenu:" destination="Xvx-XY-1tX" id="mLX-Uv-Ifq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
             </objects>
+            <point key="canvasLocation" x="732" y="195"/>
+        </scene>
+        <!--Navigation First View Controller-->
+        <scene sceneID="Bak-Ql-u7O">
+            <objects>
+                <navigationController storyboardIdentifier="NavFirst" id="goh-WP-lsa" customClass="NavigationFirstViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pmt-qT-ta2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xvx-XY-1tX" kind="relationship" relationship="rootViewController" id="aeI-6Y-9oY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xG3-GU-dph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-88" y="194"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="navigation" width="18" height="16"/>
+    </resources>
 </document>

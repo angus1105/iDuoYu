@@ -37,7 +37,7 @@
     
     NSLog(@"jsonString = %@", [companyList JSONString]);
     NSLog(@"pysical memory = %@", [[GBDeviceInfo deviceInfo] modelString]);
-
+    
     return YES;
     
     
