@@ -40,3 +40,8 @@
 
 #define kIsSimulationData 0 //是否使用测试数据 1:使用模拟数据 0:使用正式数据
 #define DBG 0  //是否打印调试  1:打印调试  0:关闭打印调试
+
+#define UIColorMake255(r, g, b, a) [UIColor colorWithRed:(r)/255.0f\
+                                            green:(g)/255.0f\
+                                            blue:(b)/255.0f\
+                                            alpha:(a)]
