@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking.h>
 #import <AFNetworking/UIKit+AFNetworking.h>
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 #import <Toast/UIView+Toast.h>
@@ -22,22 +23,67 @@
 
 @implementation AppDelegate
 
+- (NSMutableURLRequest *)postRequestWithURL:(NSString *)url content:(NSString *)text
+{
+    NSMutableURLRequest *request =
+    [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded"
+   forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:[text dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"body = %@", [[NSString alloc] initWithData:request.HTTPBody
+                                              encoding:NSUTF8StringEncoding]);
+    return request;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"jsonCompanyListTest" ofType:@"json"];
-    NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+//    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"jsonCompanyListTest" ofType:@"json"];
+//    NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+//    
+//    CompanyList *companyList = [[CompanyList alloc] initWithJSONData:jsonData];
+//    
+//    for (Company *company in companyList.Companys) {
+//        NSLog(@"CompanyName = %@", company.CompanyName);
+//        NSLog(@"CompanyAddress = %@", company.CompanyAddress);
+//    }
+//    
+//    NSLog(@"jsonString = %@", [companyList JSONString]);
+//    NSLog(@"pysical memory = %@", [[GBDeviceInfo deviceInfo] modelString]);
     
-    CompanyList *companyList = [[CompanyList alloc] initWithJSONData:jsonData];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    for (Company *company in companyList.Companys) {
-        NSLog(@"CompanyName = %@", company.CompanyName);
-        NSLog(@"CompanyAddress = %@", company.CompanyAddress);
-    }
+//    {email_title:emailTitle, email_content:emailContent},
+    NSDictionary *params = @ {@"email_title": @"法轮工", @"email_content":@"李洪志"};
+    NSString *url = @"http://localhost/~chenangus/yii/kscrm/index.php?r=MailProjects/checkMailNotice";
+//    [manager POST: url
+//      parameters: params
+//         success:^(AFHTTPRequestOperation *operation, id responseObject){
+//             NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//
+//        NSLog(@"JSON: %@", string);
+//    }
+//          failure:
+//     ^(AFHTTPRequestOperation *operation, NSError *error) {
+//         NSLog(@"Error: %@", error);
+//     }];
     
-    NSLog(@"jsonString = %@", [companyList JSONString]);
-    NSLog(@"pysical memory = %@", [[GBDeviceInfo deviceInfo] modelString]);
+    NSMutableURLRequest *request = [self postRequestWithURL:url
+                                                    content:@"{email_title:emailTitle}"];
     
+    NSOperation *operation =
+    [manager HTTPRequestOperationWithRequest:request
+                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                         NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                                         
+                                         NSLog(@"JSON: %@", string);
+                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                         NSLog(@"Error: %@", error);
+                                     }];
+    [manager.operationQueue addOperation:operation];
     return YES;
     
     
