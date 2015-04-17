@@ -10,6 +10,7 @@
 		5D0FEF3A1ADE046E00AA5A47 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */; };
 		5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */; };
 		5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */; };
+		5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1447F11ADFAB4800A3E2A1 /* HttpRequestManager.m */; };
 		5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D21ADCAD5B00962988 /* AFNetworking.strings */; };
 		5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */; };
 		5D1468D91ADCF66E00962988 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468D81ADCF66E00962988 /* Company.m */; };
@@ -53,6 +54,8 @@
 		5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseAlert.xib; sourceTree = "<group>"; };
 		5D0FEF431ADE43E700AA5A47 /* ChooseAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAlert.h; sourceTree = "<group>"; };
 		5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAlert.m; sourceTree = "<group>"; };
+		5D1447F01ADFAB4800A3E2A1 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
+		5D1447F11ADFAB4800A3E2A1 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
 		5D1468CA1ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D1468D11ADCAD5B00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
 		5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonCompanyListTest.json; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				EC84232D1ADF8C30008D4804 /* Constants.h */,
 				EC84232E1ADF8C30008D4804 /* Context.h */,
 				EC84232F1ADF8C30008D4804 /* Context.m */,
+				5D1447F01ADFAB4800A3E2A1 /* HttpRequestManager.h */,
+				5D1447F11ADFAB4800A3E2A1 /* HttpRequestManager.m */,
 			);
 			path = Untils;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				EC8423311ADF8C30008D4804 /* Context.m in Sources */,
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
 				EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */,
+				5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */,
 				5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */,
 				EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */,
 				EC0915131ADE5D53001599C1 /* MainViewController.m in Sources */,
