@@ -10,62 +10,105 @@
 #import "YFGIFImageView.h"
 #import "UIImageView+PlayGIF.h"
 #import "Constants.h"
+#import "LocationHelper.h"
+#import "MainCell.h"
+#import "EngineerCell.h"
+#import <MJRefresh.h>
+#import <MJRefresh/UIView+MJExtension.h>
+#import "MainTableHeaderView.h"
+
+/**
+ `MainItem` 首页主要业务的内部类bean
+ */
+@interface MainItem : NSObject
+@property (nonatomic, strong) NSString *itemTitle;
+@property (nonatomic, strong) NSString *itemImageTitle;
++ (instancetype)itemWithTitle:(NSString *)title andImage:(NSString *)imageTitle;
+@end
+
+@implementation MainItem
+
++ (instancetype)itemWithTitle:(NSString *)title andImage:(NSString *)imageTitle {
+    MainItem *item = [MainItem new];
+    if (item) {
+        item.itemTitle = title;
+        item.itemImageTitle = imageTitle;
+    }
+    
+    return item;
+}
+
+@end
+
 
 @interface MainViewController ()
-@property (nonatomic, strong) NSArray *mainItems;
+@property (nonatomic, strong) NSMutableArray *mainItems;
 @end
 
 @implementation MainViewController
-@synthesize mainItems;
 
 - (void)awakeFromNib
 {
-    self.mainItems = [NSArray arrayWithObjects:@"设备换钱", @"设备维修", nil];
+    MainItem *itemRepair = [MainItem itemWithTitle:NSLocalizedString(@"设备维修", @"Repair")
+                                          andImage:@"iconRepair.png"];
+    MainItem *itemSell = [MainItem itemWithTitle:NSLocalizedString(@"设备换钱", @"Sell")
+                                        andImage:@"iconSell.png"];
+    self.mainItems = [NSMutableArray arrayWithObjects:itemRepair, itemSell, nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     CGFloat gifHeight = self.view.frame.size.width*215/320;
-    UIView *mainTableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, gifHeight)];
-    mainTableHeaderView.backgroundColor = [UIColor whiteColor];
+    MainTableHeaderView *headerView = [MainTableHeaderView headerViewWithGIF:@"banner.gif"];
+    [headerView.gifImageView startGIF];
+    headerView.bounds = CGRectMake(0, 0, self.view.bounds.size.width, gifHeight);
+    self.tableView.tableHeaderView = headerView;
+    NSLog(@"corner = %f", headerView.locationBackgroundView.layer.cornerRadius);
+    __weak typeof(self) weakSelf = self;
     
-    //gif动图
-    NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner.gif" ofType:nil]];
-    YFGIFImageView *gifView = [[YFGIFImageView alloc] initWithFrame:CGRectMake(0, 0, mainTableHeaderView.frame.size.width, mainTableHeaderView.frame.size.height)];
-    gifView.backgroundColor = [UIColor whiteColor];
-    gifView.gifData = gifData;
-    [mainTableHeaderView addSubview:gifView];
-    [gifView startGIF];
+    //为tableView添加上拉加载功能
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
     
-    UIView *locationBgView = [[UIView alloc] initWithFrame:CGRectMake(40, 20, self.view.frame.size.width-40*2, 80)];
-    locationBgView.backgroundColor = UIColorMake255(30, 90, 130, 0.5);
-    locationBgView.layer.cornerRadius = 10.f;
-    [mainTableHeaderView addSubview:locationBgView];
+    [self.tableView.footer setTitle:NSLocalizedString(@"附近的工程师", @"附近的工程师") forState:MJRefreshFooterStateIdle];
+    [self.tableView.footer setBackgroundColor:[UIColor clearColor]];
     
-    UIImageView *bannerBg01 = [[UIImageView alloc] initWithFrame:CGRectMake(4, 4, 32, 32)];
-    bannerBg01.image = [UIImage imageNamed:@"MainBanner_01.png"];
-    [locationBgView addSubview:bannerBg01];
+    //底部蓝条
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"MainFooterSubView"
+                                                  owner:nil
+                                                options:nil];
+    UIView *footerSubView = [nibs objectAtIndex:0];
+    footerSubView.frame = CGRectMake(5, 0, self.tableView.footer.frame.size.width-10, self.tableView.footer.frame.size.height);
+    [self.tableView.footer addSubview:footerSubView];
+    //去掉多余空cell
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    self.locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 160, 40)];
-    self.locationLabel.text = @"北京";
-    self.locationLabel.textAlignment = NSTextAlignmentLeft;
-    self.locationLabel.textColor = [UIColor whiteColor];
-    self.locationLabel.font = [UIFont systemFontOfSize:16.0f];
-    [locationBgView addSubview:self.locationLabel];
+    [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
+        if (error) {
+            headerView.locationLabel.text = NSLocalizedString(@"北京", @"北京");
+        }else {
+            headerView.locationLabel.text = [addressInfo objectForKey:@"State"];
+        }
+    }];
+}
+
+- (void)loadMoreData
+{
+    // 1.添加假数据
+//    for (int i = 0; i<5; i++) {
+//        [self.data addObject:MJRandomData];
+//    }
     
-    UIImageView *bannerBg02 = [[UIImageView alloc] initWithFrame:CGRectMake(4, 44, 32, 32)];
-    bannerBg02.image = [UIImage imageNamed:@"MainBanner_02.png"];
-    [locationBgView addSubview:bannerBg02];
-    
-    self.personLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 160, 40)];
-    self.personLabel.text = @"5位工程师可为您服务";
-    self.personLabel.textAlignment = NSTextAlignmentLeft;
-    self.personLabel.textColor = [UIColor whiteColor];
-    self.personLabel.font = [UIFont systemFontOfSize:16.0f];
-    [locationBgView addSubview:self.personLabel];
-    
-    self.tableView.tableHeaderView = mainTableHeaderView;
+    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        [self.tableView.footer endRefreshing];
+    });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -73,18 +116,29 @@
     return self.mainItems.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"MainCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    if (indexPath.row%2==0) {
-        cell.backgroundColor = [UIColor whiteColor];
-    }else{
-        cell.backgroundColor = UIColorMake255(235, 235, 235, 1);
+    if ([[self.mainItems objectAtIndex:[indexPath row]] isKindOfClass:[MainItem class]]) {
+        static NSString *cellIdentifier = @"MainCell";
+        MainCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier
+                                                         forIndexPath:indexPath];
+        MainItem *item = [self.mainItems objectAtIndex:[indexPath row]];
+        cell.mainTitle.text = item.itemTitle;
+        cell.leftImageView.image = [UIImage imageNamed:item.itemImageTitle];
+        return cell;
+    }else {
+        static NSString *cellEngineer = @"engineerCell";
+        EngineerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellEngineer
+                                                             forIndexPath:indexPath];
+        //TODO: 配置工程师cell各项属性
+        
+        return cell;
     }
-    cell.textLabel.text = [self.mainItems objectAtIndex:indexPath.row];
     
-    return cell;
 }
 
 - (void)revealMenu:(id)sender
@@ -92,7 +146,6 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -100,6 +153,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
