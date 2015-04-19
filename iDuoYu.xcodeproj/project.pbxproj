@@ -30,6 +30,8 @@
 		5D9BCA921AE295E900EAD869 /* MainFooterSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9BCA911AE295E900EAD869 /* MainFooterSubView.xib */; };
 		5D9BCA941AE2A0B500EAD869 /* MainTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9BCA931AE2A0B500EAD869 /* MainTableHeaderView.xib */; };
 		5D9BCA971AE2A0E100EAD869 /* MainTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BCA961AE2A0E100EAD869 /* MainTableHeaderView.m */; };
+		5D9BCA9A1AE355BD00EAD869 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BCA991AE355BD00EAD869 /* Utils.m */; };
+		5D9BCA9D1AE37B7400EAD869 /* StepsSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BCA9C1AE37B7400EAD869 /* StepsSelectTableViewController.m */; };
 		C9B27A28C80142D6D92B4F0E /* libPods-iDuoYu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D625CC8E8B25749F98B502EF /* libPods-iDuoYu.a */; };
 		EC0914FB1ADE4B6D001599C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0914FA1ADE4B6D001599C1 /* CoreGraphics.framework */; };
 		EC0914FD1ADE4B8D001599C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0914FC1ADE4B8D001599C1 /* Foundation.framework */; };
@@ -98,6 +100,10 @@
 		5D9BCA931AE2A0B500EAD869 /* MainTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableHeaderView.xib; sourceTree = "<group>"; };
 		5D9BCA951AE2A0E100EAD869 /* MainTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableHeaderView.h; sourceTree = "<group>"; };
 		5D9BCA961AE2A0E100EAD869 /* MainTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableHeaderView.m; sourceTree = "<group>"; };
+		5D9BCA981AE355BD00EAD869 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		5D9BCA991AE355BD00EAD869 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		5D9BCA9B1AE37B7400EAD869 /* StepsSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepsSelectTableViewController.h; sourceTree = "<group>"; };
+		5D9BCA9C1AE37B7400EAD869 /* StepsSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepsSelectTableViewController.m; sourceTree = "<group>"; };
 		94505914FD809EA2680D6802 /* Pods-iDuoYu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDuoYu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iDuoYu/Pods-iDuoYu.debug.xcconfig"; sourceTree = "<group>"; };
 		D625CC8E8B25749F98B502EF /* libPods-iDuoYu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iDuoYu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81E62E72F57F23556EF23AD /* Pods-iDuoYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDuoYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-iDuoYu/Pods-iDuoYu.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +180,8 @@
 				5D1447F11ADFAB4800A3E2A1 /* HttpRequestManager.m */,
 				5D1447F31AE0B14600A3E2A1 /* LocationHelper.h */,
 				5D1447F41AE0B14600A3E2A1 /* LocationHelper.m */,
+				5D9BCA981AE355BD00EAD869 /* Utils.h */,
+				5D9BCA991AE355BD00EAD869 /* Utils.m */,
 			);
 			path = Untils;
 			sourceTree = "<group>";
@@ -316,6 +324,8 @@
 				EC0915191ADE5E79001599C1 /* MenuViewController.m */,
 				EC8423241ADF61AD008D4804 /* NavigationFirstViewController.h */,
 				EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */,
+				5D9BCA9B1AE37B7400EAD869 /* StepsSelectTableViewController.h */,
+				5D9BCA9C1AE37B7400EAD869 /* StepsSelectTableViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -466,10 +476,12 @@
 				5D1447FC1AE2740600A3E2A1 /* CellNormal.m in Sources */,
 				EC8423301ADF8C30008D4804 /* Common.m in Sources */,
 				EC8423311ADF8C30008D4804 /* Context.m in Sources */,
+				5D9BCA9A1AE355BD00EAD869 /* Utils.m in Sources */,
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
 				EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */,
 				5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */,
 				5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */,
+				5D9BCA9D1AE37B7400EAD869 /* StepsSelectTableViewController.m in Sources */,
 				EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */,
 				5D9BCA971AE2A0E100EAD869 /* MainTableHeaderView.m in Sources */,
 				EC0915131ADE5D53001599C1 /* MainViewController.m in Sources */,

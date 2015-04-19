@@ -7,6 +7,8 @@
 //
 
 #import "ChooseAlert.h"
+#import <GBDeviceInfo.h>
+#import "Utils.h"
 
 @implementation ChooseAlert
 
@@ -23,7 +25,17 @@ UIWindow *_backgroundWindow;
                                                 options:nil];
     
     if (nibs.count > 0) {
-        return [nibs objectAtIndex:0];
+        ChooseAlert *chooseAlert = [nibs objectAtIndex:0];
+        chooseAlert.modelDescriptionLabel.text = [NSString stringWithFormat:@"%@ - %@", [[GBDeviceInfo deviceInfo] modelString], [Utils carrierName]];;
+        chooseAlert.ramLabel.text = [Utils currentDeviceTotalDiskSpace];
+        
+        if ([[GBDeviceInfo deviceInfo] family] == GBDeviceFamilyiPad) {
+            chooseAlert.modelImageView.image = [UIImage imageNamed:@"iconiPad.png"];
+        }else {
+            chooseAlert.modelImageView.image = [UIImage imageNamed:@"iconiPhone.png"];
+        }
+        
+        return chooseAlert;
     }
     
     return nil;
@@ -56,13 +68,13 @@ UIWindow *_backgroundWindow;
     _backgroundWindow.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
     _backgroundWindow.hidden = NO;
 
-    self.frame = CGRectMake(30, 110, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-110-20);
+    self.frame = CGRectMake(30, 110, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-130);
     [_backgroundWindow addSubview:self];
     
-    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] init];
-    [gesture addTarget:self
-                action:@selector(hide)];
-    [_backgroundWindow addGestureRecognizer:gesture];
+//    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] init];
+//    [gesture addTarget:self
+//                action:@selector(hide)];
+//    [_backgroundWindow addGestureRecognizer:gesture];
     
     [UIView animateWithDuration:0.3
                      animations:^{

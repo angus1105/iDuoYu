@@ -16,6 +16,8 @@
 #import <MJRefresh.h>
 #import <MJRefresh/UIView+MJExtension.h>
 #import "MainTableHeaderView.h"
+#import "ChooseAlert.h"
+#import "StepsSelectTableViewController.h"
 
 /**
  `MainItem` 首页主要业务的内部类bean
@@ -41,7 +43,7 @@
 @end
 
 
-@interface MainViewController ()
+@interface MainViewController () <ChooseAlertProtocol>
 @property (nonatomic, strong) NSMutableArray *mainItems;
 @end
 
@@ -94,6 +96,11 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+}
+
 - (void)loadMoreData
 {
     // 1.添加假数据
@@ -118,6 +125,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ChooseAlert *alert = [ChooseAlert newChooseAlert];
+    alert.tag = [indexPath row];
+    alert.chooseAlertDelegate = self;
+    [alert show];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,6 +151,23 @@
         return cell;
     }
     
+}
+
+#pragma mark - Choose Alert Delegate
+- (void)chooseAlert:(ChooseAlert *)alert didSelectAtIndex:(NSInteger)index {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
+    
+    if (alert.tag == 0) {
+        //配置stepsViewController
+        
+    }else {
+        
+    }
+    
+    [self.navigationController pushViewController:stepsViewController
+                                         animated:YES];
 }
 
 - (void)revealMenu:(id)sender
