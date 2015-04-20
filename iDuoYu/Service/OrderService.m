@@ -25,19 +25,18 @@
         success(engineerList);
     }
 #else
-    
-    NSString *requestContent = @"";
-    
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetEngineerList];
+#if DBG
+    NSLog(@"kGetEngineerList requestStr is %@",requestStr);
+#endif
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent
                             success:^(NSString *responseString) {
                                 NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
                                 Engineers *engineerList = [[Engineers alloc] initWithJSONData:jsonData];
-                                
                                 if (success) {
                                     success(engineerList);
                                 }
-                                
                             } failure:^(NSError *error) {
                                 NSLog(@"error = %@", error);
                             }];
