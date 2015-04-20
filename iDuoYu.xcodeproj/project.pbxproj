@@ -12,9 +12,6 @@
 		5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */; };
 		5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1447F11ADFAB4800A3E2A1 /* HttpRequestManager.m */; };
 		5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D21ADCAD5B00962988 /* AFNetworking.strings */; };
-		5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */; };
-		5D1468D91ADCF66E00962988 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468D81ADCF66E00962988 /* Company.m */; };
-		5D1468DC1ADCF7DE00962988 /* CompanyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1468DB1ADCF7DE00962988 /* CompanyList.m */; };
 		5D1918F21ADB990D00C7AE60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F11ADB990D00C7AE60 /* main.m */; };
 		5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F41ADB990D00C7AE60 /* AppDelegate.m */; };
 		5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F71ADB990D00C7AE60 /* ViewController.m */; };
@@ -36,6 +33,30 @@
 		EC84232A1ADF8815008D4804 /* banner.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC8423291ADF8815008D4804 /* banner.gif */; };
 		EC8423301ADF8C30008D4804 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84232C1ADF8C30008D4804 /* Common.m */; };
 		EC8423311ADF8C30008D4804 /* Context.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84232F1ADF8C30008D4804 /* Context.m */; };
+		EC8423361AE297B9008D4804 /* jsonEngineerListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423351AE297B9008D4804 /* jsonEngineerListTest.json */; };
+		EC8423381AE29C6B008D4804 /* jsonRespondTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423371AE29C6B008D4804 /* jsonRespondTest.json */; };
+		EC84233A1AE29C8F008D4804 /* jsonBrandListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423391AE29C8F008D4804 /* jsonBrandListTest.json */; };
+		EC84233C1AE29CB4008D4804 /* jsonOrderListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC84233B1AE29CB4008D4804 /* jsonOrderListTest.json */; };
+		EC84233E1AE29D6B008D4804 /* jsonVersionListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC84233D1AE29D6B008D4804 /* jsonVersionListTest.json */; };
+		EC8423401AE29DB3008D4804 /* jsonColorListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC84233F1AE29DB3008D4804 /* jsonColorListTest.json */; };
+		EC8423421AE29E2C008D4804 /* jsonFaultListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423411AE29E2C008D4804 /* jsonFaultListTest.json */; };
+		EC8423441AE29E57008D4804 /* jsonFaultDetailListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423431AE29E57008D4804 /* jsonFaultDetailListTest.json */; };
+		EC8423461AE29E90008D4804 /* jsonSolutionRepairListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423451AE29E90008D4804 /* jsonSolutionRepairListTest.json */; };
+		EC8423481AE29EA8008D4804 /* jsonSolutionSellListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423471AE29EA8008D4804 /* jsonSolutionSellListTest.json */; };
+		EC84234A1AE29EC5008D4804 /* jsonRomListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8423491AE29EC5008D4804 /* jsonRomListTest.json */; };
+		EC84234C1AE29EE1008D4804 /* jsonBuyChannelListTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EC84234B1AE29EE1008D4804 /* jsonBuyChannelListTest.json */; };
+		EC8423551AE2A75F008D4804 /* Body.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84234E1AE2A75F008D4804 /* Body.m */; };
+		EC8423561AE2A75F008D4804 /* Header.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423501AE2A75F008D4804 /* Header.m */; };
+		EC8423571AE2A75F008D4804 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423521AE2A75F008D4804 /* Request.m */; };
+		EC8423581AE2A75F008D4804 /* RequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423541AE2A75F008D4804 /* RequestParam.m */; };
+		EC84235B1AE3CCE8008D4804 /* Engineers.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84235A1AE3CCE8008D4804 /* Engineers.m */; };
+		EC84235E1AE3CCFB008D4804 /* Engineer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84235D1AE3CCFB008D4804 /* Engineer.m */; };
+		EC8423611AE3CEFF008D4804 /* ResultRespond.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423601AE3CEFF008D4804 /* ResultRespond.m */; };
+		EC8423641AE3D05F008D4804 /* DeviceParams.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423631AE3D05F008D4804 /* DeviceParams.m */; };
+		EC8423671AE3D06C008D4804 /* DeviceParam.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423661AE3D06C008D4804 /* DeviceParam.m */; };
+		EC84236A1AE3D2E1008D4804 /* Orders.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423691AE3D2E1008D4804 /* Orders.m */; };
+		EC84236D1AE3D338008D4804 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84236C1AE3D338008D4804 /* Order.m */; };
+		EC8423711AE3DA37008D4804 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423701AE3DA37008D4804 /* OrderService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +79,6 @@
 		5D1447F11ADFAB4800A3E2A1 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
 		5D1468CA1ADCAC8E00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D1468D11ADCAD5B00962988 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
-		5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonCompanyListTest.json; sourceTree = "<group>"; };
-		5D1468D71ADCF66E00962988 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
-		5D1468D81ADCF66E00962988 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
-		5D1468DA1ADCF7DE00962988 /* CompanyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyList.h; sourceTree = "<group>"; };
-		5D1468DB1ADCF7DE00962988 /* CompanyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyList.m; sourceTree = "<group>"; };
 		5D1918EC1ADB990D00C7AE60 /* iDuoYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDuoYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1918F01ADB990D00C7AE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D1918F11ADB990D00C7AE60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +115,42 @@
 		EC84232D1ADF8C30008D4804 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		EC84232E1ADF8C30008D4804 /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 		EC84232F1ADF8C30008D4804 /* Context.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Context.m; sourceTree = "<group>"; };
+		EC8423351AE297B9008D4804 /* jsonEngineerListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonEngineerListTest.json; sourceTree = "<group>"; };
+		EC8423371AE29C6B008D4804 /* jsonRespondTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonRespondTest.json; sourceTree = "<group>"; };
+		EC8423391AE29C8F008D4804 /* jsonBrandListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonBrandListTest.json; sourceTree = "<group>"; };
+		EC84233B1AE29CB4008D4804 /* jsonOrderListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonOrderListTest.json; sourceTree = "<group>"; };
+		EC84233D1AE29D6B008D4804 /* jsonVersionListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonVersionListTest.json; sourceTree = "<group>"; };
+		EC84233F1AE29DB3008D4804 /* jsonColorListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonColorListTest.json; sourceTree = "<group>"; };
+		EC8423411AE29E2C008D4804 /* jsonFaultListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonFaultListTest.json; sourceTree = "<group>"; };
+		EC8423431AE29E57008D4804 /* jsonFaultDetailListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonFaultDetailListTest.json; sourceTree = "<group>"; };
+		EC8423451AE29E90008D4804 /* jsonSolutionRepairListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonSolutionRepairListTest.json; sourceTree = "<group>"; };
+		EC8423471AE29EA8008D4804 /* jsonSolutionSellListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonSolutionSellListTest.json; sourceTree = "<group>"; };
+		EC8423491AE29EC5008D4804 /* jsonRomListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonRomListTest.json; sourceTree = "<group>"; };
+		EC84234B1AE29EE1008D4804 /* jsonBuyChannelListTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonBuyChannelListTest.json; sourceTree = "<group>"; };
+		EC84234D1AE2A75F008D4804 /* Body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Body.h; sourceTree = "<group>"; };
+		EC84234E1AE2A75F008D4804 /* Body.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Body.m; sourceTree = "<group>"; };
+		EC84234F1AE2A75F008D4804 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		EC8423501AE2A75F008D4804 /* Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Header.m; sourceTree = "<group>"; };
+		EC8423511AE2A75F008D4804 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		EC8423521AE2A75F008D4804 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		EC8423531AE2A75F008D4804 /* RequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestParam.h; sourceTree = "<group>"; };
+		EC8423541AE2A75F008D4804 /* RequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestParam.m; sourceTree = "<group>"; };
+		EC8423591AE3CCE7008D4804 /* Engineers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engineers.h; sourceTree = "<group>"; };
+		EC84235A1AE3CCE8008D4804 /* Engineers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engineers.m; sourceTree = "<group>"; };
+		EC84235C1AE3CCFB008D4804 /* Engineer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engineer.h; sourceTree = "<group>"; };
+		EC84235D1AE3CCFB008D4804 /* Engineer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engineer.m; sourceTree = "<group>"; };
+		EC84235F1AE3CEFF008D4804 /* ResultRespond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultRespond.h; sourceTree = "<group>"; };
+		EC8423601AE3CEFF008D4804 /* ResultRespond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultRespond.m; sourceTree = "<group>"; };
+		EC8423621AE3D05F008D4804 /* DeviceParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceParams.h; sourceTree = "<group>"; };
+		EC8423631AE3D05F008D4804 /* DeviceParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceParams.m; sourceTree = "<group>"; };
+		EC8423651AE3D06C008D4804 /* DeviceParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceParam.h; sourceTree = "<group>"; };
+		EC8423661AE3D06C008D4804 /* DeviceParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceParam.m; sourceTree = "<group>"; };
+		EC8423681AE3D2E1008D4804 /* Orders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orders.h; sourceTree = "<group>"; };
+		EC8423691AE3D2E1008D4804 /* Orders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Orders.m; sourceTree = "<group>"; };
+		EC84236B1AE3D338008D4804 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		EC84236C1AE3D338008D4804 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		EC84236F1AE3DA37008D4804 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderService.h; path = Service/OrderService.h; sourceTree = "<group>"; };
+		EC8423701AE3DA37008D4804 /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderService.m; path = Service/OrderService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,10 +227,28 @@
 		5D1468D61ADCF61F00962988 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5D1468D71ADCF66E00962988 /* Company.h */,
-				5D1468D81ADCF66E00962988 /* Company.m */,
-				5D1468DA1ADCF7DE00962988 /* CompanyList.h */,
-				5D1468DB1ADCF7DE00962988 /* CompanyList.m */,
+				EC84234D1AE2A75F008D4804 /* Body.h */,
+				EC84234E1AE2A75F008D4804 /* Body.m */,
+				EC84234F1AE2A75F008D4804 /* Header.h */,
+				EC8423501AE2A75F008D4804 /* Header.m */,
+				EC8423511AE2A75F008D4804 /* Request.h */,
+				EC8423521AE2A75F008D4804 /* Request.m */,
+				EC8423531AE2A75F008D4804 /* RequestParam.h */,
+				EC8423541AE2A75F008D4804 /* RequestParam.m */,
+				EC84235F1AE3CEFF008D4804 /* ResultRespond.h */,
+				EC8423601AE3CEFF008D4804 /* ResultRespond.m */,
+				EC8423591AE3CCE7008D4804 /* Engineers.h */,
+				EC84235A1AE3CCE8008D4804 /* Engineers.m */,
+				EC84235C1AE3CCFB008D4804 /* Engineer.h */,
+				EC84235D1AE3CCFB008D4804 /* Engineer.m */,
+				EC8423621AE3D05F008D4804 /* DeviceParams.h */,
+				EC8423631AE3D05F008D4804 /* DeviceParams.m */,
+				EC8423651AE3D06C008D4804 /* DeviceParam.h */,
+				EC8423661AE3D06C008D4804 /* DeviceParam.m */,
+				EC8423681AE3D2E1008D4804 /* Orders.h */,
+				EC8423691AE3D2E1008D4804 /* Orders.m */,
+				EC84236B1AE3D338008D4804 /* Order.h */,
+				EC84236C1AE3D338008D4804 /* Order.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +276,7 @@
 		5D1918EE1ADB990D00C7AE60 /* iDuoYu */ = {
 			isa = PBXGroup;
 			children = (
+				EC84236E1AE3D43F008D4804 /* Service */,
 				5D0FEF3E1ADE3D4A00AA5A47 /* Views */,
 				5D0FEF381ADE043600AA5A47 /* Untils */,
 				EC0914F91ADE31DB001599C1 /* View Controller */,
@@ -227,10 +298,21 @@
 		5D1918EF1ADB990D00C7AE60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D1468D31ADCF5CE00962988 /* jsonCompanyListTest.json */,
 				5D1468CD1ADCAD2200962988 /* Localized */,
 				5D1918F01ADB990D00C7AE60 /* Info.plist */,
 				5D1918F11ADB990D00C7AE60 /* main.m */,
+				EC8423351AE297B9008D4804 /* jsonEngineerListTest.json */,
+				EC8423371AE29C6B008D4804 /* jsonRespondTest.json */,
+				EC8423391AE29C8F008D4804 /* jsonBrandListTest.json */,
+				EC84233B1AE29CB4008D4804 /* jsonOrderListTest.json */,
+				EC84233D1AE29D6B008D4804 /* jsonVersionListTest.json */,
+				EC84233F1AE29DB3008D4804 /* jsonColorListTest.json */,
+				EC8423411AE29E2C008D4804 /* jsonFaultListTest.json */,
+				EC8423431AE29E57008D4804 /* jsonFaultDetailListTest.json */,
+				EC8423451AE29E90008D4804 /* jsonSolutionRepairListTest.json */,
+				EC8423471AE29EA8008D4804 /* jsonSolutionSellListTest.json */,
+				EC8423491AE29EC5008D4804 /* jsonRomListTest.json */,
+				EC84234B1AE29EE1008D4804 /* jsonBuyChannelListTest.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -274,6 +356,15 @@
 				EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */,
 			);
 			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		EC84236E1AE3D43F008D4804 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EC84236F1AE3DA37008D4804 /* OrderService.h */,
+				EC8423701AE3DA37008D4804 /* OrderService.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,11 +450,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8423421AE29E2C008D4804 /* jsonFaultListTest.json in Resources */,
 				5D1918FB1ADB990D00C7AE60 /* Menu.storyboard in Resources */,
+				EC84233A1AE29C8F008D4804 /* jsonBrandListTest.json in Resources */,
+				EC8423381AE29C6B008D4804 /* jsonRespondTest.json in Resources */,
+				EC8423361AE297B9008D4804 /* jsonEngineerListTest.json in Resources */,
 				5D1919001ADB990D00C7AE60 /* LaunchScreen.xib in Resources */,
-				5D1468D41ADCF5CE00962988 /* jsonCompanyListTest.json in Resources */,
 				EC8423231ADF6120008D4804 /* Main.storyboard in Resources */,
 				EC84232A1ADF8815008D4804 /* banner.gif in Resources */,
+				EC8423441AE29E57008D4804 /* jsonFaultDetailListTest.json in Resources */,
+				EC84233E1AE29D6B008D4804 /* jsonVersionListTest.json in Resources */,
+				EC8423401AE29DB3008D4804 /* jsonColorListTest.json in Resources */,
+				EC8423481AE29EA8008D4804 /* jsonSolutionSellListTest.json in Resources */,
+				EC84234A1AE29EC5008D4804 /* jsonRomListTest.json in Resources */,
+				EC84234C1AE29EE1008D4804 /* jsonBuyChannelListTest.json in Resources */,
+				EC84233C1AE29CB4008D4804 /* jsonOrderListTest.json in Resources */,
+				EC8423461AE29E90008D4804 /* jsonSolutionRepairListTest.json in Resources */,
 				5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */,
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
 				5D1468D01ADCAD5B00962988 /* AFNetworking.strings in Resources */,
@@ -420,16 +522,26 @@
 				EC8423301ADF8C30008D4804 /* Common.m in Sources */,
 				EC8423311ADF8C30008D4804 /* Context.m in Sources */,
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
+				EC8423581AE2A75F008D4804 /* RequestParam.m in Sources */,
 				EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */,
+				EC8423561AE2A75F008D4804 /* Header.m in Sources */,
+				EC84236D1AE3D338008D4804 /* Order.m in Sources */,
 				5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */,
 				5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */,
 				EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */,
+				EC84236A1AE3D2E1008D4804 /* Orders.m in Sources */,
 				EC0915131ADE5D53001599C1 /* MainViewController.m in Sources */,
 				5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */,
-				5D1468DC1ADCF7DE00962988 /* CompanyList.m in Sources */,
+				EC8423611AE3CEFF008D4804 /* ResultRespond.m in Sources */,
+				EC84235B1AE3CCE8008D4804 /* Engineers.m in Sources */,
 				5D1918F21ADB990D00C7AE60 /* main.m in Sources */,
-				5D1468D91ADCF66E00962988 /* Company.m in Sources */,
+				EC8423641AE3D05F008D4804 /* DeviceParams.m in Sources */,
+				EC8423671AE3D06C008D4804 /* DeviceParam.m in Sources */,
+				EC8423571AE2A75F008D4804 /* Request.m in Sources */,
 				EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */,
+				EC8423551AE2A75F008D4804 /* Body.m in Sources */,
+				EC8423711AE3DA37008D4804 /* OrderService.m in Sources */,
+				EC84235E1AE3CCFB008D4804 /* Engineer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

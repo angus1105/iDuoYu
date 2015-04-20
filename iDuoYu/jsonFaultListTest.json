@@ -1,0 +1,21 @@
+{
+    "ReturnCount":"5",
+    "DeviceParams":[
+                    {
+                    "ParamId":"1",
+                    "ParamName":"屏幕"
+                    },{
+                    "ParamId":"2",
+                    "ParamName":"外壳/边框"
+                    },{
+                    "ParamId":"3",
+                    "ParamName":"电池"
+                    },{
+                    "ParamId":"4",
+                    "ParamName":"进水"
+                    },{
+                    "ParamId":"3",
+                    "ParamName":"其他"
+                    }
+                    ]
+}

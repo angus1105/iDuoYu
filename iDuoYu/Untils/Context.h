@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Common.h"
+#import "Header.h"
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
 @interface Context : NSObject
-{
-    CGFloat screenWitch;
-    CGFloat screenHeight;
-}
+@property (nonatomic, assign) CGFloat screenWitch;
+@property (nonatomic, assign) CGFloat screenHeight;
+@property (nonatomic, strong) Header *header;
++ (Context*)sharedContext;
 
 @end

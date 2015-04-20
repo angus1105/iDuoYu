@@ -1,0 +1,18 @@
+{
+    "ReturnCount":"2",
+    "DeviceParams":[
+                    {
+                    "ParamId":"1",
+                    "ParamName":"方案一：原厂品质配件",
+                    "ParamUrl":"http://www.iduoyu.com/Uploads/Picture/2015-01-12/54b3705cbb321.png",
+                    "Description":"维修内容：更换屏幕\n服务方式：上门维修\n维修时长：30分钟",
+                    "Fee":"2000元"
+                    },{
+                    "ParamId":"2",
+                    "ParamName":"方案二：管家认证配件",
+                    "ParamUrl":"http://www.iduoyu.com/Uploads/Picture/2015-04-06/55225480b3edd.png",
+                    "Description":"维修内容：更换屏幕\n服务方式：上门维修\n维修时长：30分钟",
+                    "Fee":"1500元"
+                    }
+      ]
+}

@@ -1,0 +1,15 @@
+{
+    "ReturnCount":"3",
+    "DeviceParams":[
+                    {
+                    "ParamId":"1",
+                    "ParamName":"国行"
+                    },{
+                    "ParamId":"2",
+                    "ParamName":"港行"
+                    },{
+                    "ParamId":"3",
+                    "ParamName":"其他地区"
+                    }
+                    ]
+}

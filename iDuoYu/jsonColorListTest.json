@@ -1,0 +1,15 @@
+{
+    "ReturnCount":"3",
+    "DeviceParams":[
+                    {
+                    "ParamId":"1",
+                    "ParamName":"深空灰"
+                    },{
+                    "ParamId":"2",
+                    "ParamName":"金色"
+                    },{
+                    "ParamId":"3",
+                    "ParamName":"银色"
+                    }
+                    ]
+}

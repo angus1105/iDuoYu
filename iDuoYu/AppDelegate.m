@@ -13,8 +13,6 @@
 #import <Toast/UIView+Toast.h>
 #import <NSObject+ObjectMap.h>
 #import <GBDeviceInfo.h>
-#import "Company.h"
-#import "CompanyList.h"
 
 @interface AppDelegate ()
 

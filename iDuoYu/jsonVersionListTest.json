@@ -1,0 +1,24 @@
+{
+    "ReturnCount":"6",
+    "DeviceParams":[
+                    {
+                    "ParamId":"1",
+                    "ParamName":"iPhone 6 Plus"
+                    },{
+                    "ParamId":"2",
+                    "ParamName":"iPhone 6"
+                    },{
+                    "ParamId":"3",
+                    "ParamName":"iPhone 5s"
+                    },{
+                    "ParamId":"4",
+                    "ParamName":"iPhone 5c"
+                    },{
+                    "ParamId":"5",
+                    "ParamName":"iPhone 5"
+                    },{
+                    "ParamId":"6",
+                    "ParamName":"iPhone 4"
+                    }
+                    ]
+}

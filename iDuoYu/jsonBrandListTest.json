@@ -1,0 +1,22 @@
+{
+    "ReturnCount":"4",
+    "DeviceParams":[
+                    {
+                    "ParamId":"1",
+                    "ParamName":"iPhone",
+                    "ParamUrl":"http://www.iconpng.com/png/flat_icons_set_128_1125/gadget.png"
+                    },{
+                    "ParamId":"2",
+                    "ParamName":"iPad",
+                    "ParamUrl":"http://www.iconpng.com/png/beautiful_flat_color/smartphone.png"
+                    },{
+                    "ParamId":"3",
+                    "ParamName":"iPod",
+                    "ParamUrl":"http://www.iconpng.com/png/softies-icons/phone.png"
+                    },{
+                    "ParamId":"4",
+                    "ParamName":"Sansung",
+                    "ParamUrl":"http://www.iconpng.com/png/beautiful_flat_one/smartphone.png"
+                    }
+    ]
+}

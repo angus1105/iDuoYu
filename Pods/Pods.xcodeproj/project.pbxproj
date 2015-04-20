@@ -773,6 +773,7 @@
 				B7D3A5E6EACAA87C38BCF7A1 /* Products */,
 				22891E5D7F97958309178700 /* Targets Support Files */,
 			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D47B3FCAAA435A0504C40B50 /* Security */ = {
@@ -1023,6 +1024,14 @@
 			buildRules = (
 			);
 			dependencies = (
+				8DC51F79C16E178D269B1603 /* PBXTargetDependency */,
+				CE1B067989ED0C5A963C66F1 /* PBXTargetDependency */,
+				CA19A4D0D8C3E9F80006E792 /* PBXTargetDependency */,
+				4BDBD9EDDB295034DB5E900A /* PBXTargetDependency */,
+				E7B7533B56342940C12D3CA9 /* PBXTargetDependency */,
+				A399118E6857E3DF45E378F9 /* PBXTargetDependency */,
+				FD840D7D0B5E7FA6452518E7 /* PBXTargetDependency */,
+				FAA688EF39DA270A1DCFC49C /* PBXTargetDependency */,
 			);
 			name = "Pods-iDuoYu-MJRefresh";
 			productName = "Pods-iDuoYu-MJRefresh";
@@ -1346,6 +1355,7 @@
 			baseConfigurationReference = ABB71E0E977749269BA7CB0C /* Pods-iDuoYu.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-GBDeviceInfo/Pods-iDuoYu-GBDeviceInfo-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1394,7 +1404,7 @@
 			baseConfigurationReference = 5460871B83F8D6D82D5D5BF3 /* Pods-iDuoYu-INTULocationManager-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-AFNetworking/Pods-iDuoYu-AFNetworking-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-INTULocationManager/Pods-iDuoYu-INTULocationManager-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1476,6 +1486,7 @@
 			baseConfigurationReference = 0FDBF0D35DA1143AA5A5410D /* Pods-iDuoYu.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-AFNetworking/Pods-iDuoYu-AFNetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1590,14 +1601,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-MJRefresh/Pods-iDuoYu-MJRefresh-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		D51D0141E0860E8B3769E2D3 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1617,6 +1628,7 @@
 		};
 		FB3BBF5F5EBA269B471A595B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D33E850525EF6FB50011667E /* Pods-iDuoYu-NSObject-ObjectMap-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1653,6 +1665,22 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
+		};
+		E8ED38BB61F2E1D945DC3490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0DF6E3AB6E3E39C745B83F4 /* Pods-iDuoYu-Toast-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-iDuoYu-Toast/Pods-iDuoYu-Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 

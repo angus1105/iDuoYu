@@ -19,7 +19,7 @@ static Context* _sharedContext = nil;
 		@synchronized([Context class])
 		{
 			if (_sharedContext == nil)
-				[[self alloc] init];
+				_sharedContext = [[self alloc] init];
 		}
 	}
 	
@@ -38,15 +38,30 @@ static Context* _sharedContext = nil;
 	return nil;
 }
 
++ (void)finallyRelease
+{
+    if (_sharedContext != nil)
+    {
+        @synchronized([Context class])
+        {
+            if (_sharedContext != nil)
+            {
+                _sharedContext = nil;
+            }
+        }
+    }
+}
+
 - (id)init
 {
 	if (self = [super init])
 	{
         if (iPhone5) {
-            screenHeight = 568.0f;
+            self.screenHeight = 568.0f;
         }else{
-            screenHeight = 480.0f;
+            self.screenHeight = 480.0f;
         }
+        self.header = [[Header alloc] init];
 	}
 	
 	return self;

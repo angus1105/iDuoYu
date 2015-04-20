@@ -45,3 +45,29 @@
                                             green:(g)/255.0f\
                                             blue:(b)/255.0f\
                                             alpha:(a)]
+
+
+#define kInquireTypeBrand @"Brand"
+#define kInquireTypeVersion @"Version"
+#define kInquireTypeColor @"Color"
+#define kInquireTypeFault @"Fault"
+#define kInquireTypeFaultDetail @"FaultDetail"
+#define kInquireTypeSolution @"Solution"
+#define kInquireTypeRom @"Rom"
+#define kInquireTypeBuyChannel @"BuyChannel"
+
+#define kBusinessTypeRepair @"Repair"
+#define kBusinessTypeSell @"Sell"
+
+#define kGetEngineerList @"getEngineerList"
+#define kGetDeviceParamIds @"getDeviceParamIds"
+#define kGetDeviceParamList @"getDeviceParamList"
+#define kSubmitOrder @"submitOrder"
+#define kGetOrderList @"getOrderList"
+
+
+
+
+
+
+
