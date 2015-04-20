@@ -174,7 +174,6 @@
         <!--Navigation First View Controller-->
         <scene sceneID="Bak-Ql-u7O">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xG3-GU-dph" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NavFirst" id="goh-WP-lsa" customClass="NavigationFirstViewController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pmt-qT-ta2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -184,6 +183,7 @@
                         <segue destination="Xvx-XY-1tX" kind="relationship" relationship="rootViewController" id="aeI-6Y-9oY"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xG3-GU-dph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-88" y="194"/>
         </scene>
