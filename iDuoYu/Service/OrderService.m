@@ -12,6 +12,25 @@
 #import <NSObject+ObjectMap.h>
 #import "RequestParam.h"
 
+NSString *const InquireTypeBrand = @"Brand";
+NSString *const InquireTypeVersion = @"Version";
+NSString *const InquireTypeColor = @"Color";
+NSString *const InquireTypeFault = @"Fault";
+NSString *const InquireTypeFaultDetail = @"FaultDetail";
+NSString *const InquireTypeSolution = @"Solution";
+NSString *const InquireTypeRom = @"Rom";
+NSString *const InquireTypeBuyChannel = @"BuyChannel";
+
+NSString *const BusinessTypeRepair = @"Repair";
+NSString *const BusinessTypeSell = @"Sell";
+
+NSString *const GetEngineerList = @"getEngineerList";
+NSString *const GetDeviceParamIds = @"getDeviceParamIds";
+NSString *const GetDeviceParamList = @"getDeviceParamList";
+NSString *const SubmitOrder = @"submitOrder";
+NSString *const GetOrderList = @"getOrderList";
+
+
 @implementation OrderService
 
 + (void)getEngineerList:(RequestParam *)requestParam

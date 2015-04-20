@@ -13,6 +13,33 @@
 #import "DeviceParams.h"
 #import "Orders.h"
 
+/**
+ 业务查询条件字符串
+ */
+extern NSString *const InquireTypeBrand;
+extern NSString *const InquireTypeVersion;
+extern NSString *const InquireTypeColor;
+extern NSString *const InquireTypeFault;
+extern NSString *const InquireTypeFaultDetail;
+extern NSString *const InquireTypeSolution;
+extern NSString *const InquireTypeRom;
+extern NSString *const InquireTypeBuyChannel;
+
+/**
+ 业务类型字符串
+ */
+extern NSString *const BusinessTypeRepair;
+extern NSString *const BusinessTypeSell;
+
+/**
+ 业务类型action字符串
+ */
+extern NSString *const GetEngineerList;
+extern NSString *const GetDeviceParamIds;
+extern NSString *const GetDeviceParamList;
+extern NSString *const SubmitOrder;
+extern NSString *const GetOrderList;
+
 @interface OrderService : NSObject
 
 + (void)getEngineerList:(RequestParam *)requestParam
