@@ -16,15 +16,23 @@
 @interface OrderService : NSObject
 
 + (void)getEngineerList:(RequestParam *)requestParam
-                       success:(void (^)(Engineers *engineers))success
+                success:(void (^)(Engineers *engineers))success
+                failure:(void (^)(NSError *error))failure;
+
++ (void)getDeviceParamIds:(RequestParam *)requestParam
+                  success:(void (^)(ResultRespond *resultRespond))success
+                  failure:(void (^)(NSError *error))failure;
+
++ (void)getDeviceParamList:(RequestParam *)requestParam
+                             success:(void (^)(DeviceParams *deviceParams))success
+                             failure:(void (^)(NSError *error))failure;
+
++ (void)submitOrder:(RequestParam *)requestParam
+                       success:(void (^)(ResultRespond *resultRespond))success
                        failure:(void (^)(NSError *error))failure;
 
-//+ (ResultRespond *)getDeviceParamIds:(RequestParam *)requestParam;
-//
-//+ (DeviceParams *)getDeviceParamList:(RequestParam *)requestParam;
-//
-//+ (ResultRespond *)submitOrder:(RequestParam *)requestParam;
-//
-//+ (Orders *)getOrderList:(RequestParam *)requestParam;
++ (void)getOrderList:(RequestParam *)requestParam
+                 success:(void (^)(Orders *orders))success
+                 failure:(void (^)(NSError *error))failure;
 
 @end

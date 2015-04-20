@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "HttpRequestManager.h"
 #import <NSObject+ObjectMap.h>
+#import "RequestParam.h"
 
 @implementation OrderService
 
@@ -32,6 +33,9 @@
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent
                             success:^(NSString *responseString) {
+#if DBG
+                                NSLog(@"kGetEngineerList responseStr is %@",responseString);
+#endif
                                 NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
                                 Engineers *engineerList = [[Engineers alloc] initWithJSONData:jsonData];
                                 if (success) {
@@ -39,35 +43,181 @@
                                 }
                             } failure:^(NSError *error) {
                                 NSLog(@"error = %@", error);
+                                if (failure) {
+                                    failure(error);
+                                }
                             }];
     
 #endif
 }
 
-//+ (ResultRespond *)getDeviceParamIds:(RequestParam *)requestParam{
-//#if kIsSimulationData
-//    //为模拟效果所做的处理 start
-//    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRespondTest" ofType:@"json"];
-//    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
-//    return [[ResultRespond alloc] initWithJSONData:jsonData];
-//    //为模拟效果所做的处理 end
-//#else
-//    NSString *requestStr = [requestParam getRequestStrByEntity:requestParam action:kGetDeviceParamIds];
-//#if DBG
-//    NSLog(@"kGetEngineerList requestStr is %@",requestStr);
-//#endif
-//    //TODO
-//    return nil;
-//#endif
-//}
-//
-//+ (DeviceParams *)getDeviceParamList:(RequestParam *)requestParam{
-//}
-//
-//+ (ResultRespond *)submitOrder:(RequestParam *)requestParam{
-//}
-//
-//+ (Orders *)getOrderList:(RequestParam *)requestParam{
-//}
++ (void)getDeviceParamIds:(RequestParam *)requestParam
+                             success:(void (^)(ResultRespond *resultRespond))success
+                             failure:(void (^)(NSError *error))failure{
+#if kIsSimulationData
+    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRespondTest" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
+    ResultRespond *resultRespond = [[ResultRespond alloc] initWithJSONData:jsonData];
+    
+    if (success) {
+        success(resultRespond);
+    }
+#else
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetDeviceParamIds];
+#if DBG
+    NSLog(@"kGetDeviceParamIds requestStr is %@",requestStr);
+#endif
+    [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
+                         andContent:requestContent
+                            success:^(NSString *responseString) {
+#if DBG
+                                NSLog(@"kGetDeviceParamIds responseStr is %@",responseString);
+#endif
+                                NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                ResultRespond *resultRespond = [[ResultRespond alloc] initWithJSONData:jsonData];
+                                if (success) {
+                                    success(resultRespond);
+                                }
+                            } failure:^(NSError *error) {
+                                NSLog(@"error = %@", error);
+                                if (failure) {
+                                    failure(error);
+                                }
+                            }];
+    
+#endif
+}
+
++ (void)getDeviceParamList:(RequestParam *)requestParam
+                   success:(void (^)(DeviceParams *deviceParams))success
+                   failure:(void (^)(NSError *error))failure{
+    
+#if kIsSimulationData
+    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonBrandListTest" ofType:@"json"];
+    if ([requestParam.InquireType isEqualToString:@"Brand"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonBrandListTest" ofType:@"json"];
+    }else if([requestParam.InquireType isEqualToString:@"Version"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonVersionListTest" ofType:@"json"];
+    }else if([requestParam.InquireType isEqualToString:@"Color"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonColorListTest" ofType:@"json"];
+    }else if([requestParam.InquireType isEqualToString:@"Fault"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonFaultListTest" ofType:@"json"];
+    }else if([requestParam.InquireType isEqualToString:@"FaultDetail"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonFaultDetailListTest" ofType:@"json"];
+    }else if([requestParam.InquireType isEqualToString:@"Solution"]) {
+        if ([requestParam.BusinessType isEqualToString:@"Repair"]) {
+            srcPath = [[NSBundle mainBundle] pathForResource:@"jsonSolutionRepairListTest" ofType:@"json"];
+        }else{
+            srcPath = [[NSBundle mainBundle] pathForResource:@"jsonSolutionSellListTest" ofType:@"json"];
+        }
+    }else if([requestParam.InquireType isEqualToString:@"Rom"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRomListTest" ofType:@"json"];
+    }else if([requestParam.InquireType isEqualToString:@"BuyChannel"]) {
+        srcPath = [[NSBundle mainBundle] pathForResource:@"jsonBuyChannelListTest" ofType:@"json"];
+    }
+    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
+    DeviceParams *deviceParamList = [[DeviceParams alloc] initWithJSONData:jsonData];
+    
+    if (success) {
+        success(deviceParamList);
+    }
+#else
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetDeviceParamList];
+#if DBG
+    NSLog(@"kGetDeviceParamList requestStr is %@",requestStr);
+#endif
+    [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
+                         andContent:requestContent
+                            success:^(NSString *responseString) {
+#if DBG
+                                NSLog(@"kGetDeviceParamList responseStr is %@",responseString);
+#endif
+                                NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                DeviceParams *deviceParamsList = [[DeviceParams alloc] initWithJSONData:jsonData];
+                                if (success) {
+                                    success(deviceParamsList);
+                                }
+                            } failure:^(NSError *error) {
+                                NSLog(@"error = %@", error);
+                                if (failure) {
+                                    failure(error);
+                                }
+                            }];
+#endif
+}
+
++ (void)submitOrder:(RequestParam *)requestParam
+                       success:(void (^)(ResultRespond *resultRespond))success
+                       failure:(void (^)(NSError *error))failure{
+#if kIsSimulationData
+    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRespondTest" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
+    ResultRespond *resultRespond = [[ResultRespond alloc] initWithJSONData:jsonData];
+    
+    if (success) {
+        success(resultRespond);
+    }
+#else
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kSubmitOrder];
+#if DBG
+    NSLog(@"kSubmitOrder requestStr is %@",requestStr);
+#endif
+    [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
+                         andContent:requestContent
+                            success:^(NSString *responseString) {
+#if DBG
+                                NSLog(@"kSubmitOrder responseStr is %@",responseString);
+#endif
+                                NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                ResultRespond *resultRespond = [[ResultRespond alloc] initWithJSONData:jsonData];
+                                if (success) {
+                                    success(resultRespond);
+                                }
+                            } failure:^(NSError *error) {
+                                NSLog(@"error = %@", error);
+                                if (failure) {
+                                    failure(error);
+                                }
+                            }];
+    
+#endif
+}
+
++ (void)getOrderList:(RequestParam *)requestParam
+             success:(void (^)(Orders *orders))success
+             failure:(void (^)(NSError *error))failure{
+#if kIsSimulationData
+    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonOrderListTest" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
+    Orders *orderList = [[Orders alloc] initWithJSONData:jsonData];
+    
+    if (success) {
+        success(orderList);
+    }
+#else
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetOrderList];
+#if DBG
+    NSLog(@"kGetOrderList requestStr is %@",requestStr);
+#endif
+    [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
+                         andContent:requestContent
+                            success:^(NSString *responseString) {
+#if DBG
+                                NSLog(@"kGetOrderList responseStr is %@",responseString);
+#endif
+                                NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                Orders *orderList = [[Orders alloc] initWithJSONData:jsonData];
+                                if (success) {
+                                    success(orderList);
+                                }
+                            } failure:^(NSError *error) {
+                                NSLog(@"error = %@", error);
+                                if (failure) {
+                                    failure(error);
+                                }
+                            }];
+    
+#endif
+}
 
 @end
