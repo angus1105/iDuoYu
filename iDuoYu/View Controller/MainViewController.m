@@ -18,6 +18,10 @@
 #import "MainTableHeaderView.h"
 #import "ChooseAlert.h"
 #import "StepsSelectTableViewController.h"
+#import "OrderService.h"
+#import "Engineer.h"
+#import <AFNetworking/UIKit+AFNetworking.h>
+
 
 /**
  `MainItem` 首页主要业务的内部类bean
@@ -98,24 +102,34 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController.view removeGestureRecognizer:self.slidingViewController.panGesture];
 }
 
 - (void)loadMoreData
 {
-    // 1.添加假数据
-//    for (int i = 0; i<5; i++) {
-//        [self.data addObject:MJRandomData];
-//    }
     
-    // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // 拿到当前的上拉刷新控件，结束刷新状态
-        [self.tableView.footer endRefreshing];
-    });
+    [OrderService getEngineerList:nil
+                          success:^(Engineers *engineers) {
+                              [self.mainItems addObjectsFromArray:engineers.Engineers];
+                              // 刷新表格
+                              [self.tableView reloadData];
+                              [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.mainItems.count-1 inSection:0]
+                                                    atScrollPosition:UITableViewScrollPositionBottom
+                                                            animated:YES];
+                              
+                              // 拿到当前的上拉刷新控件，结束刷新状态
+                              [self.tableView.footer endRefreshing];
+                              //仅加载一次然后删除上拉刷新控件
+                              self.tableView.footer.hidden = YES;
+                          } failure:^(NSError *error) {
+                              NSLog(@"error = %@", error);
+                          }];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -126,10 +140,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    ChooseAlert *alert = [ChooseAlert newChooseAlert];
-    alert.tag = [indexPath row];
-    alert.chooseAlertDelegate = self;
-    [alert show];
+    if (indexPath.row < 2) {
+        ChooseAlert *alert = [ChooseAlert newChooseAlert];
+        alert.tag = [indexPath row];
+        alert.chooseAlertDelegate = self;
+        [alert show];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -142,13 +158,21 @@
         cell.mainTitle.text = item.itemTitle;
         cell.leftImageView.image = [UIImage imageNamed:item.itemImageTitle];
         return cell;
-    }else {
+    }else if ([[self.mainItems objectAtIndex:[indexPath row]] isKindOfClass:[Engineer class]]){
         static NSString *cellEngineer = @"engineerCell";
         EngineerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellEngineer
                                                              forIndexPath:indexPath];
         //TODO: 配置工程师cell各项属性
         
+        Engineer *engineer = [self.mainItems objectAtIndex:[indexPath row]];
+        [cell.avatarImageView setImageWithURL:[NSURL URLWithString:engineer.EngineerUrl]
+                             placeholderImage:nil];
+        cell.nameLabel.text = engineer.EngineerName;
+        cell.descLabel.text = engineer.EngineerDescription;
+        cell.achievementLabel.text = engineer.RepairAmount;
         return cell;
+    }else {
+        return nil;
     }
     
 }
@@ -160,8 +184,8 @@
     StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
     
     if (alert.tag == 0) {
-        //配置stepsViewController
         
+
     }else {
         
     }
