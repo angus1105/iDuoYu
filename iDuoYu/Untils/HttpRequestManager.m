@@ -11,8 +11,9 @@
 
 @implementation HttpRequestManager
 
+
 + (void)postWithURL:(NSString *)urlString
-      andDictionary:(NSDictionary *)params
+      andParameters:(NSDictionary *)params
             success:(void (^)(NSString *responseString))success
             failure:(void (^)(NSError *error))failure {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -54,9 +55,21 @@
             andData:(NSData *)data
             success:(void (^)(NSString *responseString))success
             failure:(void (^)(NSError *error))failure{
+    return [HttpRequestManager requestWithMethod:@"POST"
+                                          andURL:url
+                                            data:data
+                                         success:success
+                                         failure:failure];
+}
+
++ (void)requestWithMethod: (NSString *)method
+                   andURL: (NSURL *)url
+                     data:(NSData *)data
+                  success:(void (^)(NSString *responseString))success
+                  failure:(void (^)(NSError *error))failure {
     NSMutableURLRequest *request =
     [[NSMutableURLRequest alloc] initWithURL:url];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:method];
     [request setValue:@"application/x-www-form-urlencoded"
    forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:data];

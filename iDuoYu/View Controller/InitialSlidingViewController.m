@@ -25,6 +25,8 @@
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
+//    self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Main"];
+
     self.shouldAddPanGestureRecognizerToTopViewSnapshot = YES;
 }
 

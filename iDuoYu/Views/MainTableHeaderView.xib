@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MainTableHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="err-9u-b2R" customClass="YFGIFImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="621"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYI-4h-bJK">
+                    <rect key="frame" x="40" y="43" width="520" height="87"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBanner_01" translatesAutoresizingMaskIntoConstraints="NO" id="7w3-LU-4qW">
+                            <rect key="frame" x="8" y="8" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="Umv-QE-YZc"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBanner_02" translatesAutoresizingMaskIntoConstraints="NO" id="sG9-RW-zMw">
+                            <rect key="frame" x="8" y="48" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="YL4-OX-b2x"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFh-LF-RXY">
+                            <rect key="frame" x="48" y="13" width="464" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="4Qj-vC-76Z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3823893位工程师可为您服务" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQU-Id-fep">
+                            <rect key="frame" x="48" y="53" width="464" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="NOJ-uX-w4Z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.11764705882352941" green="0.3529411764705882" blue="0.50980392156862742" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="7w3-LU-4qW" firstAttribute="leading" secondItem="LYI-4h-bJK" secondAttribute="leading" constant="8" id="12U-RQ-0cm"/>
+                        <constraint firstAttribute="trailing" secondItem="dQU-Id-fep" secondAttribute="trailing" constant="8" id="3mV-sm-0q8"/>
+                        <constraint firstItem="dQU-Id-fep" firstAttribute="leading" secondItem="sG9-RW-zMw" secondAttribute="trailing" constant="8" id="CSK-ep-iNw"/>
+                        <constraint firstItem="7w3-LU-4qW" firstAttribute="top" secondItem="LYI-4h-bJK" secondAttribute="top" constant="8" id="P2Z-x8-7RD"/>
+                        <constraint firstAttribute="bottom" secondItem="dQU-Id-fep" secondAttribute="bottom" constant="13" id="UGe-wF-LsU"/>
+                        <constraint firstItem="sG9-RW-zMw" firstAttribute="leading" secondItem="LYI-4h-bJK" secondAttribute="leading" constant="8" id="gDI-D5-qkY"/>
+                        <constraint firstItem="SFh-LF-RXY" firstAttribute="top" secondItem="LYI-4h-bJK" secondAttribute="top" constant="13" id="i1U-9H-Bq3"/>
+                        <constraint firstAttribute="height" constant="87" id="nTL-55-UEH"/>
+                        <constraint firstAttribute="bottom" secondItem="sG9-RW-zMw" secondAttribute="bottom" constant="7" id="scY-3u-GuB"/>
+                        <constraint firstAttribute="trailing" secondItem="SFh-LF-RXY" secondAttribute="trailing" constant="8" id="u6V-z1-G3u"/>
+                        <constraint firstItem="SFh-LF-RXY" firstAttribute="leading" secondItem="7w3-LU-4qW" secondAttribute="trailing" constant="8" id="xZR-hE-UUf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="LYI-4h-bJK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="1Dk-RA-hp5"/>
+                <constraint firstItem="err-9u-b2R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HPp-XQ-2gt"/>
+                <constraint firstItem="err-9u-b2R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="K9b-bC-8Qk"/>
+                <constraint firstAttribute="trailing" secondItem="err-9u-b2R" secondAttribute="trailing" id="bQH-oH-sTe"/>
+                <constraint firstAttribute="bottom" secondItem="err-9u-b2R" secondAttribute="bottom" constant="-21" id="eCe-QE-J0y"/>
+                <constraint firstAttribute="trailing" secondItem="LYI-4h-bJK" secondAttribute="trailing" constant="40" id="m9W-c8-jkk"/>
+                <constraint firstItem="LYI-4h-bJK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="nux-UP-Psx"/>
+            </constraints>
+            <connections>
+                <outlet property="amoutOfEngineerLabel" destination="dQU-Id-fep" id="sUV-eF-BVu"/>
+                <outlet property="gifImageView" destination="err-9u-b2R" id="Xkr-HT-APt"/>
+                <outlet property="locationBackgroundView" destination="LYI-4h-bJK" id="4iK-wn-qwR"/>
+                <outlet property="locationLabel" destination="SFh-LF-RXY" id="awz-nB-Wz1"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="MainBanner_01" width="32" height="32"/>
+        <image name="MainBanner_02" width="32" height="32"/>
+    </resources>
+</document>

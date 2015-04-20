@@ -19,24 +19,6 @@
 
 @implementation ViewController
 
-+ (NSString *)carrierName {
-    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
-    CTCarrier *carrier = [netinfo subscriberCellularProvider];
-#if TARGET_IPHONE_SIMULATOR
-    return @"Simulator";
-#else
-    if (carrier.carrierName == nil || carrier.carrierName.length <= 0)
-        return @"N/A";
-#endif
-    return [carrier carrierName];
-}
-
-+ (NSNumber *)totalDiskSpace
-{
-    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
-    return [fattributes objectForKey:NSFileSystemSize];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -48,11 +30,11 @@
 }
 
 - (IBAction)alertViewTest:(id)sender {
-    ChooseAlert *alertView = [ChooseAlert newChooseAlert];
-    alertView.modelDescriptionLabel.text = [NSString stringWithFormat:@"%@ - %@", [[GBDeviceInfo deviceInfo] modelString], [ViewController carrierName]];
-    alertView.ramLabel.text = [NSString stringWithFormat:@"%3.0f GB", [[ViewController totalDiskSpace] floatValue]/1000/1000/1000];
-    alertView.chooseAlertDelegate = self;
-    [alertView show];
+//    ChooseAlert *alertView = [ChooseAlert newChooseAlert];
+//    alertView.modelDescriptionLabel.text = [NSString stringWithFormat:@"%@ - %@", [[GBDeviceInfo deviceInfo] modelString], [ViewController carrierName]];
+//    alertView.ramLabel.text = [NSString stringWithFormat:@"%3.0f GB", [[ViewController totalDiskSpace] floatValue]/1000/1000/1000];
+//    alertView.chooseAlertDelegate = self;
+//    [alertView show];
     
 }
 

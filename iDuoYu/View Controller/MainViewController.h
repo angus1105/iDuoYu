@@ -12,7 +12,5 @@
 #import "MenuViewController.h"
 
 @interface MainViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) UILabel *locationLabel;
-@property (nonatomic, strong) UILabel *personLabel;
 - (IBAction)revealMenu:(id)sender;
 @end
