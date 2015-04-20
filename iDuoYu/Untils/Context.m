@@ -14,42 +14,11 @@ static Context* _sharedContext = nil;
 
 + (Context*)sharedContext
 {
-	if (_sharedContext == nil)
-	{
-		@synchronized([Context class])
-		{
-			if (_sharedContext == nil)
-				_sharedContext = [[self alloc] init];
-		}
-	}
-	
-	return _sharedContext;
-}
-
-+ (id)alloc
-{
-	@synchronized([Context class])
-	{
-		NSAssert(_sharedContext == nil, @"Attempted to allocate a second instance of a singleton.");
-		_sharedContext = [super alloc];
-		return _sharedContext;
-	}
-	
-	return nil;
-}
-
-+ (void)finallyRelease
-{
-    if (_sharedContext != nil)
-    {
-        @synchronized([Context class])
-        {
-            if (_sharedContext != nil)
-            {
-                _sharedContext = nil;
-            }
-        }
-    }
+    static dispatch_once_t _onceToken;
+    dispatch_once(&_onceToken, ^{
+        _sharedContext = [[self alloc] init];
+    });
+    return _sharedContext;
 }
 
 - (id)init
