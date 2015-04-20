@@ -13,21 +13,35 @@
 
 @implementation OrderService
 
-+ (Engineers *)getEngineerList:(RequestParam *)requestParam{
++ (void)getEngineerList:(RequestParam *)requestParam
+                       success:(void (^)(Engineers *engineers))success
+                       failure:(void (^)(NSError *error))failure{
 #if kIsSimulationData
-    //为模拟效果所做的处理 start
     NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonEngineerListTest" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
     Engineers *engineerList = [[Engineers alloc] initWithJSONData:jsonData];
-    return engineerList;
-    //为模拟效果所做的处理 end
+    
+    if (success) {
+        success(engineerList);
+    }
 #else
-    NSString *requestStr = [requestParam getRequestStrByEntity:requestParam action:kGetEngineerList];
-#if DBG
-    NSLog(@"kGetEngineerList requestStr is %@",requestStr);
-#endif
-    //TODO
-    return nil;
+    
+    NSString *requestContent = @"";
+    
+    [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
+                         andContent:requestContent
+                            success:^(NSString *responseString) {
+                                NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                Engineers *engineerList = [[Engineers alloc] initWithJSONData:jsonData];
+                                
+                                if (success) {
+                                    success(engineerList);
+                                }
+                                
+                            } failure:^(NSError *error) {
+                                NSLog(@"error = %@", error);
+                            }];
+    
 #endif
 }
 

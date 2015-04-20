@@ -15,7 +15,9 @@
 
 @interface OrderService : NSObject
 
-+ (Engineers *)getEngineerList:(RequestParam *)requestParam;
++ (void)getEngineerList:(RequestParam *)requestParam
+                       success:(void (^)(Engineers *engineers))success
+                       failure:(void (^)(NSError *error))failure;
 
 //+ (ResultRespond *)getDeviceParamIds:(RequestParam *)requestParam;
 //
