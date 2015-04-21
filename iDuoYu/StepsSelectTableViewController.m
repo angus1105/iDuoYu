@@ -13,6 +13,7 @@
 #import "Context.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
 #import "DeviceParam.h"
+#import "Constants.h"
 
 @interface StepsSelectTableViewController ()
 
@@ -93,15 +94,16 @@
                                  msgBox(NSLocalizedString(@"请求失败，请稍候重试！", @"请求失败，请稍候重试！"));
                                  [self.navigationController popViewControllerAnimated:YES];
                              }];
-//    UIView *footerSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
-//    UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [goBackToHomeButtom setFrame:CGRectMake(79, 317, 162, 29)];
-//    [goBackToHomeButtom setBackgroundImage:[UIImage imageNamed:@"2.5.0.6.3.png"] forState:UIControlStateNormal];
-//    [goBackToHomeButtom addTarget:self action:@selector(gotoLoginView:) forControlEvents:UIControlEventTouchUpInside];
-//    goBackToHomeButtom.clipsToBounds = YES;
-//    [footerSubView addSubview:goBackToHomeButtom];
-//    //去掉多余空cell
-//    self.tableView.tableFooterView = footerSubView;
+    UIView *footerSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
+    [goBackToHomeButtom setFrame:CGRectMake(20, 20, self.view.frame.size.width-40, 60)];
+    [goBackToHomeButtom setBackgroundColor:UIColorMake255(120,200,110,1.0)];
+    [goBackToHomeButtom setTitle:NSLocalizedString(@"返回到首页", @"返回到首页") forState:UIControlStateNormal];
+    [goBackToHomeButtom addTarget:self action:@selector(gotoHome:) forControlEvents:UIControlEventTouchUpInside];
+    goBackToHomeButtom.clipsToBounds = YES;
+    [footerSubView addSubview:goBackToHomeButtom];
+    //去掉多余空cell
+    self.tableView.tableFooterView = footerSubView;
 
 }
 
@@ -112,6 +114,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)gotoHome:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
