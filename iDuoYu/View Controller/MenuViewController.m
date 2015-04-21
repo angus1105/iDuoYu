@@ -63,6 +63,9 @@
             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             newTopViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
             break;
+        case 3:
+            storyboard = [UIStoryboard storyboardWithName:@"OrderSearch" bundle:nil];
+            newTopViewController = [storyboard instantiateInitialViewController];
         default:
             break;
     }

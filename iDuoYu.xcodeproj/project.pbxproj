@@ -24,6 +24,9 @@
 		5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1447F41AE0B14600A3E2A1 /* LocationHelper.m */; };
 		5D2FD4BE1AE549D100A69055 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4BD1AE549D100A69055 /* TopViewController.m */; };
 		5D2FD4C21AE63A6F00A69055 /* EngineerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4C11AE63A6F00A69055 /* EngineerCell.xib */; };
+		5D2FD4C41AE6854900A69055 /* OrderSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4C31AE6854900A69055 /* OrderSearch.storyboard */; };
+		5D2FD4C71AE6895600A69055 /* OrderSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */; };
+		5D2FD4CD1AE69C5500A69055 /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4CC1AE69C5500A69055 /* OrderDetailCell.m */; };
 		5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001161AE48C660016AF1D /* CellNormal.m */; };
 		5D70011E1AE48C660016AF1D /* CellWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001181AE48C660016AF1D /* CellWithImage.m */; };
 		5D70011F1AE48C660016AF1D /* EngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70011A1AE48C660016AF1D /* EngineerCell.m */; };
@@ -109,6 +112,11 @@
 		5D2FD4BC1AE549D100A69055 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
 		5D2FD4BD1AE549D100A69055 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
 		5D2FD4C11AE63A6F00A69055 /* EngineerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineerCell.xib; sourceTree = "<group>"; };
+		5D2FD4C31AE6854900A69055 /* OrderSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderSearch.storyboard; sourceTree = "<group>"; };
+		5D2FD4C51AE6895600A69055 /* OrderSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSearchViewController.h; sourceTree = "<group>"; };
+		5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSearchViewController.m; sourceTree = "<group>"; };
+		5D2FD4CB1AE69C5500A69055 /* OrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
+		5D2FD4CC1AE69C5500A69055 /* OrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
 		5D7001151AE48C660016AF1D /* CellNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellNormal.h; sourceTree = "<group>"; };
 		5D7001161AE48C660016AF1D /* CellNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellNormal.m; sourceTree = "<group>"; };
 		5D7001171AE48C660016AF1D /* CellWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithImage.h; sourceTree = "<group>"; };
@@ -333,6 +341,7 @@
 				5D2FD4AE1AE495EA00A69055 /* LaunchScreen.xib */,
 				5D2FD4B01AE495EA00A69055 /* Main.storyboard */,
 				5D2FD4B21AE495EA00A69055 /* Menu.storyboard */,
+				5D2FD4C31AE6854900A69055 /* OrderSearch.storyboard */,
 				5D1918EF1ADB990D00C7AE60 /* Supporting Files */,
 			);
 			path = iDuoYu;
@@ -380,6 +389,8 @@
 		5D7001141AE48C660016AF1D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5D2FD4CB1AE69C5500A69055 /* OrderDetailCell.h */,
+				5D2FD4CC1AE69C5500A69055 /* OrderDetailCell.m */,
 				5D7001151AE48C660016AF1D /* CellNormal.h */,
 				5D7001161AE48C660016AF1D /* CellNormal.m */,
 				5D7001171AE48C660016AF1D /* CellWithImage.h */,
@@ -419,6 +430,8 @@
 				5D9BCA9C1AE37B7400EAD869 /* StepsSelectTableViewController.m */,
 				5D2FD4BC1AE549D100A69055 /* TopViewController.h */,
 				5D2FD4BD1AE549D100A69055 /* TopViewController.m */,
+				5D2FD4C51AE6895600A69055 /* OrderSearchViewController.h */,
+				5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -524,6 +537,7 @@
 				EC8423441AE29E57008D4804 /* jsonFaultDetailListTest.json in Resources */,
 				EC84233E1AE29D6B008D4804 /* jsonVersionListTest.json in Resources */,
 				EC8423401AE29DB3008D4804 /* jsonColorListTest.json in Resources */,
+				5D2FD4C41AE6854900A69055 /* OrderSearch.storyboard in Resources */,
 				EC8423481AE29EA8008D4804 /* jsonSolutionSellListTest.json in Resources */,
 				EC84234A1AE29EC5008D4804 /* jsonRomListTest.json in Resources */,
 				EC84234C1AE29EE1008D4804 /* jsonBuyChannelListTest.json in Resources */,
@@ -590,6 +604,7 @@
 				5D2FD4BE1AE549D100A69055 /* TopViewController.m in Sources */,
 				5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */,
 				5D2FD4BA1AE4965F00A69055 /* MainTableHeaderView.m in Sources */,
+				5D2FD4CD1AE69C5500A69055 /* OrderDetailCell.m in Sources */,
 				EC8423301ADF8C30008D4804 /* Common.m in Sources */,
 				EC8423311ADF8C30008D4804 /* Context.m in Sources */,
 				5D9BCA9A1AE355BD00EAD869 /* Utils.m in Sources */,
@@ -602,6 +617,7 @@
 				5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */,
 				EC84236D1AE3D338008D4804 /* Order.m in Sources */,
 				5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */,
+				5D2FD4C71AE6895600A69055 /* OrderSearchViewController.m in Sources */,
 				5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */,
 				5D9BCA9D1AE37B7400EAD869 /* StepsSelectTableViewController.m in Sources */,
 				EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */,
