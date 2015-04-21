@@ -20,8 +20,10 @@
 #import "StepsSelectTableViewController.h"
 #import "OrderService.h"
 #import "Engineer.h"
+#import "RequestParam.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
-
+#import "Utils.h"
+#import <GBDeviceInfo.h>
 
 /**
  `MainItem` 首页主要业务的内部类bean
@@ -49,9 +51,18 @@
 
 @interface MainViewController () <ChooseAlertProtocol>
 @property (nonatomic, strong) NSMutableArray *mainItems;
+@property (nonatomic, strong) RequestParam *requestParam;
 @end
 
 @implementation MainViewController
+
+- (RequestParam *)requestParam {
+    if (_requestParam == nil) {
+        _requestParam = [[RequestParam alloc] init];
+    }
+    
+    return _requestParam;
+}
 
 - (void)awakeFromNib
 {
@@ -70,7 +81,6 @@
     [headerView.gifImageView startGIF];
     headerView.bounds = CGRectMake(0, 0, self.view.bounds.size.width, gifHeight);
     self.tableView.tableHeaderView = headerView;
-    NSLog(@"corner = %f", headerView.locationBackgroundView.layer.cornerRadius);
     __weak typeof(self) weakSelf = self;
     
     //为tableView添加上拉加载功能
@@ -87,7 +97,8 @@
                                                 options:nil];
     UIView *footerSubView = [nibs objectAtIndex:0];
     footerSubView.frame = CGRectMake(5, 0, self.tableView.footer.frame.size.width-10, self.tableView.footer.frame.size.height);
-    [self.tableView.footer addSubview:footerSubView];
+    //footerSubView加到footer的最下面，防止覆盖掉button
+    [self.tableView.footer insertSubview:footerSubView atIndex:0];
     //去掉多余空cell
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -130,6 +141,10 @@
                               NSLog(@"error = %@", error);
                           }];
 
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return (self.tableView.bounds.size.height-tableView.tableHeaderView.bounds.size.height-44)/2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -177,17 +192,44 @@
     
 }
 
+
+- (void)configRequestParam:(RequestParam *)rp forDevice:(NSInteger)isOtherDevice {
+    if (isOtherDevice) {
+        rp.InquireType = InquireTypeBrand;
+    }else {
+        rp.Brand = [[UIDevice currentDevice] model];
+        rp.Rom = [Utils currentDeviceTotalDiskSpace];
+        rp.Version = [[GBDeviceInfo deviceInfo] modelString];
+    }
+}
+
 #pragma mark - Choose Alert Delegate
 - (void)chooseAlert:(ChooseAlert *)alert didSelectAtIndex:(NSInteger)index {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
     
-    if (alert.tag == 0) {
-        
-
-    }else {
-        
+    switch (alert.tag) {
+        case 0:
+            //Repair
+            self.requestParam.BusinessType = BusinessTypeRepair;
+            if (index == 0) {
+                //选取本机
+            }else {
+                //选择其他机型
+            }
+            break;
+            
+        case 1:
+            //Sell
+            self.requestParam.BusinessType = BusinessTypeSell;
+            if (index == 0) {
+                //选取本机
+            }else {
+                //选择其他机型
+            }
+        default:
+            break;
     }
     
     [self.navigationController pushViewController:stepsViewController
