@@ -461,9 +461,7 @@
                             <outlet property="delegate" destination="3jq-uJ-dKt" id="8EN-JS-W4o"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="选择设备" id="5ln-Y2-QH0">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="qd7-bo-lwR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="选择设备" id="5ln-Y2-QH0"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
