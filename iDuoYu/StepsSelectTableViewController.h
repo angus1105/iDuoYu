@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RequestParam.h"
+#import "DeviceParams.h"
 
 @interface StepsSelectTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UILabel *subTitle;
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) RequestParam *requestParam;
+@property (nonatomic, strong) DeviceParams *deviceParams;
+- (IBAction)backAction:(id)sender;
 @end

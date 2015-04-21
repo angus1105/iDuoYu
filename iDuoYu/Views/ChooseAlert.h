@@ -35,6 +35,10 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat cornerRadius;
 @property (nonatomic) IBInspectable BOOL masksToBounds;
 
+@property (nonatomic, strong) NSString *BrandStr;
+@property (nonatomic, strong) NSString *VersionStr;
+@property (nonatomic, strong) NSString *RomStr;
+
 @property (weak, nonatomic) id <ChooseAlertProtocol> chooseAlertDelegate;
 
 /**

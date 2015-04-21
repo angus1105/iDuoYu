@@ -8,6 +8,11 @@
 
 #import "StepsSelectTableViewController.h"
 #import "CellWithImage.h"
+#import "CellNormal.h"
+#import "OrderService.h"
+#import "Context.h"
+#import <AFNetworking/UIKit+AFNetworking.h>
+#import "DeviceParam.h"
 
 @interface StepsSelectTableViewController ()
 
@@ -17,14 +22,53 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.items = [NSArray arrayWithObjects:@"iPhone",@"iPad", @"iPod", @"Sumsung", nil];
+    NSString *titleName = @"";
+    if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
+        titleName = NSLocalizedString(@"请选择您的类型", @"请选择您的类型");
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion]) {
+        titleName = NSLocalizedString(@"请选择您的机型", @"请选择您的机型");
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeColor]) {
+        titleName = NSLocalizedString(@"请选择您的颜色", @"请选择您的颜色");
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
+        titleName = NSLocalizedString(@"请选择您的故障", @"请选择您的故障");
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]) {
+        titleName = NSLocalizedString(@"请选择您的详细故障", @"请选择您的详细故障");
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+        if ([self.requestParam.BusinessType isEqualToString:BusinessTypeRepair]) {
+            titleName = NSLocalizedString(@"请选择维修方案", @"请选择维修方案");
+        }else{
+            titleName = NSLocalizedString(@"请选择设备新旧程度", @"请选择设备新旧程度");
+        }
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeRom]) {
+        titleName = NSLocalizedString(@"请选择您的容量", @"请选择您的容量");
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
+        titleName = NSLocalizedString(@"请选择您的购买渠道", @"请选择您的购买渠道");
+    }
+    self.subTitle.text = titleName;
+    [OrderService getDeviceParamList:self.requestParam
+                             success:^(DeviceParams *deviceParams) {
+                                 self.deviceParams = deviceParams;
+                                 [self.tableView reloadData];
+                             } failure:^(NSError *error) {
+                                 //请求失败，提示用户获取失败
+                                 msgBox(NSLocalizedString(@"请求失败，请稍候重试！", @"请求失败，请稍候重试！"));
+                                 [self.navigationController popViewControllerAnimated:YES];
+                             }];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)backAction:(id)sender{
+    NSLog(@"backAction -----");
 }
 
 #pragma mark - Table view data source
@@ -35,26 +79,131 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.items count];
+    return [[self.deviceParams ReturnCount] integerValue];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *reuseIdentifier = @"stepCell";
-    CellWithImage *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
-                                                            forIndexPath:indexPath];
+    DeviceParam *deviceParam = [self.deviceParams.DeviceParams objectAtIndex:indexPath.row];
+    if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand] ||
+        [self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
+        CellWithImage *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
+                                                              forIndexPath:indexPath];
+        
+        cell.titleLabel.text = deviceParam.ParamName;
+        [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
+                           placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
+        
+        return cell;
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion] ||
+             [self.requestParam.InquireType isEqualToString:InquireTypeColor]||
+             [self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]||
+             [self.requestParam.InquireType isEqualToString:InquireTypeRom]||
+             [self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
+        CellNormal *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
+                                                              forIndexPath:indexPath];
+        cell.titleLabel.text = deviceParam.ParamName;
+        cell.titleLabel.backgroundColor = [UIColor redColor];
+        
+        return cell;
+    }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+        //TODO 解决方案页面
+    }
     
-    cell.titleLabel.text = [self.items objectAtIndex:[indexPath row]];
-    
-    return cell;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //维修流程：1选择类型（有图） -> 2选择机型 ->  3选择颜色 -> 4选择故障（有图） -> 5选择详细故障 -> 6选择方案（有图） -> 7接受服务 -> 8填写地址 -> 9完成订单显示详细页面。
+    //换钱流程：1选择类型（有图） -> 2选择机型 -> 3选择容量 -> 4选择渠道 -> 5选择颜色 -> 6选择方案（有图） -> 7接受服务 -> 8填写地址 -> 9完成订单显示详细页面。
+    DeviceParam *deviceParam = [self.deviceParams.DeviceParams objectAtIndex:indexPath.row];
+    if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
+        if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
+            [[Context sharedContext] setBrandId:deviceParam.ParamId];
+            [[Context sharedContext] setBrand:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeVersion;
+            self.requestParam.BrandId = deviceParam.ParamId;
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion]) {
+            [[Context sharedContext] setVersionId:deviceParam.ParamId];
+            [[Context sharedContext] setVersion:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeColor;
+            self.requestParam.VersionId = deviceParam.ParamId;
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeColor]) {
+            [[Context sharedContext] setColorId:deviceParam.ParamId];
+            [[Context sharedContext] setColor:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeFault;
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
+            [[Context sharedContext] setFaultId:deviceParam.ParamId];
+            [[Context sharedContext] setFault:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeFaultDetail;
+            self.requestParam.FaultId = deviceParam.ParamId;
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]) {
+            [[Context sharedContext] setFaultDetailId:deviceParam.ParamId];
+            [[Context sharedContext] setFaultDetail:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeSolution;
+            self.requestParam.BrandId = [[Context sharedContext] BrandId];
+            self.requestParam.VersionId = [[Context sharedContext] VersionId];
+            self.requestParam.ColorId = [[Context sharedContext] ColorId];
+            self.requestParam.FaultId = [[Context sharedContext] FaultId];
+            self.requestParam.FaultDetailId = [[Context sharedContext] FaultDetailId];
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+            [[Context sharedContext] setSolutionId:deviceParam.ParamId];
+            [[Context sharedContext] setSolution:deviceParam.ParamName];
+            [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
+            [[Context sharedContext] setSolutionDescription:deviceParam.description];
+            [[Context sharedContext] setFee:deviceParam.Fee];
+        }
+    }else{
+        if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
+            [[Context sharedContext] setBrandId:deviceParam.ParamId];
+            [[Context sharedContext] setBrand:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeVersion;
+            self.requestParam.BrandId = deviceParam.ParamId;
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion]) {
+            [[Context sharedContext] setVersionId:deviceParam.ParamId];
+            [[Context sharedContext] setVersion:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeRom;
+            self.requestParam.VersionId = deviceParam.ParamId;
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeRom]) {
+            [[Context sharedContext] setRomId:deviceParam.ParamId];
+            [[Context sharedContext] setRom:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeBuyChannel;
+            self.requestParam.BrandId = [[Context sharedContext] BrandId];
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
+            [[Context sharedContext] setBuyChannelId:deviceParam.ParamId];
+            [[Context sharedContext] setBuyChannel:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeColor;
+            self.requestParam.VersionId = [[Context sharedContext] VersionId];
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeColor]) {
+            [[Context sharedContext] setColorId:deviceParam.ParamId];
+            [[Context sharedContext] setColor:deviceParam.ParamName];
+            self.requestParam.InquireType = InquireTypeSolution;
+            self.requestParam.BrandId = [[Context sharedContext] BrandId];
+            self.requestParam.VersionId = [[Context sharedContext] VersionId];
+            self.requestParam.ColorId = [[Context sharedContext] ColorId];
+            self.requestParam.RomId = [[Context sharedContext] RomId];
+            self.requestParam.BuyChannelId = [[Context sharedContext] BuyChannelId];
+        }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+            [[Context sharedContext] setSolutionId:deviceParam.ParamId];
+            [[Context sharedContext] setSolution:deviceParam.ParamName];
+            [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
+            [[Context sharedContext] setSolutionDescription:deviceParam.description];
+            [[Context sharedContext] setFee:deviceParam.Fee];
+        }
+    }
+    if ([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+        //TODO 跳转到显示费用页面
+    }else{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
+        stepsViewController.requestParam = self.requestParam;
+        [self.navigationController pushViewController:stepsViewController
+                                             animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
 }
-
-
 
 #pragma mark - Navigation
 

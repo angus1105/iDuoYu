@@ -35,4 +35,61 @@ static Context* _sharedContext = nil;
 	
 	return self;
 }
+
+- (void)clearParamWithInquireType:(NSString *)inquireType{
+    if ([inquireType isEqualToString:@"Brand"]) {
+        self.BrandId = @"";
+        self.Brand = @"";
+    }else if([inquireType isEqualToString:@"Version"]) {
+        self.VersionId = @"";
+        self.Version = @"";
+    }else if([inquireType isEqualToString:@"Color"]) {
+        self.ColorId = @"";
+        self.Color = @"";
+    }else if([inquireType isEqualToString:@"Fault"]) {
+        self.FaultId = @"";
+        self.Fault = @"";
+    }else if([inquireType isEqualToString:@"FaultDetail"]) {
+        self.FaultDetailId = @"";
+        self.FaultDetail = @"";
+    }else if([inquireType isEqualToString:@"Solution"]) {
+        self.SolutionId = @"";
+        self.Solution = @"";
+        self.SolutionURL = @"";
+        self.SolutionDescription = @"";
+        self.Fee = @"";
+    }else if([inquireType isEqualToString:@"Rom"]) {
+        self.RomId = @"";
+        self.Rom = @"";
+    }else if([inquireType isEqualToString:@"BuyChannel"]) {
+        self.BuyChannelId = @"";
+        self.BuyChannel = @"";
+    }else if([inquireType isEqualToString:@"All"]) {
+        self.BusinessType = @"";
+        self.BrandId = @"";
+        self.Brand = @"";
+        self.VersionId = @"";
+        self.Version = @"";
+        self.ColorId = @"";
+        self.Color = @"";
+        self.FaultId = @"";
+        self.Fault = @"";
+        self.FaultDetailId = @"";
+        self.FaultDetail = @"";
+        self.SolutionId = @"";
+        self.Solution = @"";
+        self.SolutionURL = @"";
+        self.SolutionDescription = @"";
+        self.Fee = @"";
+        self.RomId = @"";
+        self.Rom = @"";
+        self.BuyChannelId = @"";
+        self.BuyChannel = @"";
+        self.CustomerName = @"";
+        self.CustomerMobileNumber = @"";
+        self.CustomerAddress = @"";
+        self.ServiceType = @"";
+    }
+}
+
 @end

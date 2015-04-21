@@ -27,12 +27,19 @@ UIWindow *_backgroundWindow;
     if (nibs.count > 0) {
         ChooseAlert *chooseAlert = [nibs objectAtIndex:0];
         chooseAlert.modelDescriptionLabel.text = [NSString stringWithFormat:@"%@ - %@", [[GBDeviceInfo deviceInfo] modelString], [Utils carrierName]];;
+        chooseAlert.VersionStr = [[GBDeviceInfo deviceInfo] modelString];
         chooseAlert.ramLabel.text = [Utils currentDeviceTotalDiskSpace];
+        chooseAlert.RomStr = chooseAlert.ramLabel.text;
         
         if ([[GBDeviceInfo deviceInfo] family] == GBDeviceFamilyiPad) {
             chooseAlert.modelImageView.image = [UIImage imageNamed:@"iconiPad.png"];
+            chooseAlert.BrandStr = @"iPad";
+        }else if ([[GBDeviceInfo deviceInfo] family] == GBDeviceFamilyiPod) {
+            chooseAlert.modelImageView.image = [UIImage imageNamed:@"iconiPhone.png"];
+            chooseAlert.BrandStr = @"iPod";
         }else {
             chooseAlert.modelImageView.image = [UIImage imageNamed:@"iconiPhone.png"];
+            chooseAlert.BrandStr = @"iPhone";
         }
         
         return chooseAlert;

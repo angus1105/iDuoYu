@@ -9,23 +9,29 @@
 #import "MenuViewController.h"
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import "MenuCell.h"
 
 @interface MenuViewController ()
 @property (nonatomic, strong) NSArray *menuItems;
+@property (nonatomic, strong) NSArray *menuSubItems;
+@property (nonatomic, strong) NSArray *menuImageItems;
 @end
 
 @implementation MenuViewController
-@synthesize menuItems;
 
 - (void)awakeFromNib
 {
-    self.menuItems = [NSArray arrayWithObjects:@"First", @"Second", @"Third", @"Navigation", nil];
+    self.menuItems = [NSArray arrayWithObjects:NSLocalizedString(@"服务流程", @"服务流程"), NSLocalizedString(@"F.A.Q", @"F.A.Q"), NSLocalizedString(@"工程师招募", @"工程师招募"), NSLocalizedString(@"订单查询与邮寄", @"订单查询与邮寄"), nil];
+    self.menuSubItems = [NSArray arrayWithObjects:NSLocalizedString(@"Step by Step Explained", @"Step by Step Explained"), NSLocalizedString(@"Common Questions", @"Common Questions"), NSLocalizedString(@"Engineer Recruitment", @"Engineer Recruitment"), NSLocalizedString(@"Order inquiry", @"Order inquiry"), nil];
+    self.menuImageItems = [NSArray arrayWithObjects:@"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.slidingViewController setAnchorRightRevealAmount:280.0f];
+    CGFloat witch = self.view.frame.size.width*7/8;
+    
+    [self.slidingViewController setAnchorRightRevealAmount:witch];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
 }
 
@@ -37,12 +43,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellIdentifier = @"MenuItemCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.titleLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    cell.subTitleLabel.text = [self.menuSubItems objectAtIndex:indexPath.row];
+    cell.leftImageView.image = [UIImage imageNamed:[self.menuImageItems objectAtIndex:indexPath.row]];
     
     return cell;
 }

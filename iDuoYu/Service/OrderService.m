@@ -113,25 +113,25 @@ NSString *const GetOrderList = @"getOrderList";
     
 #if kIsSimulationData
     NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonBrandListTest" ofType:@"json"];
-    if ([requestParam.InquireType isEqualToString:@"Brand"]) {
+    if ([requestParam.InquireType isEqualToString:InquireTypeBrand]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonBrandListTest" ofType:@"json"];
-    }else if([requestParam.InquireType isEqualToString:@"Version"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeVersion]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonVersionListTest" ofType:@"json"];
-    }else if([requestParam.InquireType isEqualToString:@"Color"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeColor]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonColorListTest" ofType:@"json"];
-    }else if([requestParam.InquireType isEqualToString:@"Fault"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeFault]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonFaultListTest" ofType:@"json"];
-    }else if([requestParam.InquireType isEqualToString:@"FaultDetail"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeFaultDetail]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonFaultDetailListTest" ofType:@"json"];
-    }else if([requestParam.InquireType isEqualToString:@"Solution"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeSolution]) {
         if ([requestParam.BusinessType isEqualToString:@"Repair"]) {
             srcPath = [[NSBundle mainBundle] pathForResource:@"jsonSolutionRepairListTest" ofType:@"json"];
         }else{
             srcPath = [[NSBundle mainBundle] pathForResource:@"jsonSolutionSellListTest" ofType:@"json"];
         }
-    }else if([requestParam.InquireType isEqualToString:@"Rom"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeRom]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRomListTest" ofType:@"json"];
-    }else if([requestParam.InquireType isEqualToString:@"BuyChannel"]) {
+    }else if([requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
         srcPath = [[NSBundle mainBundle] pathForResource:@"jsonBuyChannelListTest" ofType:@"json"];
     }
     NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];

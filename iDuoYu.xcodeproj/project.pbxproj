@@ -38,6 +38,7 @@
 		EC0915131ADE5D53001599C1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0915111ADE5D53001599C1 /* MainViewController.m */; };
 		EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0915161ADE5E50001599C1 /* InitialSlidingViewController.m */; };
 		EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0915191ADE5E79001599C1 /* MenuViewController.m */; };
+		EC592FB81AE55EDE00E6CFD1 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */; };
 		EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */; };
 		EC8423281ADF85A7008D4804 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8423271ADF85A7008D4804 /* ImageIO.framework */; };
 		EC84232A1ADF8815008D4804 /* banner.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC8423291ADF8815008D4804 /* banner.gif */; };
@@ -132,6 +133,8 @@
 		EC0915161ADE5E50001599C1 /* InitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialSlidingViewController.m; path = "View Controller/InitialSlidingViewController.m"; sourceTree = "<group>"; };
 		EC0915181ADE5E79001599C1 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = "View Controller/MenuViewController.h"; sourceTree = "<group>"; };
 		EC0915191ADE5E79001599C1 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = "View Controller/MenuViewController.m"; sourceTree = "<group>"; };
+		EC592FB61AE55EDE00E6CFD1 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		EC8423241ADF61AD008D4804 /* NavigationFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationFirstViewController.h; path = "View Controller/NavigationFirstViewController.h"; sourceTree = "<group>"; };
 		EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationFirstViewController.m; path = "View Controller/NavigationFirstViewController.m"; sourceTree = "<group>"; };
 		EC8423271ADF85A7008D4804 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -380,6 +383,8 @@
 				5D70011A1AE48C660016AF1D /* EngineerCell.m */,
 				5D70011B1AE48C660016AF1D /* MainCell.h */,
 				5D70011C1AE48C660016AF1D /* MainCell.m */,
+				EC592FB61AE55EDE00E6CFD1 /* MenuCell.h */,
+				EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				EC8423581AE2A75F008D4804 /* RequestParam.m in Sources */,
 				EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */,
 				EC8423561AE2A75F008D4804 /* Header.m in Sources */,
+				EC592FB81AE55EDE00E6CFD1 /* MenuCell.m in Sources */,
 				5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */,
 				EC84236D1AE3D338008D4804 /* Order.m in Sources */,
 				5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */,
