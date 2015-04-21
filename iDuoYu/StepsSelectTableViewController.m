@@ -9,6 +9,7 @@
 #import "StepsSelectTableViewController.h"
 #import "CellWithImage.h"
 #import "CellNormal.h"
+#import "SolutionCell.h"
 #import "OrderService.h"
 #import "Context.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
@@ -20,7 +21,6 @@
 @end
 
 @implementation StepsSelectTableViewController
-
 - (void)dealloc{
     //返回按钮所做的操作
     if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
@@ -95,16 +95,21 @@
                                  [self.navigationController popViewControllerAnimated:YES];
                              }];
     UIView *footerSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    UIView *footerLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, footerSubView.frame.size.width, 1)];
+    footerLineView.backgroundColor = UIColorMake255(227,227,227,1.0);
+    [footerSubView addSubview:footerLineView];
     UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
-    [goBackToHomeButtom setFrame:CGRectMake(20, 20, self.view.frame.size.width-40, 60)];
-    [goBackToHomeButtom setBackgroundColor:UIColorMake255(120,200,110,1.0)];
+    [goBackToHomeButtom setFrame:CGRectMake(20, 20, self.view.frame.size.width-40, 40)];
+    [goBackToHomeButtom setBackgroundColor:UIColorMake255(0,158,186,1.0)];
     [goBackToHomeButtom setTitle:NSLocalizedString(@"返回到首页", @"返回到首页") forState:UIControlStateNormal];
     [goBackToHomeButtom addTarget:self action:@selector(gotoHome:) forControlEvents:UIControlEventTouchUpInside];
     goBackToHomeButtom.clipsToBounds = YES;
     [footerSubView addSubview:goBackToHomeButtom];
     //去掉多余空cell
     self.tableView.tableFooterView = footerSubView;
-
+    [self.tableView registerNib:[UINib nibWithNibName:@"SolutionCell"
+                                               bundle:nil]
+         forCellReuseIdentifier:@"solutionCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -171,7 +176,18 @@
         
         return cell;
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
-        //TODO 解决方案页面
+        //解决方案页面
+        static NSString *reuseIdentifier = @"solutionCell";
+        SolutionCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+        if (cell == nil) {
+            cell = [[SolutionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        }
+        cell.titleLabel.text = deviceParam.ParamName;
+        [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
+                           placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
+        cell.descriptionView.text = deviceParam.Description;
+        cell.selectButton.backgroundColor = UIColorMake255(120,200,110,1.0);
+        return cell;
     }
     
     return nil;
@@ -248,6 +264,7 @@
             self.requestParam.RomId = [[Context sharedContext] RomId];
             self.requestParam.BuyChannelId = [[Context sharedContext] BuyChannelId];
         }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+            self.requestParam.InquireType = InquireTypeFee;
             [[Context sharedContext] setSolutionId:deviceParam.ParamId];
             [[Context sharedContext] setSolution:deviceParam.ParamName];
             [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
@@ -255,7 +272,7 @@
             [[Context sharedContext] setFee:deviceParam.Fee];
         }
     }
-    if ([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+    if ([self.requestParam.InquireType isEqualToString:InquireTypeFee]) {
         //TODO 跳转到显示费用页面
     }else{
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -267,6 +284,14 @@
     }
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
+        return 200;
+    }else{
+        return 100;
+    }
 }
 
 #pragma mark - Navigation

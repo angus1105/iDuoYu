@@ -44,6 +44,8 @@
 		EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0915161ADE5E50001599C1 /* InitialSlidingViewController.m */; };
 		EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0915191ADE5E79001599C1 /* MenuViewController.m */; };
 		EC592FB81AE55EDE00E6CFD1 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */; };
+		EC592FC21AE6437100E6CFD1 /* SolutionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FC01AE6437100E6CFD1 /* SolutionCell.m */; };
+		EC592FC31AE6437100E6CFD1 /* SolutionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */; };
 		EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */; };
 		EC8423281ADF85A7008D4804 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8423271ADF85A7008D4804 /* ImageIO.framework */; };
 		EC84232A1ADF8815008D4804 /* banner.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC8423291ADF8815008D4804 /* banner.gif */; };
@@ -148,6 +150,9 @@
 		EC0915191ADE5E79001599C1 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = "View Controller/MenuViewController.m"; sourceTree = "<group>"; };
 		EC592FB61AE55EDE00E6CFD1 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		EC592FBF1AE6437100E6CFD1 /* SolutionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolutionCell.h; sourceTree = "<group>"; };
+		EC592FC01AE6437100E6CFD1 /* SolutionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolutionCell.m; sourceTree = "<group>"; };
+		EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SolutionCell.xib; sourceTree = "<group>"; };
 		EC8423241ADF61AD008D4804 /* NavigationFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationFirstViewController.h; path = "View Controller/NavigationFirstViewController.h"; sourceTree = "<group>"; };
 		EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationFirstViewController.m; path = "View Controller/NavigationFirstViewController.m"; sourceTree = "<group>"; };
 		EC8423271ADF85A7008D4804 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -401,7 +406,9 @@
 				5D70011C1AE48C660016AF1D /* MainCell.m */,
 				EC592FB61AE55EDE00E6CFD1 /* MenuCell.h */,
 				EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */,
-				5D2FD4C11AE63A6F00A69055 /* EngineerCell.xib */,
+				EC592FBF1AE6437100E6CFD1 /* SolutionCell.h */,
+				EC592FC01AE6437100E6CFD1 /* SolutionCell.m */,
+				EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -632,6 +639,7 @@
 				EC8423641AE3D05F008D4804 /* DeviceParams.m in Sources */,
 				EC8423671AE3D06C008D4804 /* DeviceParam.m in Sources */,
 				EC8423571AE2A75F008D4804 /* Request.m in Sources */,
+				EC592FC21AE6437100E6CFD1 /* SolutionCell.m in Sources */,
 				EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */,
 				EC8423551AE2A75F008D4804 /* Body.m in Sources */,
 				EC8423711AE3DA37008D4804 /* OrderService.m in Sources */,

@@ -24,6 +24,7 @@ extern NSString *const InquireTypeFaultDetail;
 extern NSString *const InquireTypeSolution;
 extern NSString *const InquireTypeRom;
 extern NSString *const InquireTypeBuyChannel;
+extern NSString *const InquireTypeFee;
 
 /**
  业务类型字符串
