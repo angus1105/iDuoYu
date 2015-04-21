@@ -13,6 +13,6 @@
 #import "ChooseAlert.h"
 
 @protocol ChooseAlertProtocol;
-@interface TopViewController : UIViewController <ChooseAlertProtocol>
+@interface TopViewController : UIViewController <ChooseAlertProtocol, UITableViewDataSource, UITableViewDelegate>
 
 @end
