@@ -22,6 +22,7 @@
 		5D2FD4B91AE495F500A69055 /* AFNetworking.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4B71AE495F500A69055 /* AFNetworking.strings */; };
 		5D2FD4BA1AE4965F00A69055 /* MainTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BCA961AE2A0E100EAD869 /* MainTableHeaderView.m */; };
 		5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1447F41AE0B14600A3E2A1 /* LocationHelper.m */; };
+		5D2FD4BE1AE549D100A69055 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4BD1AE549D100A69055 /* TopViewController.m */; };
 		5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001161AE48C660016AF1D /* CellNormal.m */; };
 		5D70011E1AE48C660016AF1D /* CellWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001181AE48C660016AF1D /* CellWithImage.m */; };
 		5D70011F1AE48C660016AF1D /* EngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70011A1AE48C660016AF1D /* EngineerCell.m */; };
@@ -104,6 +105,8 @@
 		5D2FD4B11AE495EA00A69055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D2FD4B31AE495EA00A69055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Menu.storyboard; sourceTree = "<group>"; };
 		5D2FD4B81AE495F500A69055 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
+		5D2FD4BC1AE549D100A69055 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
+		5D2FD4BD1AE549D100A69055 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
 		5D7001151AE48C660016AF1D /* CellNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellNormal.h; sourceTree = "<group>"; };
 		5D7001161AE48C660016AF1D /* CellNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellNormal.m; sourceTree = "<group>"; };
 		5D7001171AE48C660016AF1D /* CellWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithImage.h; sourceTree = "<group>"; };
@@ -411,6 +414,8 @@
 				EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */,
 				5D9BCA9B1AE37B7400EAD869 /* StepsSelectTableViewController.h */,
 				5D9BCA9C1AE37B7400EAD869 /* StepsSelectTableViewController.m */,
+				5D2FD4BC1AE549D100A69055 /* TopViewController.h */,
+				5D2FD4BD1AE549D100A69055 /* TopViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2FD4BE1AE549D100A69055 /* TopViewController.m in Sources */,
 				5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */,
 				5D2FD4BA1AE4965F00A69055 /* MainTableHeaderView.m in Sources */,
 				EC8423301ADF8C30008D4804 /* Common.m in Sources */,
