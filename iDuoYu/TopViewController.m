@@ -26,11 +26,12 @@
 @property (strong, nonatomic) IBOutlet UIView *locationBackgroundView;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *engineerLists;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
 @end
 
 @implementation TopViewController
-
+BOOL engineerListIsShown;
 
 
 - (void)viewDidLoad {
@@ -49,6 +50,22 @@
             //获取此城市中工程师总数
         }
     }];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2)];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.allowsSelection = NO;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView registerNib:[UINib nibWithNibName:@"EngineerCell"
+                                               bundle:nil]
+         forCellReuseIdentifier:@"engineerCell"];
+    [self.view addSubview:_tableView];
+    
+    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicatorView.hidesWhenStopped = YES;
+    [self.loadMoreBackgroundView addSubview:self.activityIndicatorView];
+    self.activityIndicatorView.center = CGPointMake(_loadMoreBackgroundView.frame.size.width/3,
+                                                    _loadMoreBackgroundView.frame.size.height/2);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -91,34 +108,54 @@
     [alert show];
 }
 
-- (UITableView *)tableView {
-    if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2)];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        [self.view addSubview:_tableView];
+- (NSMutableArray *)engineerLists {
+    if (_engineerLists == nil) {
+        _engineerLists = [NSMutableArray array];
     }
     
-    return _tableView;
+    return _engineerLists;
+}
+
+- (void)showEngineerList {
+    [self.activityIndicatorView stopAnimating];
+    // 刷新表格
+    [self.tableView reloadData];
+    engineerListIsShown = YES;
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.tableView.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+                         self.loadMoreBackgroundView.frame = CGRectMake(0, self.view.frame.size.height/2-44, self.view.frame.size.width, 44);
+                     }];
+    
+}
+
+- (void)hideEngineerList {
+    [self.activityIndicatorView stopAnimating];
+    engineerListIsShown = NO;
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.loadMoreBackgroundView.frame = CGRectMake(0, self.view.frame.size.height-44, self.view.frame.size.width, 44);
+                         self.tableView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
+                     }];
 }
 
 - (IBAction)engineerNearByTouchUpInside:(id)sender {
     [self.loadMoreBackgroundView setBackgroundColor: UIColorMake255(230, 230, 230, 1.f)];
     
-//    [OrderService getEngineerList:nil
-//                          success:^(Engineers *engineers) {
-//                              [self.engineerLists addObjectsFromArray:engineers.Engineers];
-//                              // 刷新表格
-//                              [self.tableView reloadData];
-//                              [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.engineerLists.count-1 inSection:0]
-//                                                    atScrollPosition:UITableViewScrollPositionBottom
-//                                                            animated:YES];
-//                              
-//
-//                          } failure:^(NSError *error) {
-//                              NSLog(@"error = %@", error);
-//                          }];
-    
+    if (engineerListIsShown) {
+        [self hideEngineerList];
+    }else {
+        [self.engineerLists removeAllObjects];
+        [self.activityIndicatorView startAnimating];
+        [OrderService getEngineerList:nil
+                              success:^(Engineers *engineers) {
+                                  [self.engineerLists addObjectsFromArray:engineers.Engineers];
+                                  [self showEngineerList];
+                              } failure:^(NSError *error) {
+                                  NSLog(@"error = %@", error);
+                              }];
+    }
 }
 
 #pragma mark - UITableView DataSource

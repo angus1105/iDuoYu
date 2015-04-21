@@ -23,6 +23,7 @@
 		5D2FD4BA1AE4965F00A69055 /* MainTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BCA961AE2A0E100EAD869 /* MainTableHeaderView.m */; };
 		5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1447F41AE0B14600A3E2A1 /* LocationHelper.m */; };
 		5D2FD4BE1AE549D100A69055 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4BD1AE549D100A69055 /* TopViewController.m */; };
+		5D2FD4C21AE63A6F00A69055 /* EngineerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4C11AE63A6F00A69055 /* EngineerCell.xib */; };
 		5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001161AE48C660016AF1D /* CellNormal.m */; };
 		5D70011E1AE48C660016AF1D /* CellWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001181AE48C660016AF1D /* CellWithImage.m */; };
 		5D70011F1AE48C660016AF1D /* EngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70011A1AE48C660016AF1D /* EngineerCell.m */; };
@@ -107,6 +108,7 @@
 		5D2FD4B81AE495F500A69055 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AFNetworking.strings"; sourceTree = "<group>"; };
 		5D2FD4BC1AE549D100A69055 /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
 		5D2FD4BD1AE549D100A69055 /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
+		5D2FD4C11AE63A6F00A69055 /* EngineerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineerCell.xib; sourceTree = "<group>"; };
 		5D7001151AE48C660016AF1D /* CellNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellNormal.h; sourceTree = "<group>"; };
 		5D7001161AE48C660016AF1D /* CellNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellNormal.m; sourceTree = "<group>"; };
 		5D7001171AE48C660016AF1D /* CellWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithImage.h; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				5D70011C1AE48C660016AF1D /* MainCell.m */,
 				EC592FB61AE55EDE00E6CFD1 /* MenuCell.h */,
 				EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */,
+				5D2FD4C11AE63A6F00A69055 /* EngineerCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			files = (
 				EC8423421AE29E2C008D4804 /* jsonFaultListTest.json in Resources */,
 				EC84233A1AE29C8F008D4804 /* jsonBrandListTest.json in Resources */,
+				5D2FD4C21AE63A6F00A69055 /* EngineerCell.xib in Resources */,
 				EC8423381AE29C6B008D4804 /* jsonRespondTest.json in Resources */,
 				EC8423361AE297B9008D4804 /* jsonEngineerListTest.json in Resources */,
 				EC84232A1ADF8815008D4804 /* banner.gif in Resources */,
