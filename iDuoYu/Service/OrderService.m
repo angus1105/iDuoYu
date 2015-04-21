@@ -20,6 +20,7 @@ NSString *const InquireTypeFaultDetail = @"FaultDetail";
 NSString *const InquireTypeSolution = @"Solution";
 NSString *const InquireTypeRom = @"Rom";
 NSString *const InquireTypeBuyChannel = @"BuyChannel";
+NSString *const InquireTypeFee = @"Fee";
 
 NSString *const BusinessTypeRepair = @"Repair";
 NSString *const BusinessTypeSell = @"Sell";
