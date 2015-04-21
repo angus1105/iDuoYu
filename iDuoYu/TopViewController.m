@@ -70,35 +70,51 @@
 
 #pragma mark - Choose Alert Delegate
 - (void)chooseAlert:(ChooseAlert *)alert didSelectAtIndex:(NSInteger)index {
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
-    
-    switch (alert.tag) {
-        case 0:
-            //Repair
-            self.requestParam.BusinessType = BusinessTypeRepair;
-            if (index == 0) {
-                //选取本机
-            }else {
-                //选择其他机型
-            }
-            break;
-            
-        case 1:
-            //Sell
-            self.requestParam.BusinessType = BusinessTypeSell;
-            if (index == 0) {
-                //选取本机
-            }else {
-                //选择其他机型
-            }
-        default:
-            break;
+    RequestParam *requestParam = [[RequestParam alloc] init];
+    requestParam.BusinessType = [[Context sharedContext] BusinessType];
+    if (index == 0) {
+        //使用本设备的参数，调用通过参数获取对应参数id的接口
+        requestParam.Brand = alert.BrandStr;
+        requestParam.Version = alert.VersionStr;
+        requestParam.Rom = alert.RomStr;
+        [OrderService getDeviceParamIds:requestParam
+                                success:^(ResultRespond *resultRespond) {
+                                    //请求成功将这三项参数名和id写入单例中
+                                    [[Context sharedContext] setBrandId:resultRespond.BrandId];
+                                    [[Context sharedContext] setBrand:requestParam.Brand];
+                                    [[Context sharedContext] setVersionId:resultRespond.VersionId];
+                                    [[Context sharedContext] setVersion:requestParam.Version];
+                                    [[Context sharedContext] setRomId:resultRespond.RomId];
+                                    [[Context sharedContext] setRom:requestParam.RomId];
+                                    //根据不同的业务跳转到不同的选项页面
+                                    if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
+                                        requestParam.InquireType = InquireTypeColor;
+                                        requestParam.VersionId = [[Context sharedContext] VersionId];
+                                    }else{
+                                        requestParam.InquireType = InquireTypeBuyChannel;
+                                        requestParam.BrandId = [[Context sharedContext] BrandId];
+                                    }
+                                    stepsViewController.requestParam = requestParam;
+                                    [self.navigationController pushViewController:stepsViewController
+                                                                         animated:YES];
+                                } failure:^(NSError *error) {
+                                    //请求失败，提示用户获取失败
+                                    msgBox(NSLocalizedString(@"请求失败，请手动进行选择！", @"请求失败，请手动进行选择！"));
+                                    //跳转到获取设备品牌页面
+                                    requestParam.InquireType = InquireTypeBrand;
+                                    stepsViewController.requestParam = requestParam;
+                                    [self.navigationController pushViewController:stepsViewController
+                                                                         animated:YES];
+                                }];
+    }else {
+        //跳转到获取设备品牌页面
+        requestParam.InquireType = InquireTypeBrand;
+        stepsViewController.requestParam = requestParam;
+        [self.navigationController pushViewController:stepsViewController
+                                             animated:YES];
     }
-    
-    [self.navigationController pushViewController:stepsViewController
-                                         animated:YES];
 }
 
 - (IBAction)buttonTouchCancel:(id)sender {
