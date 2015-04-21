@@ -20,28 +20,67 @@
 
 @implementation StepsSelectTableViewController
 
+- (void)dealloc{
+    //返回按钮所做的操作
+    if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
+        if ([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBrand]) {
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeVersion]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBrand];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeColor]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeVersion];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeFault]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeColor];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeFaultDetail]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeFault];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeSolution]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeFaultDetail];
+        }
+    }else{
+        if ([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBrand]) {
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeVersion]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBrand];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeRom]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeVersion];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBuyChannel]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeRom];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeColor]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBuyChannel];
+        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeSolution]) {
+            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeColor];
+        }
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *titleName = @"";
     if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
+        self.title = NSLocalizedString(@"类型", @"类型");
         titleName = NSLocalizedString(@"请选择您的类型", @"请选择您的类型");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion]) {
+        self.title = NSLocalizedString(@"机型", @"机型");
         titleName = NSLocalizedString(@"请选择您的机型", @"请选择您的机型");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeColor]) {
+        self.title = NSLocalizedString(@"颜色", @"颜色");
         titleName = NSLocalizedString(@"请选择您的颜色", @"请选择您的颜色");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
+        self.title = NSLocalizedString(@"故障", @"故障");
         titleName = NSLocalizedString(@"请选择您的故障", @"请选择您的故障");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]) {
+        self.title = NSLocalizedString(@"详细故障", @"详细故障");
         titleName = NSLocalizedString(@"请选择您的详细故障", @"请选择您的详细故障");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
         if ([self.requestParam.BusinessType isEqualToString:BusinessTypeRepair]) {
+            self.title = NSLocalizedString(@"维修方案", @"维修方案");
             titleName = NSLocalizedString(@"请选择维修方案", @"请选择维修方案");
         }else{
+            self.title = NSLocalizedString(@"新旧程度", @"新旧程度");
             titleName = NSLocalizedString(@"请选择设备新旧程度", @"请选择设备新旧程度");
         }
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeRom]) {
+        self.title = NSLocalizedString(@"容量", @"容量");
         titleName = NSLocalizedString(@"请选择您的容量", @"请选择您的容量");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
+        self.title = NSLocalizedString(@"购买渠道", @"购买渠道");
         titleName = NSLocalizedString(@"请选择您的购买渠道", @"请选择您的购买渠道");
     }
     self.subTitle.text = titleName;
@@ -54,7 +93,15 @@
                                  msgBox(NSLocalizedString(@"请求失败，请稍候重试！", @"请求失败，请稍候重试！"));
                                  [self.navigationController popViewControllerAnimated:YES];
                              }];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+//    UIView *footerSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+//    UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [goBackToHomeButtom setFrame:CGRectMake(79, 317, 162, 29)];
+//    [goBackToHomeButtom setBackgroundImage:[UIImage imageNamed:@"2.5.0.6.3.png"] forState:UIControlStateNormal];
+//    [goBackToHomeButtom addTarget:self action:@selector(gotoLoginView:) forControlEvents:UIControlEventTouchUpInside];
+//    goBackToHomeButtom.clipsToBounds = YES;
+//    [footerSubView addSubview:goBackToHomeButtom];
+//    //去掉多余空cell
+//    self.tableView.tableFooterView = footerSubView;
 
 }
 
@@ -65,10 +112,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)backAction:(id)sender{
-    NSLog(@"backAction -----");
 }
 
 #pragma mark - Table view data source
@@ -198,6 +241,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
         stepsViewController.requestParam = self.requestParam;
+        stepsViewController.parentController = self;
         [self.navigationController pushViewController:stepsViewController
                                              animated:YES];
     }
@@ -212,6 +256,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
 
 @end

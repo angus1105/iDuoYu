@@ -62,6 +62,12 @@
     UIButton *button = (UIButton *)sender;
     [button setBackgroundColor:[UIColor whiteColor]];
     
+    if (button.tag == 0) {
+        [[Context sharedContext] setBusinessType:BusinessTypeRepair];
+    }else if (button.tag == 1) {
+        [[Context sharedContext] setBusinessType:BusinessTypeSell];
+    }
+    
     ChooseAlert *alert = [ChooseAlert newChooseAlert];
     alert.tag = button.tag;
     alert.chooseAlertDelegate = self;
