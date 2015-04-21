@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -395,35 +395,64 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="stepCell" rowHeight="100" id="obx-qi-0jY" customClass="CellWithImage">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellWithImage" rowHeight="100" id="obx-qi-0jY" customClass="CellWithImage">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obx-qi-0jY" id="MKk-Sn-IPc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d24-N8-NXk">
                                             <rect key="frame" x="8" y="8" width="83" height="83"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="83" id="k3n-5E-T5H"/>
+                                                <constraint firstAttribute="width" secondItem="d24-N8-NXk" secondAttribute="height" multiplier="1:1" id="oaw-86-wsf"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW7-wn-lSm">
-                                            <rect key="frame" x="99" y="24" width="252" height="52"/>
+                                            <rect key="frame" x="0.0" y="25" width="375" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="4X9-cW-CwW"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.1176470588" green="0.35294117650000001" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="d24-N8-NXk" firstAttribute="bottom" secondItem="MKk-Sn-IPc" secondAttribute="bottomMargin" id="0nw-mh-Oye"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="bW7-wn-lSm" secondAttribute="bottom" constant="15" id="8l0-La-kr7"/>
-                                        <constraint firstItem="bW7-wn-lSm" firstAttribute="leading" secondItem="d24-N8-NXk" secondAttribute="trailing" constant="8" id="ANb-dF-GaC"/>
+                                        <constraint firstItem="bW7-wn-lSm" firstAttribute="leading" secondItem="MKk-Sn-IPc" secondAttribute="leadingMargin" constant="-8" id="8nV-CZ-bzm"/>
                                         <constraint firstItem="d24-N8-NXk" firstAttribute="top" secondItem="MKk-Sn-IPc" secondAttribute="topMargin" id="Fkx-6h-7Tt"/>
-                                        <constraint firstAttribute="centerX" secondItem="bW7-wn-lSm" secondAttribute="centerX" constant="-54" id="TCz-Kf-2Ry"/>
+                                        <constraint firstAttribute="centerY" secondItem="bW7-wn-lSm" secondAttribute="centerY" constant="-1" id="QPd-lw-eEh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bW7-wn-lSm" secondAttribute="trailing" constant="-41" id="Tbv-Qm-ZnY"/>
                                         <constraint firstItem="d24-N8-NXk" firstAttribute="leading" secondItem="MKk-Sn-IPc" secondAttribute="leadingMargin" id="UNR-X0-ycl"/>
-                                        <constraint firstItem="bW7-wn-lSm" firstAttribute="trailing" secondItem="MKk-Sn-IPc" secondAttribute="trailingMargin" constant="17" id="klj-1S-Aku"/>
-                                        <constraint firstItem="bW7-wn-lSm" firstAttribute="top" secondItem="MKk-Sn-IPc" secondAttribute="topMargin" constant="16" id="ndh-NQ-kZd"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="leftImageView" destination="d24-N8-NXk" id="qMa-JE-AK3"/>
                                     <outlet property="titleLabel" destination="bW7-wn-lSm" id="8gL-Nm-ERX"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellNormal" id="jiz-lt-zIO" customClass="CellNormal">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jiz-lt-zIO" id="Qxx-kQ-sDt">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGC-gh-3ui">
+                                            <rect key="frame" x="10" y="11" width="330" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="F5i-iW-drz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qGC-gh-3ui" firstAttribute="leading" secondItem="Qxx-kQ-sDt" secondAttribute="leadingMargin" constant="2" id="Pk4-cE-e4J"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="qGC-gh-3ui" secondAttribute="trailing" constant="-6" id="ae9-cz-R8S"/>
+                                        <constraint firstItem="qGC-gh-3ui" firstAttribute="top" secondItem="Qxx-kQ-sDt" secondAttribute="topMargin" constant="3" id="cmg-Vr-kjO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="qGC-gh-3ui" id="opX-38-cwn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -432,9 +461,7 @@
                             <outlet property="delegate" destination="3jq-uJ-dKt" id="8EN-JS-W4o"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="选择设备" id="5ln-Y2-QH0">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="qd7-bo-lwR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="选择设备" id="5ln-Y2-QH0"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -443,7 +470,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5T-tC-ylQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398.5" y="194.5"/>
+            <point key="canvasLocation" x="1398.5" y="186.5"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="q7m-hk-ALa">
