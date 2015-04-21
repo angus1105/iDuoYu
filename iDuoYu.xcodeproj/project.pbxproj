@@ -27,6 +27,7 @@
 		5D2FD4C41AE6854900A69055 /* OrderSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4C31AE6854900A69055 /* OrderSearch.storyboard */; };
 		5D2FD4C71AE6895600A69055 /* OrderSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */; };
 		5D2FD4CD1AE69C5500A69055 /* OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2FD4CC1AE69C5500A69055 /* OrderDetailCell.m */; };
+		5D2FD4CF1AE69E3E00A69055 /* EngineerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4CE1AE69E3E00A69055 /* EngineerCell.xib */; };
 		5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001161AE48C660016AF1D /* CellNormal.m */; };
 		5D70011E1AE48C660016AF1D /* CellWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7001181AE48C660016AF1D /* CellWithImage.m */; };
 		5D70011F1AE48C660016AF1D /* EngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70011A1AE48C660016AF1D /* EngineerCell.m */; };
@@ -119,6 +120,7 @@
 		5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSearchViewController.m; sourceTree = "<group>"; };
 		5D2FD4CB1AE69C5500A69055 /* OrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailCell.h; sourceTree = "<group>"; };
 		5D2FD4CC1AE69C5500A69055 /* OrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCell.m; sourceTree = "<group>"; };
+		5D2FD4CE1AE69E3E00A69055 /* EngineerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EngineerCell.xib; sourceTree = "<group>"; };
 		5D7001151AE48C660016AF1D /* CellNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellNormal.h; sourceTree = "<group>"; };
 		5D7001161AE48C660016AF1D /* CellNormal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellNormal.m; sourceTree = "<group>"; };
 		5D7001171AE48C660016AF1D /* CellWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithImage.h; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		5D7001141AE48C660016AF1D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5D2FD4CE1AE69E3E00A69055 /* EngineerCell.xib */,
 				5D2FD4CB1AE69C5500A69055 /* OrderDetailCell.h */,
 				5D2FD4CC1AE69C5500A69055 /* OrderDetailCell.m */,
 				5D7001151AE48C660016AF1D /* CellNormal.h */,
@@ -544,6 +547,7 @@
 				EC8423441AE29E57008D4804 /* jsonFaultDetailListTest.json in Resources */,
 				EC84233E1AE29D6B008D4804 /* jsonVersionListTest.json in Resources */,
 				EC8423401AE29DB3008D4804 /* jsonColorListTest.json in Resources */,
+				EC592FC31AE6437100E6CFD1 /* SolutionCell.xib in Resources */,
 				5D2FD4C41AE6854900A69055 /* OrderSearch.storyboard in Resources */,
 				EC8423481AE29EA8008D4804 /* jsonSolutionSellListTest.json in Resources */,
 				EC84234A1AE29EC5008D4804 /* jsonRomListTest.json in Resources */,
@@ -553,6 +557,7 @@
 				5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */,
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
 				5D2FD4B91AE495F500A69055 /* AFNetworking.strings in Resources */,
+				5D2FD4CF1AE69E3E00A69055 /* EngineerCell.xib in Resources */,
 				5D2FD4B61AE495EA00A69055 /* Menu.storyboard in Resources */,
 				5D9BCA941AE2A0B500EAD869 /* MainTableHeaderView.xib in Resources */,
 				5D2FD4B41AE495EA00A69055 /* LaunchScreen.xib in Resources */,
