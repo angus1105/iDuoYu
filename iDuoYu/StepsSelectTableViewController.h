@@ -10,7 +10,7 @@
 #import "RequestParam.h"
 #import "DeviceParams.h"
 
-@interface StepsSelectTableViewController : UITableViewController <UINavigationControllerDelegate>
+@interface StepsSelectTableViewController : UITableViewController <UINavigationControllerDelegate,UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *subTitle;
 @property (nonatomic, strong) RequestParam *requestParam;
 @property (nonatomic, strong) DeviceParams *deviceParams;

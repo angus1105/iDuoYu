@@ -117,7 +117,20 @@
 }
 
 - (void)gotoHome:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UIActionSheet *goBackToHomeSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"您确定返回首页？", @"您确定返回首页？")
+                                                  delegate:self
+                                         cancelButtonTitle:NSLocalizedString(@"取消", @"取消")
+                                    destructiveButtonTitle:nil
+                                         otherButtonTitles:NSLocalizedString(@"确定", @"确定"),nil];
+    goBackToHomeSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [goBackToHomeSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+}
+
+#pragma mark UIActionSheetDelegate Methods
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Table view data source
@@ -133,10 +146,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *reuseIdentifier = @"stepCell";
+    
     DeviceParam *deviceParam = [self.deviceParams.DeviceParams objectAtIndex:indexPath.row];
     if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand] ||
         [self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
+//        static NSString *reuseIdentifier = @"cellWithImage";
+        static NSString *reuseIdentifier = @"stepCell";
         CellWithImage *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                               forIndexPath:indexPath];
         
@@ -150,10 +165,11 @@
              [self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]||
              [self.requestParam.InquireType isEqualToString:InquireTypeRom]||
              [self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
+//        static NSString *reuseIdentifier = @"cellNormal";
+        static NSString *reuseIdentifier = @"stepCell";
         CellNormal *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                               forIndexPath:indexPath];
         cell.titleLabel.text = deviceParam.ParamName;
-        cell.titleLabel.backgroundColor = [UIColor redColor];
         
         return cell;
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {

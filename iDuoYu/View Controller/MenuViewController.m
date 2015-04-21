@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "MenuCell.h"
+#import "Constants.h"
 
 @interface MenuViewController ()
 @property (nonatomic, strong) NSArray *menuItems;
@@ -33,6 +34,7 @@
     
     [self.slidingViewController setAnchorRightRevealAmount:witch];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+    self.view.backgroundColor = UIColorMake255(38, 107, 161, 1.0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
