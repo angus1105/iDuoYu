@@ -150,8 +150,7 @@
     DeviceParam *deviceParam = [self.deviceParams.DeviceParams objectAtIndex:indexPath.row];
     if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand] ||
         [self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
-//        static NSString *reuseIdentifier = @"cellWithImage";
-        static NSString *reuseIdentifier = @"stepCell";
+        static NSString *reuseIdentifier = @"cellWithImage";
         CellWithImage *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                               forIndexPath:indexPath];
         
@@ -165,8 +164,7 @@
              [self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]||
              [self.requestParam.InquireType isEqualToString:InquireTypeRom]||
              [self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
-//        static NSString *reuseIdentifier = @"cellNormal";
-        static NSString *reuseIdentifier = @"stepCell";
+        static NSString *reuseIdentifier = @"cellNormal";
         CellNormal *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                               forIndexPath:indexPath];
         cell.titleLabel.text = deviceParam.ParamName;
