@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StepsSelectTableViewController.h"
 
 @interface SolutionCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *leftImageView;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionView;
 @property (strong, nonatomic) IBOutlet UIButton *selectButton;
+@property (strong, nonatomic) StepsSelectTableViewController *ssCtl;
+@property (assign, nonatomic) NSInteger indexInt;
 - (IBAction)selectAction:(id)sender;
 @end

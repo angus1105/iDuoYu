@@ -21,36 +21,6 @@
 @end
 
 @implementation StepsSelectTableViewController
-- (void)dealloc{
-    //返回按钮所做的操作
-    if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
-        if ([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBrand]) {
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeVersion]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBrand];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeColor]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeVersion];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeFault]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeColor];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeFaultDetail]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeFault];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeSolution]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeFaultDetail];
-        }
-    }else{
-        if ([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBrand]) {
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeVersion]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBrand];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeRom]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeVersion];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBuyChannel]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeRom];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeColor]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBuyChannel];
-        }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeSolution]) {
-            [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeColor];
-        }
-    }
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *titleName = @"";
@@ -114,6 +84,45 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if (viewControllers.count > 1 && [viewControllers objectAtIndex:viewControllers.count-2] == self) {
+        // View is disappearing because a new view controller was pushed onto the stack
+//        NSLog(@"self.title = %@ New view controller was pushed", self.title);
+    } else if ([viewControllers indexOfObject:self] == NSNotFound) {
+        // View is disappearing because it was popped from the stack
+//        NSLog(@"self.title = %@ View controller was popped", self.title);
+        //返回按钮所做的操作
+        if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
+            if ([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBrand]) {
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeVersion]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBrand];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeColor]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeVersion];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeFault]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeColor];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeFaultDetail]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeFault];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeSolution]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeFaultDetail];
+            }
+        }else{
+            if ([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBrand]) {
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeVersion]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBrand];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeRom]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeVersion];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeBuyChannel]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeRom];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeColor]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeBuyChannel];
+            }else if([[[(StepsSelectTableViewController *)_parentController requestParam] InquireType] isEqualToString:InquireTypeSolution]) {
+                [[(StepsSelectTableViewController *)_parentController requestParam] setInquireType:InquireTypeColor];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -187,6 +196,8 @@
                            placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
         cell.descriptionView.text = deviceParam.Description;
         cell.selectButton.backgroundColor = UIColorMake255(120,200,110,1.0);
+        cell.ssCtl = self;
+        cell.indexInt = indexPath.row;
         return cell;
     }
     
@@ -227,11 +238,11 @@
             self.requestParam.FaultId = [[Context sharedContext] FaultId];
             self.requestParam.FaultDetailId = [[Context sharedContext] FaultDetailId];
         }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
-            [[Context sharedContext] setSolutionId:deviceParam.ParamId];
-            [[Context sharedContext] setSolution:deviceParam.ParamName];
-            [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
-            [[Context sharedContext] setSolutionDescription:deviceParam.description];
-            [[Context sharedContext] setFee:deviceParam.Fee];
+//            [[Context sharedContext] setSolutionId:deviceParam.ParamId];
+//            [[Context sharedContext] setSolution:deviceParam.ParamName];
+//            [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
+//            [[Context sharedContext] setSolutionDescription:deviceParam.description];
+//            [[Context sharedContext] setFee:deviceParam.Fee];
         }
     }else{
         if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
@@ -264,16 +275,15 @@
             self.requestParam.RomId = [[Context sharedContext] RomId];
             self.requestParam.BuyChannelId = [[Context sharedContext] BuyChannelId];
         }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
-            self.requestParam.InquireType = InquireTypeFee;
-            [[Context sharedContext] setSolutionId:deviceParam.ParamId];
-            [[Context sharedContext] setSolution:deviceParam.ParamName];
-            [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
-            [[Context sharedContext] setSolutionDescription:deviceParam.description];
-            [[Context sharedContext] setFee:deviceParam.Fee];
+//            [[Context sharedContext] setSolutionId:deviceParam.ParamId];
+//            [[Context sharedContext] setSolution:deviceParam.ParamName];
+//            [[Context sharedContext] setSolutionURL:deviceParam.ParamUrl];
+//            [[Context sharedContext] setSolutionDescription:deviceParam.description];
+//            [[Context sharedContext] setFee:deviceParam.Fee];
         }
     }
     if ([self.requestParam.InquireType isEqualToString:InquireTypeFee]) {
-        //TODO 跳转到显示费用页面
+        //不用处理跳转到显示费用页面
     }else{
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         StepsSelectTableViewController *stepsViewController = [storyboard instantiateViewControllerWithIdentifier:@"stepsSelect"];
