@@ -51,7 +51,9 @@ BOOL engineerListIsShown;
         }
     }];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2)];
+    float loadMoreY = 20+44+self.gifImageView.bounds.size.height;
+    float tableViewY = loadMoreY+44;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-tableViewY)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.allowsSelection = NO;
@@ -122,10 +124,20 @@ BOOL engineerListIsShown;
     [self.tableView reloadData];
     engineerListIsShown = YES;
     
+    float loadMoreY = 20+44+self.gifImageView.bounds.size.height;
+    float tableViewY = loadMoreY+44;
+//    CGAffineTransform endAngle = CGAffineTransformMakeRotation(M_PI_2);
     [UIView animateWithDuration:0.3
                      animations:^{
-                         self.tableView.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
-                         self.loadMoreBackgroundView.frame = CGRectMake(0, self.view.frame.size.height/2-44, self.view.frame.size.width, 44);
+                         self.loadMoreBackgroundView.frame = CGRectMake(0,
+                                                                        loadMoreY,
+                                                                        self.view.frame.size.width,
+                                                                        44);
+                         self.tableView.frame = CGRectMake(0,
+                                                           tableViewY,
+                                                           self.view.frame.size.width,
+                                                           self.view.frame.size.height-tableViewY);
+//                         self.loadMoreIndicatorImageView.transform = endAngle;
                      }];
     
 }
@@ -133,10 +145,14 @@ BOOL engineerListIsShown;
 - (void)hideEngineerList {
     [self.activityIndicatorView stopAnimating];
     engineerListIsShown = NO;
+    float loadMoreY = 20+44+self.gifImageView.bounds.size.height;
+    float tableViewY = loadMoreY+44;
+//    CGAffineTransform endAngle = CGAffineTransformMakeRotation(-M_PI_2);
     [UIView animateWithDuration:0.3
                      animations:^{
                          self.loadMoreBackgroundView.frame = CGRectMake(0, self.view.frame.size.height-44, self.view.frame.size.width, 44);
-                         self.tableView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2);
+                         self.tableView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-tableViewY);
+//                         self.loadMoreIndicatorImageView.transform = endAngle;
                      }];
 }
 

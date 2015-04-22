@@ -83,6 +83,15 @@
     [self.searchBar resignFirstResponder];
 }
 
+#pragma mark - Table view delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.orderList.count == 0) {
+        return self.view.frame.size.height-44-44;
+    }else {
+        return 160.f;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -91,22 +100,31 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.orderList count];
+    if (self.orderList.count == 0) {
+        return 1;
+    }else {
+        return [self.orderList count];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"orderDetailCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    Order *order = [self.orderList objectAtIndexedSubscript:[indexPath row]];
-    cell.orderNumberLabel.text = order.OrderSN;
-    cell.orderStatusLabel.text = order.OrderStatus;
-    cell.modelLabel.text = order.Content;
-    cell.priceLabel.text = order.Fee;
-    cell.businessTypeLabel.text = order.BusinessType;
+    if (self.orderList.count == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell"
+                                                                forIndexPath:indexPath];
+        return cell;
+    }else {
     
-    return cell;
+        OrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"orderDetailCell" forIndexPath:indexPath];
+        Order *order = [self.orderList objectAtIndexedSubscript:[indexPath row]];
+        cell.orderNumberLabel.text = order.OrderSN;
+        cell.orderStatusLabel.text = order.OrderStatus;
+        cell.modelLabel.text = order.Content;
+        cell.priceLabel.text = order.Fee;
+        cell.businessTypeLabel.text = order.BusinessType;
+        return cell;
+    }
 }
 
 @end
