@@ -37,10 +37,10 @@
                             <constraint firstAttribute="height" constant="40" id="Hxj-9j-DMz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="设备描述                                       机器所有功能正常                            屏幕和外壳轻微磨损，无磕伤" translatesAutoresizingMaskIntoConstraints="NO" id="zoX-fJ-EsA">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="设备描述                                       机器所有功能正常                            屏幕和外壳轻微磨损，无磕伤" translatesAutoresizingMaskIntoConstraints="NO" id="zoX-fJ-EsA">
                         <rect key="frame" x="120" y="41" width="235" height="100"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

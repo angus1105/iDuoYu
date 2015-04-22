@@ -46,6 +46,8 @@
 		EC592FB81AE55EDE00E6CFD1 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FB71AE55EDE00E6CFD1 /* MenuCell.m */; };
 		EC592FC21AE6437100E6CFD1 /* SolutionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FC01AE6437100E6CFD1 /* SolutionCell.m */; };
 		EC592FC31AE6437100E6CFD1 /* SolutionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */; };
+		EC592FC91AE6A5F700E6CFD1 /* ShowFeeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */; };
+		EC592FCC1AE6AA1200E6CFD1 /* FeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC592FCB1AE6AA1200E6CFD1 /* FeeCell.m */; };
 		EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */; };
 		EC8423281ADF85A7008D4804 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8423271ADF85A7008D4804 /* ImageIO.framework */; };
 		EC84232A1ADF8815008D4804 /* banner.gif in Resources */ = {isa = PBXBuildFile; fileRef = EC8423291ADF8815008D4804 /* banner.gif */; };
@@ -75,6 +77,8 @@
 		EC84236A1AE3D2E1008D4804 /* Orders.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423691AE3D2E1008D4804 /* Orders.m */; };
 		EC84236D1AE3D338008D4804 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84236C1AE3D338008D4804 /* Order.m */; };
 		EC8423711AE3DA37008D4804 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423701AE3DA37008D4804 /* OrderService.m */; };
+		ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD242851AE767970055CDCD /* FeeHeaderView.m */; };
+		ECD2428A1AE768430055CDCD /* FeeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD242891AE768430055CDCD /* FeeHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +157,10 @@
 		EC592FBF1AE6437100E6CFD1 /* SolutionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolutionCell.h; sourceTree = "<group>"; };
 		EC592FC01AE6437100E6CFD1 /* SolutionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolutionCell.m; sourceTree = "<group>"; };
 		EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SolutionCell.xib; sourceTree = "<group>"; };
+		EC592FC71AE6A5F700E6CFD1 /* ShowFeeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowFeeTableViewController.h; path = "View Controller/ShowFeeTableViewController.h"; sourceTree = "<group>"; };
+		EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowFeeTableViewController.m; path = "View Controller/ShowFeeTableViewController.m"; sourceTree = "<group>"; };
+		EC592FCA1AE6AA1200E6CFD1 /* FeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeCell.h; sourceTree = "<group>"; };
+		EC592FCB1AE6AA1200E6CFD1 /* FeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeCell.m; sourceTree = "<group>"; };
 		EC8423241ADF61AD008D4804 /* NavigationFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationFirstViewController.h; path = "View Controller/NavigationFirstViewController.h"; sourceTree = "<group>"; };
 		EC8423251ADF61AD008D4804 /* NavigationFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationFirstViewController.m; path = "View Controller/NavigationFirstViewController.m"; sourceTree = "<group>"; };
 		EC8423271ADF85A7008D4804 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -198,6 +206,9 @@
 		EC84236C1AE3D338008D4804 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		EC84236F1AE3DA37008D4804 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderService.h; path = Service/OrderService.h; sourceTree = "<group>"; };
 		EC8423701AE3DA37008D4804 /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderService.m; path = Service/OrderService.m; sourceTree = "<group>"; };
+		ECD242841AE767970055CDCD /* FeeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHeaderView.h; sourceTree = "<group>"; };
+		ECD242851AE767970055CDCD /* FeeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHeaderView.m; sourceTree = "<group>"; };
+		ECD242891AE768430055CDCD /* FeeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +278,9 @@
 				5D9BCA931AE2A0B500EAD869 /* MainTableHeaderView.xib */,
 				5D9BCA951AE2A0E100EAD869 /* MainTableHeaderView.h */,
 				5D9BCA961AE2A0E100EAD869 /* MainTableHeaderView.m */,
+				ECD242841AE767970055CDCD /* FeeHeaderView.h */,
+				ECD242851AE767970055CDCD /* FeeHeaderView.m */,
+				ECD242891AE768430055CDCD /* FeeHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,6 +424,8 @@
 				EC592FBF1AE6437100E6CFD1 /* SolutionCell.h */,
 				EC592FC01AE6437100E6CFD1 /* SolutionCell.m */,
 				EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */,
+				EC592FCA1AE6AA1200E6CFD1 /* FeeCell.h */,
+				EC592FCB1AE6AA1200E6CFD1 /* FeeCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -440,6 +456,8 @@
 				5D2FD4BD1AE549D100A69055 /* TopViewController.m */,
 				5D2FD4C51AE6895600A69055 /* OrderSearchViewController.h */,
 				5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */,
+				EC592FC71AE6A5F700E6CFD1 /* ShowFeeTableViewController.h */,
+				EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -559,6 +577,7 @@
 				5D2FD4B41AE495EA00A69055 /* LaunchScreen.xib in Resources */,
 				5D2FD4B51AE495EA00A69055 /* Main.storyboard in Resources */,
 				5D2FD4D31AE69ED200A69055 /* EngineerCell.xib in Resources */,
+				ECD2428A1AE768430055CDCD /* FeeHeaderView.xib in Resources */,
 				5D9BCA921AE295E900EAD869 /* MainFooterSubView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2FD4BE1AE549D100A69055 /* TopViewController.m in Sources */,
+				ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */,
 				5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */,
 				5D2FD4BA1AE4965F00A69055 /* MainTableHeaderView.m in Sources */,
 				5D2FD4CD1AE69C5500A69055 /* OrderDetailCell.m in Sources */,
@@ -632,11 +652,13 @@
 				EC8423261ADF61AD008D4804 /* NavigationFirstViewController.m in Sources */,
 				EC84236A1AE3D2E1008D4804 /* Orders.m in Sources */,
 				5D70011F1AE48C660016AF1D /* EngineerCell.m in Sources */,
+				EC592FC91AE6A5F700E6CFD1 /* ShowFeeTableViewController.m in Sources */,
 				EC0915131ADE5D53001599C1 /* MainViewController.m in Sources */,
 				5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */,
 				EC8423611AE3CEFF008D4804 /* ResultRespond.m in Sources */,
 				5D7001201AE48C660016AF1D /* MainCell.m in Sources */,
 				EC84235B1AE3CCE8008D4804 /* Engineers.m in Sources */,
+				EC592FCC1AE6AA1200E6CFD1 /* FeeCell.m in Sources */,
 				5D1918F21ADB990D00C7AE60 /* main.m in Sources */,
 				EC8423641AE3D05F008D4804 /* DeviceParams.m in Sources */,
 				EC8423671AE3D06C008D4804 /* DeviceParam.m in Sources */,

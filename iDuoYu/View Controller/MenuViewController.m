@@ -69,12 +69,14 @@
         default:
             break;
     }
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newTopViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-    }];
+    if (row == 0 || row == 3) {
+        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+            CGRect frame = self.slidingViewController.topViewController.view.frame;
+            self.slidingViewController.topViewController = newTopViewController;
+            self.slidingViewController.topViewController.view.frame = frame;
+            [self.slidingViewController resetTopView];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
