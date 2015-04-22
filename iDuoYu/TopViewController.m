@@ -16,18 +16,18 @@
 #import "Engineer.h"
 #import "EngineerCell.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
+#import "LoadMoreViewInTopVC.h"
 
 @interface TopViewController ()
 @property (strong, nonatomic) IBOutlet YFGIFImageView *gifImageView;
-@property (strong, nonatomic) IBOutlet UIView *loadMoreBackgroundView;
 @property (strong, nonatomic) RequestParam *requestParam;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *engineerAmountLabel;
 @property (strong, nonatomic) IBOutlet UIView *locationBackgroundView;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *engineerLists;
-@property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
+@property (strong, nonatomic) LoadMoreViewInTopVC *loadMoreView;
 @end
 
 @implementation TopViewController
@@ -48,6 +48,15 @@ BOOL engineerListIsShown;
         }else {
             self.locationLabel.text = [addressInfo objectForKey:@"State"];
             //获取此城市中工程师总数
+            [self.engineerLists removeAllObjects];
+            RequestParam *requestParam = [RequestParam new];
+            requestParam.City = [addressInfo objectForKey:@"State"];
+            [OrderService getEngineerList:requestParam
+                                  success:^(Engineers *engineers) {
+                                      [self.engineerLists addObjectsFromArray:engineers.Engineers];
+                                  } failure:^(NSError *error) {
+                                      NSLog(@"error = %@", error);
+                                  }];
         }
     }];
     
@@ -63,17 +72,25 @@ BOOL engineerListIsShown;
          forCellReuseIdentifier:@"engineerCell"];
     [self.view addSubview:_tableView];
     
-    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityIndicatorView.hidesWhenStopped = YES;
-    [self.loadMoreBackgroundView addSubview:self.activityIndicatorView];
-    self.activityIndicatorView.center = CGPointMake(_loadMoreBackgroundView.frame.size.width/3,
-                                                    _loadMoreBackgroundView.frame.size.height/2);
+    self.loadMoreView = [LoadMoreViewInTopVC newLoadMoreView];
+    __weak typeof(self) weakSelf = self;
+    
+    [self.loadMoreView setButtonTouchedBlock:^(id sender) {
+        [weakSelf engineerNearByTouchUpInside:(sender)];
+    }];
+    
+    
+    [self.view addSubview:self.loadMoreView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     [self.gifImageView startGIF];
+    self.loadMoreView.frame = CGRectMake(0,
+                                         self.view.frame.size.height-44,
+                                         self.view.frame.size.width,
+                                         44);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -119,17 +136,17 @@ BOOL engineerListIsShown;
 }
 
 - (void)showEngineerList {
-    [self.activityIndicatorView stopAnimating];
+    [self.loadMoreView.activityIndicator stopAnimating];
     // 刷新表格
     [self.tableView reloadData];
     engineerListIsShown = YES;
     
     float loadMoreY = 20+44+self.gifImageView.bounds.size.height;
     float tableViewY = loadMoreY+44;
-//    CGAffineTransform endAngle = CGAffineTransformMakeRotation(M_PI_2);
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(M_PI);
     [UIView animateWithDuration:0.3
                      animations:^{
-                         self.loadMoreBackgroundView.frame = CGRectMake(0,
+                         self.loadMoreView.frame = CGRectMake(0,
                                                                         loadMoreY,
                                                                         self.view.frame.size.width,
                                                                         44);
@@ -137,34 +154,37 @@ BOOL engineerListIsShown;
                                                            tableViewY,
                                                            self.view.frame.size.width,
                                                            self.view.frame.size.height-tableViewY);
-//                         self.loadMoreIndicatorImageView.transform = endAngle;
+                         self.loadMoreView.rightIndicatorImageView.transform = endAngle;
                      }];
     
 }
 
 - (void)hideEngineerList {
-    [self.activityIndicatorView stopAnimating];
+    [self.loadMoreView.activityIndicator  stopAnimating];
     engineerListIsShown = NO;
     float loadMoreY = 20+44+self.gifImageView.bounds.size.height;
     float tableViewY = loadMoreY+44;
-//    CGAffineTransform endAngle = CGAffineTransformMakeRotation(-M_PI_2);
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(-M_PI*2);
     [UIView animateWithDuration:0.3
                      animations:^{
-                         self.loadMoreBackgroundView.frame = CGRectMake(0, self.view.frame.size.height-44, self.view.frame.size.width, 44);
+                         self.loadMoreView.frame = CGRectMake(0, self.view.frame.size.height-44, self.view.frame.size.width, 44);
                          self.tableView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-tableViewY);
-//                         self.loadMoreIndicatorImageView.transform = endAngle;
+                         self.loadMoreView.rightIndicatorImageView.transform = endAngle;
                      }];
 }
 
 - (IBAction)engineerNearByTouchUpInside:(id)sender {
-    [self.loadMoreBackgroundView setBackgroundColor: UIColorMake255(230, 230, 230, 1.f)];
+    [self.loadMoreView setBackgroundColor: UIColorMake255(230, 230, 230, 1.f)];
     
     if (engineerListIsShown) {
         [self hideEngineerList];
     }else {
+        [self.loadMoreView.activityIndicator  startAnimating];
         [self.engineerLists removeAllObjects];
-        [self.activityIndicatorView startAnimating];
-        [OrderService getEngineerList:nil
+        
+        RequestParam *requestParam = [RequestParam new];
+        requestParam.City = self.locationLabel.text;
+        [OrderService getEngineerList:requestParam
                               success:^(Engineers *engineers) {
                                   [self.engineerLists addObjectsFromArray:engineers.Engineers];
                                   [self showEngineerList];
@@ -258,14 +278,6 @@ BOOL engineerListIsShown;
 - (IBAction)buttonTouchCancel:(id)sender {
     UIButton *button = (UIButton *)sender;
     [button setBackgroundColor:[UIColor whiteColor]];
-}
-
-- (IBAction)engineerNearByTouchDown:(id)sender {
-    self.loadMoreBackgroundView.backgroundColor = [UIColor lightGrayColor];
-}
-
-- (IBAction)engineerNearByTouchCancel:(id)sender {
-    [self.loadMoreBackgroundView setBackgroundColor: UIColorMake255(230, 230, 230, 1.f)];
 }
 
 @end

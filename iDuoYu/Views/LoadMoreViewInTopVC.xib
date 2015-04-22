@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bQo-75-3Gi" customClass="LoadMoreViewInTopVC">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8k-xc-JeZ" userLabel="BlueLineView">
+                    <rect key="frame" x="10" y="42" width="365" height="2"/>
+                    <color key="backgroundColor" red="0.20784313730000001" green="0.59999999999999998" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="XHt-rE-v1p"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconUpIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="Zkc-eP-gd6">
+                    <rect key="frame" x="347" y="11" width="20" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="29j-iv-17K"/>
+                        <constraint firstAttribute="width" constant="20" id="pgF-qa-bVk"/>
+                    </constraints>
+                </imageView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gUP-6L-gxs">
+                    <rect key="frame" x="122" y="11" width="20" height="20"/>
+                </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4w6-3a-b1v">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="附近的工程师">
+                        <color key="titleColor" red="0.27058823529999998" green="0.3294117647" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonTouch:" destination="bQo-75-3Gi" eventType="touchUpInside" id="tZK-dw-jyT"/>
+                        <action selector="engineerNearByTouchCancel:" destination="bQo-75-3Gi" eventType="touchCancel" id="1HS-XM-fyw"/>
+                        <action selector="engineerNearByTouchDown:" destination="bQo-75-3Gi" eventType="touchDown" id="25C-GL-kvP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Zkc-eP-gd6" secondAttribute="trailing" constant="8" id="07q-fE-40c"/>
+                <constraint firstAttribute="bottom" secondItem="4w6-3a-b1v" secondAttribute="bottom" constant="2" id="29g-qf-jo8"/>
+                <constraint firstAttribute="centerX" secondItem="gUP-6L-gxs" secondAttribute="centerX" constant="55.5" id="4RD-D9-fba"/>
+                <constraint firstAttribute="centerY" secondItem="Zkc-eP-gd6" secondAttribute="centerY" id="4cZ-br-g79"/>
+                <constraint firstAttribute="bottom" secondItem="v8k-xc-JeZ" secondAttribute="bottom" id="7Dy-KQ-vW4"/>
+                <constraint firstAttribute="trailing" secondItem="4w6-3a-b1v" secondAttribute="trailing" id="BxV-Ft-0Vl"/>
+                <constraint firstItem="v8k-xc-JeZ" firstAttribute="leading" secondItem="bQo-75-3Gi" secondAttribute="leading" constant="10" id="gUm-Yw-eZ5"/>
+                <constraint firstItem="4w6-3a-b1v" firstAttribute="top" secondItem="bQo-75-3Gi" secondAttribute="top" id="n9C-uC-2VL"/>
+                <constraint firstItem="4w6-3a-b1v" firstAttribute="leading" secondItem="bQo-75-3Gi" secondAttribute="leading" id="rFA-3w-oPI"/>
+                <constraint firstAttribute="trailing" secondItem="v8k-xc-JeZ" secondAttribute="trailing" id="sp7-QK-w37"/>
+                <constraint firstAttribute="centerY" secondItem="gUP-6L-gxs" secondAttribute="centerY" constant="1" id="vL5-nz-gqP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityIndicator" destination="gUP-6L-gxs" id="PpP-dp-SuG"/>
+                <outlet property="rightIndicatorImageView" destination="Zkc-eP-gd6" id="I6V-jt-yTy"/>
+            </connections>
+            <point key="canvasLocation" x="168.5" y="278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconUpIndicator" width="30" height="30"/>
+    </resources>
+</document>
