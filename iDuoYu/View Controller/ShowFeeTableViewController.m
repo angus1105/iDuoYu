@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "FeeHeaderView.h"
 #import "OrderService.h"
+#import "CustomerViewController.h"
 
 @interface ShowFeeTableViewController ()
 
@@ -92,6 +93,14 @@
     if (buttonIndex == 0) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
+}
+
+- (void)gotoCustomer{
+    //进入填写联系人信息页面
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CustomerViewController *customerViewController = [storyboard instantiateViewControllerWithIdentifier:@"customer"];
+    [self.navigationController pushViewController:customerViewController
+                                               animated:YES];
 }
 
 

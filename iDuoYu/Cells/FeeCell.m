@@ -22,7 +22,7 @@
 }
 
 - (IBAction)submitAction:(id)sender{
-
+    [self.showFeeCtl gotoCustomer];
 }
 
 - (IBAction)cancelAction:(id)sender{

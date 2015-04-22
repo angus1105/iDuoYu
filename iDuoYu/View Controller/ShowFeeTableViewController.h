@@ -12,4 +12,6 @@
 
 - (void)gotoHome;
 
+- (void)gotoCustomer;
+
 @end
