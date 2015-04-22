@@ -46,6 +46,9 @@
                                             blue:(b)/255.0f\
                                             alpha:(a)]
 
+#define kSuccess @"1"
+#define kFail @"0"
+
 
 
 

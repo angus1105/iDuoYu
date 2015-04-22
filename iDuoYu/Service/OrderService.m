@@ -46,9 +46,9 @@ NSString *const GetOrderList = @"getOrderList";
         success(engineerList);
     }
 #else
-    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetEngineerList];
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:GetEngineerList];
 #if DBG
-    NSLog(@"kGetEngineerList requestStr is %@",requestStr);
+    NSLog(@"kGetEngineerList requestStr is %@",requestContent);
 #endif
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent
@@ -83,9 +83,9 @@ NSString *const GetOrderList = @"getOrderList";
         success(resultRespond);
     }
 #else
-    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetDeviceParamIds];
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:GetDeviceParamIds];
 #if DBG
-    NSLog(@"kGetDeviceParamIds requestStr is %@",requestStr);
+    NSLog(@"kGetDeviceParamIds requestStr is %@",requestContent);
 #endif
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent
@@ -142,9 +142,9 @@ NSString *const GetOrderList = @"getOrderList";
         success(deviceParamList);
     }
 #else
-    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetDeviceParamList];
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:GetDeviceParamList];
 #if DBG
-    NSLog(@"kGetDeviceParamList requestStr is %@",requestStr);
+    NSLog(@"kGetDeviceParamList requestStr is %@",requestContent);
 #endif
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent
@@ -170,6 +170,10 @@ NSString *const GetOrderList = @"getOrderList";
                        success:(void (^)(ResultRespond *resultRespond))success
                        failure:(void (^)(NSError *error))failure{
 #if kIsSimulationData
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:SubmitOrder];
+#if DBG
+    NSLog(@"kSubmitOrder requestStr is %@",requestContent);
+#endif
     NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRespondTest" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
     ResultRespond *resultRespond = [[ResultRespond alloc] initWithJSONData:jsonData];
@@ -180,7 +184,7 @@ NSString *const GetOrderList = @"getOrderList";
 #else
     NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kSubmitOrder];
 #if DBG
-    NSLog(@"kSubmitOrder requestStr is %@",requestStr);
+    NSLog(@"kSubmitOrder requestStr is %@",requestContent);
 #endif
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent
@@ -215,9 +219,9 @@ NSString *const GetOrderList = @"getOrderList";
         success(orderList);
     }
 #else
-    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kGetOrderList];
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:GetOrderList];
 #if DBG
-    NSLog(@"kGetOrderList requestStr is %@",requestStr);
+    NSLog(@"kGetOrderList requestStr is %@",requestContent);
 #endif
     [HttpRequestManager postWithURL:[NSURL URLWithString:HOST]
                          andContent:requestContent

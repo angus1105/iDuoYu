@@ -41,6 +41,7 @@
 @property (nonatomic, strong) NSString *CustomerMobileNumber;
 @property (nonatomic, strong) NSString *CustomerAddress;
 @property (nonatomic, strong) NSString *ServiceType;
+@property (nonatomic, strong) NSString *OrderSN;
 
 - (void)clearParamWithInquireType:(NSString *)inquireType;
 

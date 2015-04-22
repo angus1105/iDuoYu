@@ -81,6 +81,7 @@
 		EC8423711AE3DA37008D4804 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423701AE3DA37008D4804 /* OrderService.m */; };
 		ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD242851AE767970055CDCD /* FeeHeaderView.m */; };
 		ECD2428A1AE768430055CDCD /* FeeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD242891AE768430055CDCD /* FeeHeaderView.xib */; };
+		ECD2428D1AE799800055CDCD /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2428C1AE799800055CDCD /* CustomerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,8 @@
 		ECD242841AE767970055CDCD /* FeeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHeaderView.h; sourceTree = "<group>"; };
 		ECD242851AE767970055CDCD /* FeeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHeaderView.m; sourceTree = "<group>"; };
 		ECD242891AE768430055CDCD /* FeeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHeaderView.xib; sourceTree = "<group>"; };
+		ECD2428B1AE799800055CDCD /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomerViewController.h; path = "View Controller/CustomerViewController.h"; sourceTree = "<group>"; };
+		ECD2428C1AE799800055CDCD /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomerViewController.m; path = "View Controller/CustomerViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +469,8 @@
 				5D2FD4C61AE6895600A69055 /* OrderSearchViewController.m */,
 				EC592FC71AE6A5F700E6CFD1 /* ShowFeeTableViewController.h */,
 				EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */,
+				ECD2428B1AE799800055CDCD /* CustomerViewController.h */,
+				ECD2428C1AE799800055CDCD /* CustomerViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */,
 				5D2FD4BB1AE4966400A69055 /* LocationHelper.m in Sources */,
 				5D2FD4BA1AE4965F00A69055 /* MainTableHeaderView.m in Sources */,
+				ECD2428D1AE799800055CDCD /* CustomerViewController.m in Sources */,
 				5D2FD4CD1AE69C5500A69055 /* OrderDetailCell.m in Sources */,
 				EC8423301ADF8C30008D4804 /* Common.m in Sources */,
 				EC8423311ADF8C30008D4804 /* Context.m in Sources */,

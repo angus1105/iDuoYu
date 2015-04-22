@@ -224,24 +224,29 @@
         requestParam.Rom = alert.RomStr;
         [OrderService getDeviceParamIds:requestParam
                               success:^(ResultRespond *resultRespond) {
-                                  //请求成功将这三项参数名和id写入单例中
-                                  [[Context sharedContext] setBrandId:resultRespond.BrandId];
-                                  [[Context sharedContext] setBrand:requestParam.Brand];
-                                  [[Context sharedContext] setVersionId:resultRespond.VersionId];
-                                  [[Context sharedContext] setVersion:requestParam.Version];
-                                  [[Context sharedContext] setRomId:resultRespond.RomId];
-                                  [[Context sharedContext] setRom:requestParam.RomId];
-                                  //根据不同的业务跳转到不同的选项页面
-                                  if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
-                                      requestParam.InquireType = InquireTypeColor;
-                                      requestParam.VersionId = [[Context sharedContext] VersionId];
+                                  if ([resultRespond.Result isEqualToString:kSuccess]) {
+                                      //请求成功将这三项参数名和id写入单例中
+                                      [[Context sharedContext] setBrandId:resultRespond.BrandId];
+                                      [[Context sharedContext] setBrand:requestParam.Brand];
+                                      [[Context sharedContext] setVersionId:resultRespond.VersionId];
+                                      [[Context sharedContext] setVersion:requestParam.Version];
+                                      [[Context sharedContext] setRomId:resultRespond.RomId];
+                                      [[Context sharedContext] setRom:requestParam.RomId];
+                                      //根据不同的业务跳转到不同的选项页面
+                                      if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
+                                          requestParam.InquireType = InquireTypeColor;
+                                          requestParam.VersionId = [[Context sharedContext] VersionId];
+                                      }else{
+                                          requestParam.InquireType = InquireTypeBuyChannel;
+                                          requestParam.BrandId = [[Context sharedContext] BrandId];
+                                      }
+                                      stepsViewController.requestParam = requestParam;
+                                      [self.navigationController pushViewController:stepsViewController
+                                                                           animated:YES];
                                   }else{
-                                      requestParam.InquireType = InquireTypeBuyChannel;
-                                      requestParam.BrandId = [[Context sharedContext] BrandId];
+                                      //请求失败，提示用户获取失败
+                                      msgBox(NSLocalizedString(@"请求失败，请手动进行选择！", @"请求失败，请手动进行选择！"));
                                   }
-                                  stepsViewController.requestParam = requestParam;
-                                  [self.navigationController pushViewController:stepsViewController
-                                                                       animated:YES];
                               } failure:^(NSError *error) {
                                   //请求失败，提示用户获取失败
                                   msgBox(NSLocalizedString(@"请求失败，请手动进行选择！", @"请求失败，请手动进行选择！"));

@@ -89,6 +89,7 @@ static Context* _sharedContext = nil;
         self.CustomerMobileNumber = @"";
         self.CustomerAddress = @"";
         self.ServiceType = @"";
+        self.OrderSN = @"";
     }
 }
 
