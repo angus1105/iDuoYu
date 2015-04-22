@@ -14,7 +14,7 @@
     self = [super init];
     
     if (self) {
-        [self setValue:@"Orders" forKeyPath:@"propertyArrayMap.Orders"];
+        [self setValue:@"Order" forKeyPath:@"propertyArrayMap.Orders"];
     }
     
     return self;
