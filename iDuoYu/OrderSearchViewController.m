@@ -10,8 +10,11 @@
 #import "ECSlidingViewController.h"
 #import "OrderDetailCell.h"
 #import "OrderService.h"
+#import "Order.h"
 
 @interface OrderSearchViewController ()
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSMutableArray *orderList;
 
 @end
 
@@ -20,11 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.orderList = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,14 +46,41 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
+- (void)searchOrder {
+    [self.searchBar resignFirstResponder];
+    RequestParam *requestParam = [[RequestParam alloc] init];
+    requestParam.CustomerMobileNumber = self.searchBar.text;
+    
+    
+    [self.orderList removeAllObjects];
+    [OrderService getOrderList:requestParam
+                       success:^(Orders *orders) {
+                           [self.orderList addObjectsFromArray:orders.Orders];
+                           [self.tableView reloadData];
+                       } failure:^(NSError *error) {
+                           
+                       }];
+}
+
+#pragma mark - UISearchBar Delegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
+    UIToolbar *toolbarSearch = [[UIToolbar alloc] init];
+    
+    UIBarButtonItem *searchBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"搜索", @"搜索")
+                                                                            style:UIBarButtonItemStyleBordered target:self
+                                                                           action:@selector(searchOrder)];
+    NSArray *barButtonItems = @[[[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"取消", @"取消")
+                                                                style:UIBarButtonItemStyleBordered target:self action:@selector(searchBarCancelButtonClicked)],
+                                [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                searchBarButtonItem];
+    [toolbarSearch setItems:barButtonItems];
+    [toolbarSearch sizeToFit];
+    searchBar.inputAccessoryView = toolbarSearch;
     return YES;
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    [searchBar setShowsCancelButton:NO animated:YES];
+- (void)searchBarCancelButtonClicked{
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Table view data source
@@ -65,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 1;
+    return [self.orderList count];
 }
 
 
@@ -73,18 +99,14 @@
     OrderDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"orderDetailCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Order *order = [self.orderList objectAtIndexedSubscript:[indexPath row]];
+    cell.orderNumberLabel.text = order.OrderSN;
+    cell.orderStatusLabel.text = order.OrderStatus;
+    cell.modelLabel.text = order.Content;
+    cell.priceLabel.text = order.Fee;
+    cell.businessTypeLabel.text = order.BusinessType;
     
     return cell;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
