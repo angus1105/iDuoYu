@@ -7,6 +7,7 @@
 //
 
 #import "FeeCell.h"
+#import "ShowFeeTableViewController.h"
 
 @implementation FeeCell
 
@@ -25,7 +26,7 @@
 }
 
 - (IBAction)cancelAction:(id)sender{
-
+    [self.showFeeCtl gotoHome];
 }
 
 @end

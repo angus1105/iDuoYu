@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowFeeTableViewController : UITableViewController
+@interface ShowFeeTableViewController : UITableViewController <UIActionSheetDelegate>
+
+- (void)gotoHome;
 
 @end
