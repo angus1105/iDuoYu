@@ -80,6 +80,7 @@
 		ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD242851AE767970055CDCD /* FeeHeaderView.m */; };
 		ECD2428A1AE768430055CDCD /* FeeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD242891AE768430055CDCD /* FeeHeaderView.xib */; };
 		ECD2428D1AE799800055CDCD /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2428C1AE799800055CDCD /* CustomerViewController.m */; };
+		ECD242901AE7EF320055CDCD /* OrderSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2428F1AE7EF320055CDCD /* OrderSuccessViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,8 @@
 		ECD242891AE768430055CDCD /* FeeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHeaderView.xib; sourceTree = "<group>"; };
 		ECD2428B1AE799800055CDCD /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomerViewController.h; path = "View Controller/CustomerViewController.h"; sourceTree = "<group>"; };
 		ECD2428C1AE799800055CDCD /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomerViewController.m; path = "View Controller/CustomerViewController.m"; sourceTree = "<group>"; };
+		ECD2428E1AE7EF320055CDCD /* OrderSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderSuccessViewController.h; path = "View Controller/OrderSuccessViewController.h"; sourceTree = "<group>"; };
+		ECD2428F1AE7EF320055CDCD /* OrderSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderSuccessViewController.m; path = "View Controller/OrderSuccessViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +466,8 @@
 				EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */,
 				ECD2428B1AE799800055CDCD /* CustomerViewController.h */,
 				ECD2428C1AE799800055CDCD /* CustomerViewController.m */,
+				ECD2428E1AE7EF320055CDCD /* OrderSuccessViewController.h */,
+				ECD2428F1AE7EF320055CDCD /* OrderSuccessViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -671,6 +676,7 @@
 				EC8423571AE2A75F008D4804 /* Request.m in Sources */,
 				EC592FC21AE6437100E6CFD1 /* SolutionCell.m in Sources */,
 				EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */,
+				ECD242901AE7EF320055CDCD /* OrderSuccessViewController.m in Sources */,
 				EC8423551AE2A75F008D4804 /* Body.m in Sources */,
 				EC8423711AE3DA37008D4804 /* OrderService.m in Sources */,
 				EC84235E1AE3CCFB008D4804 /* Engineer.m in Sources */,
