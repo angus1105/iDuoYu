@@ -18,6 +18,9 @@
 		5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1918F71ADB990D00C7AE60 /* ViewController.m */; };
 		5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1918FC1ADB990D00C7AE60 /* Images.xcassets */; };
 		5D19190C1ADB990D00C7AE60 /* iDuoYuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D19190B1ADB990D00C7AE60 /* iDuoYuTests.m */; };
+		5D2793141AE8842600E8E0B1 /* WebRelated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2793131AE8842600E8E0B1 /* WebRelated.storyboard */; };
+		5D2793171AE8878300E8E0B1 /* WebRelatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2793161AE8878300E8E0B1 /* WebRelatedViewController.m */; };
+		5D27931A1AE89D3700E8E0B1 /* faq.html in Resources */ = {isa = PBXBuildFile; fileRef = 5D2793191AE89D3700E8E0B1 /* faq.html */; };
 		5D2FD4B41AE495EA00A69055 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4AE1AE495EA00A69055 /* LaunchScreen.xib */; };
 		5D2FD4B51AE495EA00A69055 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4B01AE495EA00A69055 /* Main.storyboard */; };
 		5D2FD4B61AE495EA00A69055 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2FD4B21AE495EA00A69055 /* Menu.storyboard */; };
@@ -117,6 +120,10 @@
 		5D1919051ADB990D00C7AE60 /* iDuoYuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDuoYuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D19190A1ADB990D00C7AE60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D19190B1ADB990D00C7AE60 /* iDuoYuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDuoYuTests.m; sourceTree = "<group>"; };
+		5D2793131AE8842600E8E0B1 /* WebRelated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebRelated.storyboard; sourceTree = "<group>"; };
+		5D2793151AE8878300E8E0B1 /* WebRelatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebRelatedViewController.h; path = "View Controller/WebRelatedViewController.h"; sourceTree = "<group>"; };
+		5D2793161AE8878300E8E0B1 /* WebRelatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebRelatedViewController.m; path = "View Controller/WebRelatedViewController.m"; sourceTree = "<group>"; };
+		5D2793191AE89D3700E8E0B1 /* faq.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq.html; sourceTree = "<group>"; };
 		5D2FD4AF1AE495EA00A69055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5D2FD4B11AE495EA00A69055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D2FD4B31AE495EA00A69055 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Menu.storyboard; sourceTree = "<group>"; };
@@ -372,6 +379,7 @@
 				5D2FD4B01AE495EA00A69055 /* Main.storyboard */,
 				5D2FD4B21AE495EA00A69055 /* Menu.storyboard */,
 				5D2FD4C31AE6854900A69055 /* OrderSearch.storyboard */,
+				5D2793131AE8842600E8E0B1 /* WebRelated.storyboard */,
 				5D1918EF1ADB990D00C7AE60 /* Supporting Files */,
 			);
 			path = iDuoYu;
@@ -380,6 +388,7 @@
 		5D1918EF1ADB990D00C7AE60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D2793181AE89D1A00E8E0B1 /* web */,
 				5D1468CD1ADCAD2200962988 /* Localized */,
 				5D1918F01ADB990D00C7AE60 /* Info.plist */,
 				5D1918F11ADB990D00C7AE60 /* main.m */,
@@ -414,6 +423,14 @@
 				5D19190A1ADB990D00C7AE60 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D2793181AE89D1A00E8E0B1 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				5D2793191AE89D3700E8E0B1 /* faq.html */,
+			);
+			path = web;
 			sourceTree = "<group>";
 		};
 		5D7001141AE48C660016AF1D /* Cells */ = {
@@ -471,6 +488,8 @@
 				EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */,
 				ECD2428B1AE799800055CDCD /* CustomerViewController.h */,
 				ECD2428C1AE799800055CDCD /* CustomerViewController.m */,
+				5D2793151AE8878300E8E0B1 /* WebRelatedViewController.h */,
+				5D2793161AE8878300E8E0B1 /* WebRelatedViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -570,6 +589,7 @@
 				EC8423421AE29E2C008D4804 /* jsonFaultListTest.json in Resources */,
 				5D0C57B71AE78D9F000530C3 /* LoadMoreViewInTopVC.xib in Resources */,
 				EC84233A1AE29C8F008D4804 /* jsonBrandListTest.json in Resources */,
+				5D27931A1AE89D3700E8E0B1 /* faq.html in Resources */,
 				EC8423381AE29C6B008D4804 /* jsonRespondTest.json in Resources */,
 				EC8423361AE297B9008D4804 /* jsonEngineerListTest.json in Resources */,
 				EC84232A1ADF8815008D4804 /* banner.gif in Resources */,
@@ -587,6 +607,7 @@
 				5D1918FD1ADB990D00C7AE60 /* Images.xcassets in Resources */,
 				5D2FD4B91AE495F500A69055 /* AFNetworking.strings in Resources */,
 				5D2FD4B61AE495EA00A69055 /* Menu.storyboard in Resources */,
+				5D2793141AE8842600E8E0B1 /* WebRelated.storyboard in Resources */,
 				5D9BCA941AE2A0B500EAD869 /* MainTableHeaderView.xib in Resources */,
 				5D2FD4B41AE495EA00A69055 /* LaunchScreen.xib in Resources */,
 				5D2FD4B51AE495EA00A69055 /* Main.storyboard in Resources */,
@@ -668,6 +689,7 @@
 				EC84236A1AE3D2E1008D4804 /* Orders.m in Sources */,
 				5D70011F1AE48C660016AF1D /* EngineerCell.m in Sources */,
 				EC592FC91AE6A5F700E6CFD1 /* ShowFeeTableViewController.m in Sources */,
+				5D2793171AE8878300E8E0B1 /* WebRelatedViewController.m in Sources */,
 				EC0915131ADE5D53001599C1 /* MainViewController.m in Sources */,
 				5D1918F51ADB990D00C7AE60 /* AppDelegate.m in Sources */,
 				EC8423611AE3CEFF008D4804 /* ResultRespond.m in Sources */,

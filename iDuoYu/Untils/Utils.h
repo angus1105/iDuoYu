@@ -16,3 +16,9 @@
 + (NSString *)currentDeviceTotalDiskSpace;
 + (NSString *)carrierName;
 @end
+
+
+@interface NSString (Trim)
+- (NSString *)trim;
+- (BOOL)isEmpty;
+@end

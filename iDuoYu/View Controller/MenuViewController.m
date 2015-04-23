@@ -60,23 +60,39 @@
     UIViewController *newTopViewController;
     switch (row) {
         case 0:
+            //业务流程
             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             newTopViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
             break;
+            
+        case 1:
+            //F.A.Q
+            storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
+            newTopViewController = [storyboard instantiateInitialViewController];
+            newTopViewController.title = NSLocalizedString(@"F.A.Q", @"F.A.Q");
+            break;
+        case 2:
+            //招募
+            storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
+            newTopViewController = [storyboard instantiateInitialViewController];
+            newTopViewController.title = NSLocalizedString(@"工程师招募", @"工程师招募");
+            break;
+            
         case 3:
+            //订单查询与邮寄
             storyboard = [UIStoryboard storyboardWithName:@"OrderSearch" bundle:nil];
             newTopViewController = [storyboard instantiateInitialViewController];
         default:
             break;
     }
-    if (row == 0 || row == 3) {
+//    if (row == 0 || row == 3) {
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
             CGRect frame = self.slidingViewController.topViewController.view.frame;
             self.slidingViewController.topViewController = newTopViewController;
             self.slidingViewController.topViewController.view.frame = frame;
             [self.slidingViewController resetTopView];
         }];
-    }
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

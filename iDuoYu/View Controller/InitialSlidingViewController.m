@@ -21,7 +21,7 @@
     
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         self.shouldAdjustChildViewHeightForStatusBar = YES;
-        self.statusBarBackgroundView.backgroundColor = [UIColor blackColor];
+//        self.statusBarBackgroundView.backgroundColor = [UIColor blackColor];
     }
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
@@ -35,10 +35,10 @@
     return NO;
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

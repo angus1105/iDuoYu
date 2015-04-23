@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iDG-cu-BGF">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="mH7-As-lY8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iDG-cu-BGF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F8o-iL-8Fe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yLz-Kl-jd5" kind="relationship" relationship="rootViewController" id="j23-R3-a4R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEY-zf-w7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="833"/>
+        </scene>
+        <!--F.A.Q-->
+        <scene sceneID="iFR-3T-3t1">
+            <objects>
+                <viewController id="yLz-Kl-jd5" customClass="WebRelatedViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xF2-aF-MrU"/>
+                        <viewControllerLayoutGuide type="bottom" id="WKX-Zb-pw4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hBm-Yu-F2q">
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhS-Tg-A96">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="WhS-Tg-A96" secondAttribute="trailing" constant="-16" id="Hgz-k3-3cx"/>
+                            <constraint firstItem="WhS-Tg-A96" firstAttribute="leading" secondItem="hBm-Yu-F2q" secondAttribute="leadingMargin" constant="-16" id="ZZW-Kk-CHw"/>
+                            <constraint firstItem="WKX-Zb-pw4" firstAttribute="top" secondItem="WhS-Tg-A96" secondAttribute="bottom" id="bEe-Cx-xnV"/>
+                            <constraint firstItem="WhS-Tg-A96" firstAttribute="top" secondItem="xF2-aF-MrU" secondAttribute="bottom" constant="-44" id="jxs-Pf-qBa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="F.A.Q" id="BFc-hH-jOe">
+                        <barButtonItem key="leftBarButtonItem" image="navigation" id="J1t-bc-evX">
+                            <connections>
+                                <action selector="revealMenu:" destination="yLz-Kl-jd5" id="I2R-jz-u82"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="WhS-Tg-A96" id="2eo-HE-TfM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ByC-1A-scx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922.5" y="866.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="navigation" width="18" height="16"/>
+    </resources>
+</document>
