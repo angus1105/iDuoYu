@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0C57B31AE78D3E000530C3 /* LoadMoreViewInTopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0C57B21AE78D3E000530C3 /* LoadMoreViewInTopVC.m */; };
+		5D0C57B71AE78D9F000530C3 /* LoadMoreViewInTopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0C57B61AE78D9F000530C3 /* LoadMoreViewInTopVC.xib */; };
 		5D0FEF3A1ADE046E00AA5A47 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */; };
 		5D0FEF421ADE3EF800AA5A47 /* ChooseAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */; };
 		5D0FEF451ADE43E700AA5A47 /* ChooseAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0FEF441ADE43E700AA5A47 /* ChooseAlert.m */; };
@@ -94,6 +96,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0C57B11AE78D3E000530C3 /* LoadMoreViewInTopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreViewInTopVC.h; sourceTree = "<group>"; };
+		5D0C57B21AE78D3E000530C3 /* LoadMoreViewInTopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreViewInTopVC.m; sourceTree = "<group>"; };
+		5D0C57B61AE78D9F000530C3 /* LoadMoreViewInTopVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreViewInTopVC.xib; sourceTree = "<group>"; };
 		5D0FEF391ADE046E00AA5A47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5D0FEF411ADE3EF800AA5A47 /* ChooseAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseAlert.xib; sourceTree = "<group>"; };
 		5D0FEF431ADE43E700AA5A47 /* ChooseAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAlert.h; sourceTree = "<group>"; };
@@ -287,6 +292,9 @@
 				ECD242841AE767970055CDCD /* FeeHeaderView.h */,
 				ECD242851AE767970055CDCD /* FeeHeaderView.m */,
 				ECD242891AE768430055CDCD /* FeeHeaderView.xib */,
+				5D0C57B11AE78D3E000530C3 /* LoadMoreViewInTopVC.h */,
+				5D0C57B21AE78D3E000530C3 /* LoadMoreViewInTopVC.m */,
+				5D0C57B61AE78D9F000530C3 /* LoadMoreViewInTopVC.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -565,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8423421AE29E2C008D4804 /* jsonFaultListTest.json in Resources */,
+				5D0C57B71AE78D9F000530C3 /* LoadMoreViewInTopVC.xib in Resources */,
 				EC84233A1AE29C8F008D4804 /* jsonBrandListTest.json in Resources */,
 				EC8423381AE29C6B008D4804 /* jsonRespondTest.json in Resources */,
 				EC8423361AE297B9008D4804 /* jsonEngineerListTest.json in Resources */,
@@ -673,6 +682,7 @@
 				5D1918F21ADB990D00C7AE60 /* main.m in Sources */,
 				EC8423641AE3D05F008D4804 /* DeviceParams.m in Sources */,
 				EC8423671AE3D06C008D4804 /* DeviceParam.m in Sources */,
+				5D0C57B31AE78D3E000530C3 /* LoadMoreViewInTopVC.m in Sources */,
 				EC8423571AE2A75F008D4804 /* Request.m in Sources */,
 				EC592FC21AE6437100E6CFD1 /* SolutionCell.m in Sources */,
 				EC09151A1ADE5E79001599C1 /* MenuViewController.m in Sources */,
