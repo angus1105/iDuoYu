@@ -11,6 +11,7 @@
 #import "OrderDetailCell.h"
 #import "OrderService.h"
 #import "Order.h"
+#import "Utils.h"
 
 @interface OrderSearchViewController ()
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -50,9 +51,15 @@
     [self.searchBar resignFirstResponder];
     RequestParam *requestParam = [[RequestParam alloc] init];
     requestParam.CustomerMobileNumber = self.searchBar.text;
-    
-    
+
     [self.orderList removeAllObjects];
+    
+    if ([self.searchBar.text isEmpty]) {
+        self.searchBar.text = @"";
+        [self.tableView reloadData];
+        return;
+    }
+    
     [OrderService getOrderList:requestParam
                        success:^(Orders *orders) {
                            [self.orderList addObjectsFromArray:orders.Orders];

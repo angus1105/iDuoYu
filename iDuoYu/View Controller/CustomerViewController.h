@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomerViewController : UIViewController<UIActionSheetDelegate>
+@interface CustomerViewController : UIViewController<UIActionSheetDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *customerNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *customerMobileNumberTextField;
 @property (strong, nonatomic) IBOutlet UITextField *customerAddressTextField;

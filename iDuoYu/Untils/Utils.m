@@ -47,3 +47,25 @@
 
 
 @end
+
+
+@implementation NSString (Trim)
+
+- (BOOL)isEmpty {
+
+    return ([@"" isEqualToString:self] || [self isEqual: [NSNull null]] || [@"null" isEqualToString:self]);
+}
+
+- (NSString *)trim {
+    if ([self isEmpty])
+        return self;
+    
+    if ([self characterAtIndex:0] != ' ' && [self characterAtIndex:[self length]-1] != ' ')
+        return self;
+    
+    NSMutableString* result = [self mutableCopy];
+    CFStringTrimWhitespace((CFMutableStringRef)result);
+    return result;
+}
+
+@end
