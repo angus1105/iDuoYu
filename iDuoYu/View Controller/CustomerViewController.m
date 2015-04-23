@@ -14,6 +14,7 @@
 #import "Constants.h"
 #import "OrderSuccessViewController.h"
 #import "TopViewController.h"
+#import "LocationHelper.h"
 
 @interface CustomerViewController ()
 
@@ -24,6 +25,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColorMake255(247, 247, 247, 1.0);
+    self.customerAddressTextField.delegate = self;
+    self.customerMobileNumberTextField.delegate = self;
+    self.customerNameTextField.delegate = self;
+    
+    [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
+        if (error) {
+            
+        }else {
+            
+            for (NSString *key in addressInfo.allKeys) {
+                NSLog(@"key = %@, value = %@", key, [addressInfo objectForKey:key]);
+            }
+            
+            self.customerAddressTextField.text = [addressInfo objectForKey:@"Name"];
+
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,14 +134,39 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)done:(id)sender {
+    [self.customerMobileNumberTextField resignFirstResponder];
 }
-*/
+
+- (void)cancel:(id)sender {
+   [self.customerMobileNumberTextField resignFirstResponder];
+}
+
+#pragma mark - text filed delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField == self.customerMobileNumberTextField) {
+        UIToolbar *toolbarSearch = [[UIToolbar alloc] init];
+        
+        UIBarButtonItem *searchBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"完成", @"完成")
+                                                                                style:UIBarButtonItemStyleBordered target:self
+                                                                               action:@selector(done:)];
+        
+        NSArray *barButtonItems = @[[[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"取消", @"取消")
+                                                                    style:UIBarButtonItemStyleBordered target:self action:@selector(cancel:)],
+                                    [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                    searchBarButtonItem];
+        [toolbarSearch setItems:barButtonItems];
+        [toolbarSearch sizeToFit];
+        textField.inputAccessoryView = toolbarSearch;
+        return YES;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

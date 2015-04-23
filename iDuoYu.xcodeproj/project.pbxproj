@@ -491,6 +491,8 @@
 				EC592FC81AE6A5F700E6CFD1 /* ShowFeeTableViewController.m */,
 				ECD2428B1AE799800055CDCD /* CustomerViewController.h */,
 				ECD2428C1AE799800055CDCD /* CustomerViewController.m */,
+				ECD2428E1AE7EF320055CDCD /* OrderSuccessViewController.h */,
+				ECD2428F1AE7EF320055CDCD /* OrderSuccessViewController.m */,
 				5D2793151AE8878300E8E0B1 /* WebRelatedViewController.h */,
 				5D2793161AE8878300E8E0B1 /* WebRelatedViewController.m */,
 			);

@@ -11,11 +11,13 @@
 #import "AppDelegate.h"
 #import "MenuCell.h"
 #import "Constants.h"
+#import "WebRelatedViewController.h"
 
 @interface MenuViewController ()
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) NSArray *menuSubItems;
 @property (nonatomic, strong) NSArray *menuImageItems;
+@property (nonatomic, strong) NSMutableDictionary *viewControllersForIndexPath;
 @end
 
 @implementation MenuViewController
@@ -35,6 +37,7 @@
     [self.slidingViewController setAnchorRightRevealAmount:witch];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
     self.view.backgroundColor = UIColorMake255(38, 107, 161, 1.0);
+    self.viewControllersForIndexPath = [NSMutableDictionary dictionary];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -57,34 +60,48 @@
 {
     int row = (int)indexPath.row;
     UIStoryboard *storyboard;
-    UIViewController *newTopViewController;
-    switch (row) {
-        case 0:
-            //业务流程
-            storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            newTopViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
-            break;
-            
-        case 1:
-            //F.A.Q
-            storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
-            newTopViewController = [storyboard instantiateInitialViewController];
-            newTopViewController.title = NSLocalizedString(@"F.A.Q", @"F.A.Q");
-            break;
-        case 2:
-            //招募
-            storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
-            newTopViewController = [storyboard instantiateInitialViewController];
-            newTopViewController.title = NSLocalizedString(@"工程师招募", @"工程师招募");
-            break;
-            
-        case 3:
-            //订单查询与邮寄
-            storyboard = [UIStoryboard storyboardWithName:@"OrderSearch" bundle:nil];
-            newTopViewController = [storyboard instantiateInitialViewController];
-        default:
-            break;
+    UIViewController *newTopViewController = [self.viewControllersForIndexPath objectForKey:indexPath];
+    
+    if (newTopViewController == nil) {
+        switch (row) {
+            case 0:
+                //业务流程
+                storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                newTopViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
+                break;
+                
+            case 1:{
+                //F.A.Q
+                storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
+                newTopViewController = [storyboard instantiateInitialViewController];
+                WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
+                viewController.title = NSLocalizedString(@"F.A.Q", @"F.A.Q");
+                //            [viewController setWebPageFileName:@"faq" ofType:@"html"];
+                [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
+            }
+                break;
+            case 2:{
+                //招募
+                storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
+                newTopViewController = [storyboard instantiateInitialViewController];
+                WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
+                viewController.title = NSLocalizedString(@"工程师招募", @"工程师招募");
+                [viewController setWebPageFileName:@"faq" ofType:@"html"];
+            }
+                break;
+                
+            case 3:
+                //订单查询与邮寄
+                storyboard = [UIStoryboard storyboardWithName:@"OrderSearch" bundle:nil];
+                newTopViewController = [storyboard instantiateInitialViewController];
+            default:
+                break;
+        }
+        
+        [self.viewControllersForIndexPath setObject:newTopViewController
+                                             forKey:indexPath];
     }
+    
 //    if (row == 0 || row == 3) {
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
             CGRect frame = self.slidingViewController.topViewController.view.frame;

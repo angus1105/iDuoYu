@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "Engineer.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
+#import "WebRelatedViewController.h"
 
 @interface OrderSuccessViewController ()
 @property (strong, nonatomic) NSMutableArray *engineerLists;
@@ -28,13 +29,13 @@
                                                bundle:nil]
          forCellReuseIdentifier:@"engineerCell"];
     [self.engineerLists removeAllObjects];
-    [OrderService getEngineerList:nil
-                          success:^(Engineers *engineers) {
-                              [self.engineerLists addObjectsFromArray:engineers.Engineers];
-                              [self.tableView reloadData];
-                          } failure:^(NSError *error) {
-                              NSLog(@"error = %@", error);
-                          }];
+
+    [OrderService getCurrentCityEngineerList:^(Engineers *engineers) {
+        [self.engineerLists addObjectsFromArray:engineers.Engineers];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"error = %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,6 +113,13 @@
                                      animated:YES];
         }else{
             //TODO:跳转到说明的静态页
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WebRelated"
+                                                                 bundle:nil];
+            WebRelatedViewController *webRelatedViewController = [storyboard instantiateViewControllerWithIdentifier:WebRelatedViewController.storyboardID];
+            [webRelatedViewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
+            [self.navigationController pushViewController:webRelatedViewController
+                                                 animated:YES];
+            
         }
     }else if (indexPath.section == 1){
         [tableView deselectRowAtIndexPath:indexPath

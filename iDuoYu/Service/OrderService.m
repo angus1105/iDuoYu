@@ -11,6 +11,7 @@
 #import "HttpRequestManager.h"
 #import <NSObject+ObjectMap.h>
 #import "RequestParam.h"
+#import "LocationHelper.h"
 
 NSString *const InquireTypeBrand = @"Brand";
 NSString *const InquireTypeVersion = @"Version";
@@ -33,6 +34,31 @@ NSString *const GetOrderList = @"getOrderList";
 
 
 @implementation OrderService
+
++ (void)getCurrentCityEngineerList:(void (^)(Engineers *engineers))success
+                           failure:(void (^)(NSError *error))failure {
+    [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
+        if (error) {
+            if (failure) {
+                failure(error);
+            }
+        }else {
+            RequestParam *requestParam = [RequestParam new];
+            requestParam.City = [addressInfo objectForKey:@"State"];
+            [OrderService getEngineerList:requestParam
+                                  success:^(Engineers *engineers) {
+                                      if (success) {
+                                          success(engineers);
+                                      }
+ 
+                                  } failure:^(NSError *error) {
+                                      if (failure) {
+                                          failure(error);
+                                      }
+                                  }];
+        }
+    }];
+}
 
 + (void)getEngineerList:(RequestParam *)requestParam
                        success:(void (^)(Engineers *engineers))success

@@ -14,6 +14,10 @@
 #import "Orders.h"
 
 /**
+ `OrderService` 与服务器交互类
+ */
+
+/**
  业务查询条件字符串
  */
 extern NSString *const InquireTypeBrand;
@@ -43,6 +47,20 @@ extern NSString *const GetOrderList;
 
 @interface OrderService : NSObject
 
+/**
+ 获取当前城市的所有工程师信息列表，此方法首先通过定位获取城市信息，然后向服务端发出请求获取到工程师列表
+ @param success 成功获取后调用的block
+ @param failure 获取失败后调用的block
+ */
++ (void)getCurrentCityEngineerList:(void (^)(Engineers *engineers))success
+                           failure:(void (^)(NSError *error))failure;
+
+
+/**
+ 根据城市名获取此城市的所有工程师的列表，需要一个配置了City属性的RequestParma实体
+ @param success 成功获取后调用的block
+ @param failure 获取失败后调用的block
+ */
 + (void)getEngineerList:(RequestParam *)requestParam
                 success:(void (^)(Engineers *engineers))success
                 failure:(void (^)(NSError *error))failure;

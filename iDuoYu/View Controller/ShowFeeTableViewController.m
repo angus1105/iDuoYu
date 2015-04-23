@@ -48,6 +48,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    FeeHeaderView *headerSubView = (FeeHeaderView *)self.tableView.tableHeaderView;
+    
+    CGSize size = [headerSubView.headerSubtitleTextView.text sizeWithFont:headerSubView.headerSubtitleTextView.font constrainedToSize:CGSizeMake(headerSubView.headerSubtitleTextView.frame.size.width, 2000.0f) lineBreakMode:NSLineBreakByWordWrapping];
+    CGFloat headerSubTitleHeight = size.height+40;
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, headerSubView.headerTitleLabel.frame.size.height+headerSubView.headerImageView.frame.size.height+headerSubTitleHeight+10+20);
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
