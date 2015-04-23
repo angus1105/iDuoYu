@@ -179,6 +179,12 @@ BOOL engineerListIsShown;
     if (engineerListIsShown) {
         [self hideEngineerList];
     }else {
+        
+        if (self.engineerLists.count > 0) {
+            [self showEngineerList];
+            return;
+        }
+        
         [self.loadMoreView.activityIndicator  startAnimating];
         [self.engineerLists removeAllObjects];
         
