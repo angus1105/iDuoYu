@@ -72,31 +72,15 @@ BOOL engineerListIsShown;
          forCellReuseIdentifier:@"engineerCell"];
     [self.view addSubview:_tableView];
     
-    self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityIndicatorView.hidesWhenStopped = YES;
-    [self.loadMoreBackgroundView addSubview:self.activityIndicatorView];
-    self.activityIndicatorView.center = CGPointMake(_loadMoreBackgroundView.frame.size.width/3,
-                                                    _loadMoreBackgroundView.frame.size.height/2);
+    self.loadMoreView = [LoadMoreViewInTopVC newLoadMoreView];
+    __weak typeof(self) weakSelf = self;
     
-    //消息监听，push到OrderSuccessViewController页面
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"pushToOrderSuccessViewController"
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(pushToOrderSuccessViewController:)
-                                                 name:@"pushToOrderSuccessViewController"
-                                               object:nil];
-}
-
-- (void)dealloc{
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"pushToOrderSuccessViewController"
-                                                  object:nil];
-}
-
-- (void)pushToOrderSuccessViewController:(id)sender{
+    [self.loadMoreView setButtonTouchedBlock:^(id sender) {
+        [weakSelf engineerNearByTouchUpInside:(sender)];
+    }];
     
+    
+    [self.view addSubview:self.loadMoreView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
