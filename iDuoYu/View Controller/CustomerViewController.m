@@ -12,6 +12,8 @@
 #import "RequestParam.h"
 #import "OrderService.h"
 #import "Constants.h"
+#import "OrderSuccessViewController.h"
+#import "TopViewController.h"
 
 @interface CustomerViewController ()
 
@@ -97,7 +99,12 @@
                               if ([resultRespond.Result isEqualToString:kSuccess]) {
                                   //请求成功将订单号写入单例中
                                   [[Context sharedContext] setOrderSN:resultRespond.OrderSN];
-                                  //TODO:进入完成订单后的页面
+                                  //进入完成订单后的页面
+                                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                  OrderSuccessViewController *orderSuccessViewController = [storyboard instantiateViewControllerWithIdentifier:@"orderSuccess"];
+                                  TopViewController *topViewCtl = [self.navigationController.viewControllers objectAtIndex:0];
+                                  [self.navigationController popToRootViewControllerAnimated:NO];
+                                  [topViewCtl.navigationController pushViewController:orderSuccessViewController animated:YES];
                               }else{
                                   //请求失败，提示用户获取失败
                                   msgBox(NSLocalizedString(@"请求失败，请手动进行选择！", @"请求失败，请手动进行选择！"));
