@@ -44,7 +44,7 @@ BOOL engineerListIsShown;
     
     [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
         if (error) {
-            self.locationLabel.text = NSLocalizedString(@"北京", @"北京");
+            self.locationLabel.text = NSLocalizedString(@"北京市", @"北京市");
         }else {
             self.locationLabel.text = [addressInfo objectForKey:@"State"];
             //获取此城市中工程师总数
