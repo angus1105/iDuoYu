@@ -251,7 +251,7 @@
                                             <constraint firstAttribute="height" constant="32" id="iLD-uI-jtv"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5B-bl-vbB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5B-bl-vbB">
                                         <rect key="frame" x="48" y="13" width="260" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="lFH-Vi-PYa"/>
