@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -71,7 +71,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1rv-yc-Cgq">
-                                                    <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                                    <rect key="frame" x="18" y="10" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="1rv-yc-Cgq" secondAttribute="height" multiplier="1:1" id="idG-n0-jIU"/>
                                                     </constraints>
@@ -79,7 +79,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="1rv-yc-Cgq" firstAttribute="leading" secondItem="EvZ-p8-fUa" secondAttribute="leadingMargin" id="B4b-bV-Xae"/>
+                                                <constraint firstItem="1rv-yc-Cgq" firstAttribute="leading" secondItem="EvZ-p8-fUa" secondAttribute="leadingMargin" constant="10" id="B4b-bV-Xae"/>
                                                 <constraint firstAttribute="centerY" secondItem="AwG-aD-s9c" secondAttribute="centerY" constant="-20" id="DcQ-ul-drk"/>
                                                 <constraint firstAttribute="centerX" secondItem="AwG-aD-s9c" secondAttribute="centerX" constant="-45" id="Iik-eS-ZL4"/>
                                                 <constraint firstItem="1rv-yc-Cgq" firstAttribute="top" secondItem="EvZ-p8-fUa" secondAttribute="topMargin" constant="2" id="NLP-Lj-L6r"/>
@@ -117,6 +117,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="menuTableView" destination="3o0-AS-Q2j" id="fbw-3X-LuU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSp-sb-krs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

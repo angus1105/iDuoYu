@@ -38,6 +38,7 @@
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
     self.view.backgroundColor = UIColorMake255(38, 107, 161, 1.0);
     self.viewControllersForIndexPath = [NSMutableDictionary dictionary];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -52,8 +53,13 @@
     cell.titleLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     cell.subTitleLabel.text = [self.menuSubItems objectAtIndex:indexPath.row];
     cell.leftImageView.image = [UIImage imageNamed:[self.menuImageItems objectAtIndex:indexPath.row]];
-    
+    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, kScreenWitch, cell.frame.size.height);
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat cellHeight = (kScreenHeight-kStatusBarHeight-kNavigationBar-20)/6;
+    return cellHeight>80?80:cellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

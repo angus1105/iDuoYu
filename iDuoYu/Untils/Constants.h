@@ -24,8 +24,8 @@
 
 #define IS_ABOVE_IOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 ? YES : NO)
 
-#define kScreenHeight [Context sharedContext].screenHeight
-#define kScreenWitch 320
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kScreenWitch  [[UIScreen mainScreen] bounds].size.width
 
 #define kTabBar 50
 #define kTabBarAndPage 65
