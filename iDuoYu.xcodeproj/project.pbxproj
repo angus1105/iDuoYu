@@ -82,6 +82,7 @@
 		EC84236A1AE3D2E1008D4804 /* Orders.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423691AE3D2E1008D4804 /* Orders.m */; };
 		EC84236D1AE3D338008D4804 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84236C1AE3D338008D4804 /* Order.m */; };
 		EC8423711AE3DA37008D4804 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423701AE3DA37008D4804 /* OrderService.m */; };
+		ECBC300D1AF28B90003B9760 /* banner_4s.gif in Resources */ = {isa = PBXBuildFile; fileRef = ECBC300C1AF28B90003B9760 /* banner_4s.gif */; };
 		ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD242851AE767970055CDCD /* FeeHeaderView.m */; };
 		ECD2428A1AE768430055CDCD /* FeeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD242891AE768430055CDCD /* FeeHeaderView.xib */; };
 		ECD2428D1AE799800055CDCD /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2428C1AE799800055CDCD /* CustomerViewController.m */; };
@@ -220,6 +221,7 @@
 		EC84236C1AE3D338008D4804 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		EC84236F1AE3DA37008D4804 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderService.h; path = Service/OrderService.h; sourceTree = "<group>"; };
 		EC8423701AE3DA37008D4804 /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderService.m; path = Service/OrderService.m; sourceTree = "<group>"; };
+		ECBC300C1AF28B90003B9760 /* banner_4s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = banner_4s.gif; sourceTree = "<group>"; };
 		ECD242841AE767970055CDCD /* FeeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHeaderView.h; sourceTree = "<group>"; };
 		ECD242851AE767970055CDCD /* FeeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHeaderView.m; sourceTree = "<group>"; };
 		ECD242891AE768430055CDCD /* FeeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHeaderView.xib; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				5D1918F61ADB990D00C7AE60 /* ViewController.h */,
 				5D1918F71ADB990D00C7AE60 /* ViewController.m */,
 				EC8423291ADF8815008D4804 /* banner.gif */,
+				ECBC300C1AF28B90003B9760 /* banner_4s.gif */,
 				5D1918FC1ADB990D00C7AE60 /* Images.xcassets */,
 				5D2FD4AE1AE495EA00A69055 /* LaunchScreen.xib */,
 				5D2FD4B01AE495EA00A69055 /* Main.storyboard */,
@@ -600,6 +603,7 @@
 				EC84232A1ADF8815008D4804 /* banner.gif in Resources */,
 				EC8423441AE29E57008D4804 /* jsonFaultDetailListTest.json in Resources */,
 				EC84233E1AE29D6B008D4804 /* jsonVersionListTest.json in Resources */,
+				ECBC300D1AF28B90003B9760 /* banner_4s.gif in Resources */,
 				EC8423401AE29DB3008D4804 /* jsonColorListTest.json in Resources */,
 				EC592FC31AE6437100E6CFD1 /* SolutionCell.xib in Resources */,
 				5D2FD4C41AE6854900A69055 /* OrderSearch.storyboard in Resources */,

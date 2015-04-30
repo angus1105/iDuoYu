@@ -17,6 +17,7 @@
 #import "EngineerCell.h"
 #import <AFNetworking/UIKit+AFNetworking.h>
 #import "LoadMoreViewInTopVC.h"
+#import <GBDeviceInfo.h>
 
 @interface TopViewController ()
 @property (strong, nonatomic) IBOutlet YFGIFImageView *gifImageView;
@@ -48,9 +49,15 @@ BOOL engineerListIsShown;
     
     // Do any additional setup after loading the view.
     self.locationBackgroundView.layer.cornerRadius = 10;
-    NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner" ofType:@"gif"]];
     
-    self.gifImageView.gifData = gifData;
+    if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch ||
+        [[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
+        NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner_4s" ofType:@"gif"]];
+        self.gifImageView.gifData = gifData;
+    }else{
+        NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner" ofType:@"gif"]];
+        self.gifImageView.gifData = gifData;
+    }
     
     [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
         if (error) {

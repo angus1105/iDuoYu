@@ -117,9 +117,6 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="menuTableView" destination="3o0-AS-Q2j" id="fbw-3X-LuU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSp-sb-krs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
