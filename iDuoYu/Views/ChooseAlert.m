@@ -75,7 +75,14 @@ UIWindow *_backgroundWindow;
     _backgroundWindow.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
     _backgroundWindow.hidden = NO;
 
-    self.frame = CGRectMake(30, 110, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-156);
+    if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch) {
+        self.frame = CGRectMake(30, 20, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-30);
+    }else if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
+        self.frame = CGRectMake(30, 50, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-100);
+    }else{
+        self.frame = CGRectMake(30, 110, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-156);
+    }
+    
     [_backgroundWindow addSubview:self];
     
 //    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] init];

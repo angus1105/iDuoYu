@@ -15,6 +15,7 @@
 #import <AFNetworking/UIKit+AFNetworking.h>
 #import "DeviceParam.h"
 #import "Constants.h"
+#import <GBDeviceInfo.h>
 
 @interface StepsSelectTableViewController ()
 
@@ -199,6 +200,10 @@
             cell = [[SolutionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
         }
         cell.titleLabel.text = deviceParam.ParamName;
+        if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch ||
+            [[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
+            cell.titleLabel.font = [UIFont systemFontOfSize:16];
+        }
         [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
                            placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
         cell.descriptionView.text = deviceParam.Description;
