@@ -36,6 +36,16 @@ BOOL engineerListIsShown;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //左侧菜单按钮
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menuButton addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    menuButton.frame = CGRectMake(0, 0, 44, 44);
+    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateNormal];
+    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateHighlighted];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    self.navigationItem.leftBarButtonItem = menuItem;
+    
     // Do any additional setup after loading the view.
     self.locationBackgroundView.layer.cornerRadius = 10;
     NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner" ofType:@"gif"]];
@@ -47,18 +57,20 @@ BOOL engineerListIsShown;
             self.locationLabel.text = NSLocalizedString(@"北京市", @"北京市");
         }else {
             self.locationLabel.text = [addressInfo objectForKey:@"State"];
-            //获取此城市中工程师总数
-            [self.engineerLists removeAllObjects];
-            RequestParam *requestParam = [RequestParam new];
-            requestParam.City = [addressInfo objectForKey:@"State"];
-            [OrderService getEngineerList:requestParam
-                                  success:^(Engineers *engineers) {
-                                      [self.engineerLists addObjectsFromArray:engineers.Engineers];
-                                  } failure:^(NSError *error) {
-                                      NSLog(@"error = %@", error);
-                                  }];
+            self.locationLabel.text = NSLocalizedString(@"北京市", @"北京市");
         }
     }];
+    //由于第一版工程师并未与位置进行关联，所以不论是否获取了位置都会请求获取此城市中工程师总数
+    [self.engineerLists removeAllObjects];
+    RequestParam *requestParam = [RequestParam new];
+    requestParam.City = self.locationLabel.text;
+    [OrderService getEngineerList:requestParam
+                          success:^(Engineers *engineers) {
+                              [self.engineerLists addObjectsFromArray:engineers.Engineers];
+                              self.engineerAmountLabel.text = [NSString stringWithFormat:@"%@位工程师为您服务",engineers.ReturnCount];
+                          } failure:^(NSError *error) {
+                              NSLog(@"error = %@", error);
+                          }];
     
     float loadMoreY = 20+44+self.gifImageView.bounds.size.height;
     float tableViewY = loadMoreY+44;

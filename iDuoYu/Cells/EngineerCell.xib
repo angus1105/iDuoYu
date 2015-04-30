@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -68,7 +68,7 @@
                 <outlet property="achievementLabel" destination="b39-5e-ZBB" id="TRW-DH-NIF"/>
                 <outlet property="avatarImageView" destination="equ-ch-CL5" id="1dH-1x-oIG"/>
                 <outlet property="descLabel" destination="wnZ-3w-z4I" id="NHn-1q-t5c"/>
-                <outlet property="nameLabel" destination="b39-5e-ZBB" id="9CI-8B-c8q"/>
+                <outlet property="nameLabel" destination="FqS-0L-svS" id="LgA-x2-YAX"/>
             </connections>
             <point key="canvasLocation" x="143" y="57"/>
         </tableViewCell>

@@ -51,6 +51,9 @@
 
 
 - (IBAction)showServiceTypeAction:(id)sender{
+    [self.customerNameTextField resignFirstResponder];
+    [self.customerMobileNumberTextField resignFirstResponder];
+    [self.customerAddressTextField resignFirstResponder];
     UIActionSheet *selectServiceTypeSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"请选择服务方式", @"请选则服务方式")
                                                                    delegate:self
                                                           cancelButtonTitle:NSLocalizedString(@"取消", @"取消")

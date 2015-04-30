@@ -22,6 +22,16 @@ NSString *const WebRelatedStoryBoardID = @"WebRelated";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //左侧菜单按钮
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menuButton addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    menuButton.frame = CGRectMake(0, 0, 44, 44);
+    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateNormal];
+    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateHighlighted];
+    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    self.navigationItem.leftBarButtonItem = menuItem;
+    
     // Do any additional setup after loading the view.
     self.progressView.hidden = YES;
     if (self.pageURL) {

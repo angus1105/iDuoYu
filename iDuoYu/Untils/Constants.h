@@ -36,7 +36,7 @@
 
 #define kTimeOut 60
 
-#define HOST @"http://localhost/~chenangus/yii/kscrm/index.php?r=MailProjects/checkMailNotice"  //接口地址
+#define HOST @"http://www.iduoyu.com/Home/Api/index.html"  //接口地址
 
 #define kIsSimulationData 1 //是否使用测试数据 1:使用模拟数据 0:使用正式数据
 #define DBG 0  //是否打印调试  1:打印调试  0:关闭打印调试

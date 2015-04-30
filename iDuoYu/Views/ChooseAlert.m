@@ -75,7 +75,7 @@ UIWindow *_backgroundWindow;
     _backgroundWindow.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
     _backgroundWindow.hidden = NO;
 
-    self.frame = CGRectMake(30, 110, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-130);
+    self.frame = CGRectMake(30, 110, [[UIScreen mainScreen] bounds].size.width-60, [[UIScreen mainScreen] bounds].size.height-156);
     [_backgroundWindow addSubview:self];
     
 //    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] init];

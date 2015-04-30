@@ -26,35 +26,37 @@
     NSString *titleName = @"";
     if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
         self.title = NSLocalizedString(@"类型", @"类型");
-        titleName = NSLocalizedString(@"请选择您的类型", @"请选择您的类型");
+        titleName = NSLocalizedString(@"请选择您设备的类型", @"请选择您设备的类型");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion]) {
         self.title = NSLocalizedString(@"机型", @"机型");
-        titleName = NSLocalizedString(@"请选择您的机型", @"请选择您的机型");
+        titleName = NSLocalizedString(@"请选择您设备的机型", @"请选择您设备的机型");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeColor]) {
         self.title = NSLocalizedString(@"颜色", @"颜色");
-        titleName = NSLocalizedString(@"请选择您的颜色", @"请选择您的颜色");
+        titleName = NSLocalizedString(@"请选择您设备的颜色", @"请选择您设备的颜色");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeFault]) {
         self.title = NSLocalizedString(@"故障", @"故障");
-        titleName = NSLocalizedString(@"请选择您的故障", @"请选择您的故障");
+        titleName = NSLocalizedString(@"请选择您设备的故障", @"请选择您设备的故障");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeFaultDetail]) {
         self.title = NSLocalizedString(@"详细故障", @"详细故障");
-        titleName = NSLocalizedString(@"请选择您的详细故障", @"请选择您的详细故障");
+        titleName = NSLocalizedString(@"请选择您设备的详细故障", @"请选择您设备的详细故障");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
         if ([self.requestParam.BusinessType isEqualToString:BusinessTypeRepair]) {
             self.title = NSLocalizedString(@"维修方案", @"维修方案");
-            titleName = NSLocalizedString(@"请选择维修方案", @"请选择维修方案");
+            titleName = NSLocalizedString(@"请选择您设备的维修方案", @"请选择您设备的维修方案");
         }else{
             self.title = NSLocalizedString(@"新旧程度", @"新旧程度");
-            titleName = NSLocalizedString(@"请选择设备新旧程度", @"请选择设备新旧程度");
+            titleName = NSLocalizedString(@"请选择您设备的新旧程度", @"请选择您设备的新旧程度");
         }
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeRom]) {
         self.title = NSLocalizedString(@"容量", @"容量");
-        titleName = NSLocalizedString(@"请选择您的容量", @"请选择您的容量");
+        titleName = NSLocalizedString(@"请选择您设备的容量", @"请选择您设备的容量");
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeBuyChannel]) {
         self.title = NSLocalizedString(@"购买渠道", @"购买渠道");
-        titleName = NSLocalizedString(@"请选择您的购买渠道", @"请选择您的购买渠道");
+        titleName = NSLocalizedString(@"请选择您设备的购买渠道", @"请选择您设备的购买渠道");
     }
     self.subTitle.text = titleName;
+    self.subTitle.backgroundColor = UIColorMake255(247, 247, 247, 1);
+    self.subTitle.textColor = UIColorMake255(108, 112, 116, 1);
     [OrderService getDeviceParamList:self.requestParam
                              success:^(DeviceParams *deviceParams) {
                                  self.deviceParams = deviceParams;
@@ -68,13 +70,13 @@
     UIView *footerLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, footerSubView.frame.size.width, 1)];
     footerLineView.backgroundColor = UIColorMake255(227,227,227,1.0);
     [footerSubView addSubview:footerLineView];
-    UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
-    [goBackToHomeButtom setFrame:CGRectMake(20, 20, self.view.frame.size.width-40, 40)];
-    [goBackToHomeButtom setBackgroundColor:UIColorMake255(0,158,186,1.0)];
-    [goBackToHomeButtom setTitle:NSLocalizedString(@"返回到首页", @"返回到首页") forState:UIControlStateNormal];
-    [goBackToHomeButtom addTarget:self action:@selector(gotoHome:) forControlEvents:UIControlEventTouchUpInside];
-    goBackToHomeButtom.clipsToBounds = YES;
-    [footerSubView addSubview:goBackToHomeButtom];
+//    UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [goBackToHomeButtom setFrame:CGRectMake(20, 20, self.view.frame.size.width-40, 40)];
+//    [goBackToHomeButtom setBackgroundColor:UIColorMake255(0,158,186,1.0)];
+//    [goBackToHomeButtom setTitle:NSLocalizedString(@"返回到首页", @"返回到首页") forState:UIControlStateNormal];
+//    [goBackToHomeButtom addTarget:self action:@selector(gotoHome:) forControlEvents:UIControlEventTouchUpInside];
+//    goBackToHomeButtom.clipsToBounds = YES;
+//    [footerSubView addSubview:goBackToHomeButtom];
     //去掉多余空cell
     self.tableView.tableFooterView = footerSubView;
     [self.tableView registerNib:[UINib nibWithNibName:@"SolutionCell"
@@ -130,15 +132,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)gotoHome:(id)sender {
-    UIActionSheet *goBackToHomeSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"您确定返回首页？", @"您确定返回首页？")
-                                                  delegate:self
-                                         cancelButtonTitle:NSLocalizedString(@"取消", @"取消")
-                                    destructiveButtonTitle:nil
-                                         otherButtonTitles:NSLocalizedString(@"确定", @"确定"),nil];
-    goBackToHomeSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [goBackToHomeSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-}
+//- (void)gotoHome:(id)sender {
+//    UIActionSheet *goBackToHomeSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"您确定返回首页？", @"您确定返回首页？")
+//                                                  delegate:self
+//                                         cancelButtonTitle:NSLocalizedString(@"取消", @"取消")
+//                                    destructiveButtonTitle:nil
+//                                         otherButtonTitles:NSLocalizedString(@"确定", @"确定"),nil];
+//    goBackToHomeSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+//    [goBackToHomeSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+//}
 
 #pragma mark UIActionSheetDelegate Methods
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -169,8 +171,13 @@
                                                               forIndexPath:indexPath];
         
         cell.titleLabel.text = deviceParam.ParamName;
-        [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
-                           placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
+        if ([self.requestParam.InquireType isEqualToString:InquireTypeBrand]) {
+            [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
+                               placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
+        }else{
+            [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
+                               placeholderImage:nil];
+        }
         
         return cell;
     }else if([self.requestParam.InquireType isEqualToString:InquireTypeVersion] ||
@@ -195,6 +202,42 @@
         [cell.leftImageView setImageWithURL:[NSURL URLWithString:deviceParam.ParamUrl]
                            placeholderImage:[UIImage imageNamed:@"iconiPhone.png"]];
         cell.descriptionView.text = deviceParam.Description;
+        //计算descriptionView的行数和行间距
+        CGSize size = [cell.descriptionView.text sizeWithFont:[cell.descriptionView font]];
+        int length = size.height;
+        CGSize constraintSize;
+        constraintSize.width = cell.descriptionView.frame.size.width;
+        constraintSize.height = MAXFLOAT;
+        CGSize sizeFrame =[cell.descriptionView.text sizeWithFont:cell.descriptionView.font constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
+        int colomNumber = sizeFrame.height/length+1;
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        switch (colomNumber) {
+            case 2:
+                paragraphStyle.lineSpacing = 1;// 字体的行间距
+                break;
+            case 3:
+                paragraphStyle.lineSpacing = 1;// 字体的行间距
+                break;
+            case 4:
+                paragraphStyle.lineSpacing = 1;// 字体的行间距
+                break;
+            case 5:
+                paragraphStyle.lineSpacing = 1;// 字体的行间距
+                break;
+            case 6:
+                paragraphStyle.lineSpacing = 1;// 字体的行间距
+                break;
+            default:
+                paragraphStyle.lineSpacing = 3;// 字体的行间距
+                break;
+        }
+        
+        NSDictionary *attributes = @{NSForegroundColorAttributeName:cell.descriptionView.textColor,
+                                     NSFontAttributeName:cell.descriptionView.font,
+                                     NSParagraphStyleAttributeName:paragraphStyle
+                                     };
+        cell.descriptionView.attributedText = [[NSAttributedString alloc] initWithString:cell.descriptionView.text attributes:attributes];
+        
         cell.selectButton.backgroundColor = UIColorMake255(120,200,110,1.0);
         cell.ssCtl = self;
         cell.indexInt = indexPath.row;
@@ -298,7 +341,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([self.requestParam.InquireType isEqualToString:InquireTypeSolution]) {
-        return 200;
+        return 220;
     }else{
         return 100;
     }

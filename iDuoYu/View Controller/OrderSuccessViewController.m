@@ -28,8 +28,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"EngineerCell"
                                                bundle:nil]
          forCellReuseIdentifier:@"engineerCell"];
-    [self.engineerLists removeAllObjects];
+}
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.engineerLists removeAllObjects];
+    
     [OrderService getCurrentCityEngineerList:^(Engineers *engineers) {
         [self.engineerLists addObjectsFromArray:engineers.Engineers];
         [self.tableView reloadData];

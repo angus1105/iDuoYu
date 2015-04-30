@@ -24,9 +24,9 @@
 
 - (void)awakeFromNib
 {
-    self.menuItems = [NSArray arrayWithObjects:NSLocalizedString(@"服务流程", @"服务流程"), NSLocalizedString(@"F.A.Q", @"F.A.Q"), NSLocalizedString(@"工程师招募", @"工程师招募"), NSLocalizedString(@"订单查询与邮寄", @"订单查询与邮寄"), nil];
-    self.menuSubItems = [NSArray arrayWithObjects:NSLocalizedString(@"Step by Step Explained", @"Step by Step Explained"), NSLocalizedString(@"Common Questions", @"Common Questions"), NSLocalizedString(@"Engineer Recruitment", @"Engineer Recruitment"), NSLocalizedString(@"Order inquiry", @"Order inquiry"), nil];
-    self.menuImageItems = [NSArray arrayWithObjects:@"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", nil];
+    self.menuItems = [NSArray arrayWithObjects:NSLocalizedString(@"首页", @"首页"), NSLocalizedString(@"服务流程", @"服务流程"), NSLocalizedString(@"常见问题", @"常见问题"), NSLocalizedString(@"服务支持", @"服务支持"), NSLocalizedString(@"服务条款", @"服务条款"), NSLocalizedString(@"订单查询", @"订单查询"), nil];
+    self.menuSubItems = [NSArray arrayWithObjects:NSLocalizedString(@"Home", @"Home"), NSLocalizedString(@"Step by Step Explained", @"Step by Step Explained"), NSLocalizedString(@"Common Questions", @"Common Questions"),NSLocalizedString(@"Iduoyu Support", @"Iduoyu Support"),NSLocalizedString(@"Terms of Service", @"Terms of Service"),  NSLocalizedString(@"Order Inquiry", @"Order Inquiry"), nil];
+    self.menuImageItems = [NSArray arrayWithObjects:@"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", nil];
 }
 
 - (void)viewDidLoad {
@@ -65,33 +65,50 @@
     if (newTopViewController == nil) {
         switch (row) {
             case 0:
-                //业务流程
+                //首页
                 storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 newTopViewController = [storyboard instantiateViewControllerWithIdentifier:@"NavFirst"];
                 break;
-                
             case 1:{
-                //F.A.Q
+                //业务流程
                 storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
                 newTopViewController = [storyboard instantiateInitialViewController];
                 WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
-                viewController.title = NSLocalizedString(@"F.A.Q", @"F.A.Q");
+                viewController.title = [self.menuItems objectAtIndex:indexPath.row];
                 //            [viewController setWebPageFileName:@"faq" ofType:@"html"];
                 [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
             }
                 break;
             case 2:{
-                //招募
+                //常见问题
                 storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
                 newTopViewController = [storyboard instantiateInitialViewController];
                 WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
-                viewController.title = NSLocalizedString(@"工程师招募", @"工程师招募");
+                viewController.title = [self.menuItems objectAtIndex:indexPath.row];
+                //            [viewController setWebPageFileName:@"faq" ofType:@"html"];
+                [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
+            }
+                break;
+            case 3:{
+                //服务支持
+                storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
+                newTopViewController = [storyboard instantiateInitialViewController];
+                WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
+                viewController.title = [self.menuItems objectAtIndex:indexPath.row];
                 [viewController setWebPageFileName:@"faq" ofType:@"html"];
             }
                 break;
-                
-            case 3:
-                //订单查询与邮寄
+            case 4:{
+                //服务条款
+                storyboard = [UIStoryboard storyboardWithName:@"WebRelated" bundle:nil];
+                newTopViewController = [storyboard instantiateInitialViewController];
+                WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
+                viewController.title = [self.menuItems objectAtIndex:indexPath.row];
+                [viewController setWebPageFileName:@"faq" ofType:@"html"];
+            }
+                break;
+            case 5:
+                //订单查询
                 storyboard = [UIStoryboard storyboardWithName:@"OrderSearch" bundle:nil];
                 newTopViewController = [storyboard instantiateInitialViewController];
             default:

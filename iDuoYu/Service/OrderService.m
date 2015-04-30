@@ -37,27 +37,28 @@ NSString *const GetOrderList = @"getOrderList";
 
 + (void)getCurrentCityEngineerList:(void (^)(Engineers *engineers))success
                            failure:(void (^)(NSError *error))failure {
+    RequestParam *requestParam = [RequestParam new];
     [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
         if (error) {
             if (failure) {
                 failure(error);
+                requestParam.City = NSLocalizedString(@"北京市", @"北京市");
             }
         }else {
-            RequestParam *requestParam = [RequestParam new];
             requestParam.City = [addressInfo objectForKey:@"State"];
-            [OrderService getEngineerList:requestParam
-                                  success:^(Engineers *engineers) {
-                                      if (success) {
-                                          success(engineers);
-                                      }
- 
-                                  } failure:^(NSError *error) {
-                                      if (failure) {
-                                          failure(error);
-                                      }
-                                  }];
         }
     }];
+    [OrderService getEngineerList:requestParam
+                          success:^(Engineers *engineers) {
+                              if (success) {
+                                  success(engineers);
+                              }
+                              
+                          } failure:^(NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 + (void)getEngineerList:(RequestParam *)requestParam
@@ -208,7 +209,7 @@ NSString *const GetOrderList = @"getOrderList";
         success(resultRespond);
     }
 #else
-    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:kSubmitOrder];
+    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:SubmitOrder];
 #if DBG
     NSLog(@"kSubmitOrder requestStr is %@",requestContent);
 #endif
