@@ -15,6 +15,7 @@
 #import "OrderSuccessViewController.h"
 #import "TopViewController.h"
 #import "LocationHelper.h"
+#import <GBDeviceInfo.h>
 
 @interface CustomerViewController ()
 
@@ -28,6 +29,26 @@
     self.customerAddressTextField.delegate = self;
     self.customerMobileNumberTextField.delegate = self;
     self.customerNameTextField.delegate = self;
+    if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch) {
+        self.customerNameTextField.superview.frame = CGRectMake(self.customerNameTextField.superview.frame.origin.x,
+                                                                self.customerNameTextField.superview.frame.origin.y,
+                                                                self.customerNameTextField.superview.frame.size.width,
+                                                                35);
+        self.customerMobileNumberTextField.superview.frame = CGRectMake(self.customerMobileNumberTextField.superview.frame.origin.x,
+                                                                self.customerNameTextField.superview.frame.origin.y+self.customerNameTextField.superview.frame.size.height+5,
+                                                                self.customerMobileNumberTextField.superview.frame.size.width,
+                                                                        35);
+        self.customerAddressTextField.superview.frame = CGRectMake(self.customerAddressTextField.superview.frame.origin.x,
+                                                                        self.customerMobileNumberTextField.superview.frame.origin.y+self.customerMobileNumberTextField.superview.frame.size.height+5,
+                                                                        self.customerAddressTextField.superview.frame.size.width,
+                                                                   35);
+        self.serviceTypeTextField.superview.frame = CGRectMake(self.serviceTypeTextField.superview.frame.origin.x,
+                                                                   self.customerAddressTextField.superview.frame.origin.y+self.customerAddressTextField.superview.frame.size.height+5,
+                                                                   self.serviceTypeTextField.superview.frame.size.width,
+                                                                   35);
+        
+    }
+    
     
     [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
         if (error) {

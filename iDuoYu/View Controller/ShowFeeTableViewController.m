@@ -28,8 +28,10 @@
                                                 options:nil];
     FeeHeaderView *headerSubView = [nibs objectAtIndex:0];
     headerSubView.backgroundColor = UIColorMake255(247, 247, 247, 1.0);
+    headerSubView.headerTitleLabel.textColor = UIColorMake255(108, 112, 116, 1);
+    headerSubView.headerSubtitleTextView.textColor = UIColorMake255(108, 112, 116, 1);
     if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
-        headerSubView.headerTitleLabel.text = NSLocalizedString(@"选择您的维修方案", @"选择您的维修方案");
+        headerSubView.headerTitleLabel.text = NSLocalizedString(@"选择您设备的维修方案", @"选择您设备的维修方案");
         headerSubView.headerSubtitleTextView.text = NSLocalizedString(@"123选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案", @"");
         headerSubView.headerImageView.image = [UIImage imageNamed:@"iconRepair.png"];
     }else{
