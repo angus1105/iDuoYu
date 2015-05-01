@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomerViewController : UIViewController<UIActionSheetDelegate, UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UITextField *customerNameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *customerMobileNumberTextField;
-@property (strong, nonatomic) IBOutlet UITextField *customerAddressTextField;
-@property (strong, nonatomic) IBOutlet UITextField *serviceTypeTextField;
-@property (strong, nonatomic) IBOutlet UIButton *serviceTypeButton;
-@property (strong, nonatomic) IBOutlet UIButton *submitButton;
+@interface CustomerViewController : UITableViewController<UIActionSheetDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) UITextField *customerNameTextField;
+@property (strong, nonatomic) UITextField *customerMobileNumberTextField;
+@property (strong, nonatomic) UITextField *customerAddressTextField;
+@property (strong, nonatomic) UITextField *serviceTypeTextField;
 
 - (IBAction)showServiceTypeAction:(id)sender;
 

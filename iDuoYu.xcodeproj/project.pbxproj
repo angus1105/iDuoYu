@@ -83,6 +83,8 @@
 		EC84236D1AE3D338008D4804 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = EC84236C1AE3D338008D4804 /* Order.m */; };
 		EC8423711AE3DA37008D4804 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8423701AE3DA37008D4804 /* OrderService.m */; };
 		ECBC300D1AF28B90003B9760 /* banner_4s.gif in Resources */ = {isa = PBXBuildFile; fileRef = ECBC300C1AF28B90003B9760 /* banner_4s.gif */; };
+		ECBC30131AF37270003B9760 /* CustomerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBC30121AF37270003B9760 /* CustomerCell.m */; };
+		ECBC30161AF372B1003B9760 /* CustomerServiceTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBC30151AF372B1003B9760 /* CustomerServiceTypeCell.m */; };
 		ECD242861AE767970055CDCD /* FeeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD242851AE767970055CDCD /* FeeHeaderView.m */; };
 		ECD2428A1AE768430055CDCD /* FeeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD242891AE768430055CDCD /* FeeHeaderView.xib */; };
 		ECD2428D1AE799800055CDCD /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2428C1AE799800055CDCD /* CustomerViewController.m */; };
@@ -222,6 +224,10 @@
 		EC84236F1AE3DA37008D4804 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderService.h; path = Service/OrderService.h; sourceTree = "<group>"; };
 		EC8423701AE3DA37008D4804 /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderService.m; path = Service/OrderService.m; sourceTree = "<group>"; };
 		ECBC300C1AF28B90003B9760 /* banner_4s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = banner_4s.gif; sourceTree = "<group>"; };
+		ECBC30111AF37270003B9760 /* CustomerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCell.h; sourceTree = "<group>"; };
+		ECBC30121AF37270003B9760 /* CustomerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCell.m; sourceTree = "<group>"; };
+		ECBC30141AF372B1003B9760 /* CustomerServiceTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceTypeCell.h; sourceTree = "<group>"; };
+		ECBC30151AF372B1003B9760 /* CustomerServiceTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceTypeCell.m; sourceTree = "<group>"; };
 		ECD242841AE767970055CDCD /* FeeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHeaderView.h; sourceTree = "<group>"; };
 		ECD242851AE767970055CDCD /* FeeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHeaderView.m; sourceTree = "<group>"; };
 		ECD242891AE768430055CDCD /* FeeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHeaderView.xib; sourceTree = "<group>"; };
@@ -460,6 +466,10 @@
 				EC592FC11AE6437100E6CFD1 /* SolutionCell.xib */,
 				EC592FCA1AE6AA1200E6CFD1 /* FeeCell.h */,
 				EC592FCB1AE6AA1200E6CFD1 /* FeeCell.m */,
+				ECBC30111AF37270003B9760 /* CustomerCell.h */,
+				ECBC30121AF37270003B9760 /* CustomerCell.m */,
+				ECBC30141AF372B1003B9760 /* CustomerServiceTypeCell.h */,
+				ECBC30151AF372B1003B9760 /* CustomerServiceTypeCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -684,11 +694,13 @@
 				5D9BCA9A1AE355BD00EAD869 /* Utils.m in Sources */,
 				5D1918F81ADB990D00C7AE60 /* ViewController.m in Sources */,
 				5D70011E1AE48C660016AF1D /* CellWithImage.m in Sources */,
+				ECBC30131AF37270003B9760 /* CustomerCell.m in Sources */,
 				EC8423581AE2A75F008D4804 /* RequestParam.m in Sources */,
 				EC0915171ADE5E50001599C1 /* InitialSlidingViewController.m in Sources */,
 				EC8423561AE2A75F008D4804 /* Header.m in Sources */,
 				EC592FB81AE55EDE00E6CFD1 /* MenuCell.m in Sources */,
 				5D70011D1AE48C660016AF1D /* CellNormal.m in Sources */,
+				ECBC30161AF372B1003B9760 /* CustomerServiceTypeCell.m in Sources */,
 				EC84236D1AE3D338008D4804 /* Order.m in Sources */,
 				5D1447F21ADFAB4800A3E2A1 /* HttpRequestManager.m in Sources */,
 				5D2FD4C71AE6895600A69055 /* OrderSearchViewController.m in Sources */,

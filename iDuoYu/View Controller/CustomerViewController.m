@@ -16,6 +16,8 @@
 #import "TopViewController.h"
 #import "LocationHelper.h"
 #import <GBDeviceInfo.h>
+#import "CustomerCell.h"
+#import "CustomerServiceTypeCell.h"
 
 @interface CustomerViewController ()
 
@@ -25,44 +27,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColorMake255(247, 247, 247, 1.0);
-    self.customerAddressTextField.delegate = self;
-    self.customerMobileNumberTextField.delegate = self;
-    self.customerNameTextField.delegate = self;
+    self.tableView.backgroundColor = UIColorMake255(247, 247, 247, 1.0);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.allowsSelection = NO;
+    
+    UIView *headerSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch) {
-        self.customerNameTextField.superview.frame = CGRectMake(self.customerNameTextField.superview.frame.origin.x,
-                                                                self.customerNameTextField.superview.frame.origin.y,
-                                                                self.customerNameTextField.superview.frame.size.width,
-                                                                35);
-        self.customerMobileNumberTextField.superview.frame = CGRectMake(self.customerMobileNumberTextField.superview.frame.origin.x,
-                                                                self.customerNameTextField.superview.frame.origin.y+self.customerNameTextField.superview.frame.size.height+5,
-                                                                self.customerMobileNumberTextField.superview.frame.size.width,
-                                                                        35);
-        self.customerAddressTextField.superview.frame = CGRectMake(self.customerAddressTextField.superview.frame.origin.x,
-                                                                        self.customerMobileNumberTextField.superview.frame.origin.y+self.customerMobileNumberTextField.superview.frame.size.height+5,
-                                                                        self.customerAddressTextField.superview.frame.size.width,
-                                                                   35);
-        self.serviceTypeTextField.superview.frame = CGRectMake(self.serviceTypeTextField.superview.frame.origin.x,
-                                                                   self.customerAddressTextField.superview.frame.origin.y+self.customerAddressTextField.superview.frame.size.height+5,
-                                                                   self.serviceTypeTextField.superview.frame.size.width,
-                                                                   35);
-        
+        headerSubView.frame = CGRectMake(0, 0, kScreenWitch, 40);
+    }else{
+        headerSubView.frame = CGRectMake(0, 0, kScreenWitch, 60);
     }
+    headerSubView.backgroundColor = [UIColor clearColor];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    titleLabel.font = [UIFont systemFontOfSize:20];
+    titleLabel.frame = headerSubView.frame;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = NSLocalizedString(@"请填写您的联系方式", @"请填写您的联系方式");
+    titleLabel.textColor = UIColorMake255(149, 152, 155, 1);
+    [headerSubView addSubview:titleLabel];
     
-    
-    [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
-        if (error) {
-            
-        }else {
-            
-            for (NSString *key in addressInfo.allKeys) {
-                NSLog(@"key = %@, value = %@", key, [addressInfo objectForKey:key]);
-            }
-            
-            self.customerAddressTextField.text = [addressInfo objectForKey:@"Name"];
-
-        }
-    }];
+    self.tableView.tableHeaderView = headerSubView;
+    UIView *footerSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 100)];
+    UIButton *goBackToHomeButtom = [UIButton buttonWithType:UIButtonTypeCustom];
+    [goBackToHomeButtom setFrame:CGRectMake(20, 20, kScreenWitch-40, 40)];
+    [goBackToHomeButtom setBackgroundColor:UIColorMake255(0,158,186,1.0)];
+    [goBackToHomeButtom setTitle:NSLocalizedString(@"提交", @"提交") forState:UIControlStateNormal];
+    [goBackToHomeButtom addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventTouchUpInside];
+    goBackToHomeButtom.clipsToBounds = YES;
+    [footerSubView addSubview:goBackToHomeButtom];
+    //去掉多余空cell
+    self.tableView.tableFooterView = footerSubView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -192,5 +186,98 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 4;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section <3) {
+        static NSString *cellIdentifier = @"customerCell";
+        CustomerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier
+                                                              forIndexPath:indexPath];
+        if (indexPath.section == 0) {
+            [[cell iconImageView] setImage:[UIImage imageNamed:@"iconName.png"]];
+            [[cell cTextFeild] setPlaceholder:NSLocalizedString(@"请填写您的姓名", nil)];
+            [[cell cTextFeild] setBorderStyle:UITextBorderStyleNone];
+            [[cell cTextFeild] setReturnKeyType:UIReturnKeyDone];
+            self.customerNameTextField = [(CustomerCell *)cell cTextFeild];
+        }else if (indexPath.section == 1) {
+            [[cell iconImageView] setImage:[UIImage imageNamed:@"iconMobile.png"]];
+            [[cell cTextFeild] setPlaceholder:NSLocalizedString(@"请填写您的联系电话", nil)];
+            [[cell cTextFeild] setBorderStyle:UITextBorderStyleNone];
+            [[cell cTextFeild] setKeyboardType:UIKeyboardTypePhonePad];
+            [[cell cTextFeild] setReturnKeyType:UIReturnKeyDone];
+            self.customerMobileNumberTextField = [(CustomerCell *)cell cTextFeild];
+        }else if (indexPath.section == 2) {
+            [[cell iconImageView] setImage:[UIImage imageNamed:@"iconAddress.png"]];
+            [[cell cTextFeild] setPlaceholder:NSLocalizedString(@"请填写您的详细地址", nil)];
+            [[cell cTextFeild] setBorderStyle:UITextBorderStyleNone];
+            [[cell cTextFeild] setReturnKeyType:UIReturnKeyDone];
+            
+            [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
+                if (error) {
+                    
+                }else {
+                    
+                    for (NSString *key in addressInfo.allKeys) {
+                        NSLog(@"key = %@, value = %@", key, [addressInfo objectForKey:key]);
+                    }
+                    
+                    [[cell cTextFeild] setText:[addressInfo objectForKey:@"Name"]];
+                    
+                }
+            }];
+            self.customerAddressTextField = [cell cTextFeild];
+        }
+        return cell;
+    }else{
+        static NSString *cellIdentifier = @"customerServiceTypeCell";
+        CustomerServiceTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier
+                                                             forIndexPath:indexPath];
+        cell.iconImageView.image = [UIImage imageNamed:@"iconRepair.png"];
+        cell.cTextfeild.placeholder = NSLocalizedString(@"请选择您的服务方式", nil);
+        self.serviceTypeTextField = cell.cTextfeild;
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    bgView.backgroundColor = [UIColor clearColor];
+    return bgView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch) {
+        return 5;
+    }else if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
+        return 10;
+    }else{
+        return 20;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    bgView.backgroundColor = [UIColor clearColor];
+    return bgView;
+}
+
 
 @end
