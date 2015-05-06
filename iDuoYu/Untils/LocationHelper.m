@@ -70,13 +70,16 @@
                        
                        CLPlacemark *placemark = [placemarks lastObject];
                        NSLog(@"placemark = %@", placemark.addressDictionary);
-                       
-                       for (NSString *key in [placemark.addressDictionary allKeys]) {
-                           NSLog(@"\n%@ : %@",key, [placemark.addressDictionary objectForKey:key]);
+                       NSMutableDictionary *locationMDic = [NSMutableDictionary dictionaryWithCapacity:(placemark.addressDictionary.count+2)];
+                       [locationMDic addEntriesFromDictionary:placemark.addressDictionary];
+                       [locationMDic setObject:[NSString stringWithFormat:@"%f",currentLocation.coordinate.latitude] forKey:@"latitude"];
+                       [locationMDic setObject:[NSString stringWithFormat:@"%f",currentLocation.coordinate.longitude] forKey:@"longitude"];
+                       for (NSString *key in [locationMDic allKeys]) {
+                           NSLog(@"\n%@ : %@",key, [locationMDic objectForKey:key]);
                        }
                        
                        if (locatedCity) {
-                           locatedCity(placemark.addressDictionary, nil);
+                           locatedCity(locationMDic, nil);
                        }
                    }];
 }
