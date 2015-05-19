@@ -54,10 +54,12 @@ BOOL engineerListIsShown;
         [[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
         NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner_4s" ofType:@"gif"]];
         self.gifImageView.gifData = gifData;
+        self.gifImageView.contentMode = UIViewContentModeScaleAspectFill;
     }else{
         NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner" ofType:@"gif"]];
         self.gifImageView.gifData = gifData;
     }
+    
     
     [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
         if (error) {
