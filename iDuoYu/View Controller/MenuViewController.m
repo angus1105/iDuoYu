@@ -26,7 +26,7 @@
 {
     self.menuItems = [NSArray arrayWithObjects:NSLocalizedString(@"首页", @"首页"), NSLocalizedString(@"服务流程", @"服务流程"), NSLocalizedString(@"常见问题", @"常见问题"), NSLocalizedString(@"服务支持", @"服务支持"), NSLocalizedString(@"服务条款", @"服务条款"), NSLocalizedString(@"订单查询", @"订单查询"), nil];
     self.menuSubItems = [NSArray arrayWithObjects:NSLocalizedString(@"Home", @"Home"), NSLocalizedString(@"Step by Step Explained", @"Step by Step Explained"), NSLocalizedString(@"Common Questions", @"Common Questions"),NSLocalizedString(@"Iduoyu Support", @"Iduoyu Support"),NSLocalizedString(@"Terms of Service", @"Terms of Service"),  NSLocalizedString(@"Order Inquiry", @"Order Inquiry"), nil];
-    self.menuImageItems = [NSArray arrayWithObjects:@"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", @"lanuchLogo.png", nil];
+    self.menuImageItems = [NSArray arrayWithObjects:@"dy_ico1.png", @"dy_ico2.png", @"dy_ico3.png", @"dy_ico4.png", @"dy_ico5.png", @"dy_ico6.png", nil];
 }
 
 - (void)viewDidLoad {
@@ -81,8 +81,8 @@
                 newTopViewController = [storyboard instantiateInitialViewController];
                 WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
                 viewController.title = [self.menuItems objectAtIndex:indexPath.row];
-                //            [viewController setWebPageFileName:@"faq" ofType:@"html"];
-                [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
+                [viewController setWebPageFileName:@"flow" ofType:@"html"];
+//                [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
             }
                 break;
             case 2:{
@@ -91,8 +91,8 @@
                 newTopViewController = [storyboard instantiateInitialViewController];
                 WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
                 viewController.title = [self.menuItems objectAtIndex:indexPath.row];
-                //            [viewController setWebPageFileName:@"faq" ofType:@"html"];
-                [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
+                [viewController setWebPageFileName:@"faq" ofType:@"html"];
+//                [viewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
             }
                 break;
             case 3:{
@@ -101,7 +101,7 @@
                 newTopViewController = [storyboard instantiateInitialViewController];
                 WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
                 viewController.title = [self.menuItems objectAtIndex:indexPath.row];
-                [viewController setWebPageFileName:@"faq" ofType:@"html"];
+                [viewController setWebPageFileName:@"support" ofType:@"html"];
             }
                 break;
             case 4:{
@@ -110,7 +110,7 @@
                 newTopViewController = [storyboard instantiateInitialViewController];
                 WebRelatedViewController *viewController = [[(UINavigationController *)newTopViewController viewControllers] firstObject];
                 viewController.title = [self.menuItems objectAtIndex:indexPath.row];
-                [viewController setWebPageFileName:@"faq" ofType:@"html"];
+                [viewController setWebPageFileName:@"terms" ofType:@"html"];
             }
                 break;
             case 5:

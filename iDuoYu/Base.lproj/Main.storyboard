@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -232,7 +232,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconSell" translatesAutoresizingMaskIntoConstraints="NO" id="RyM-nH-NrQ">
                                         <rect key="frame" x="24" y="21" width="32" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="RyM-nH-NrQ" secondAttribute="height" multiplier="1:1" id="Wyf-1G-GST"/>
+                                            <constraint firstAttribute="width" secondItem="RyM-nH-NrQ" secondAttribute="height" multiplier="1:1" priority="999" id="Wyf-1G-GST"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -324,7 +324,7 @@
                             <constraint firstItem="wvv-LP-0L3" firstAttribute="leading" secondItem="WAQ-iG-Duv" secondAttribute="leadingMargin" constant="-11" id="jNg-gt-BpW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wvv-LP-0L3" secondAttribute="trailing" constant="-16" id="moa-1K-Ca9"/>
                             <constraint firstItem="RyM-nH-NrQ" firstAttribute="width" secondItem="1Bl-mJ-4bj" secondAttribute="width" id="pox-l6-6Rg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MJy-jl-p0A" secondAttribute="trailing" constant="-16" id="qtX-0T-m9v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MJy-jl-p0A" secondAttribute="trailing" priority="999" constant="-16" id="qtX-0T-m9v"/>
                             <constraint firstItem="hqM-Vr-dO1" firstAttribute="top" secondItem="gwf-1p-x1v" secondAttribute="bottom" constant="26" id="tPk-Q7-6YG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hqM-Vr-dO1" secondAttribute="trailing" constant="24" id="vGd-Gk-D9F"/>
                             <constraint firstItem="MJy-jl-p0A" firstAttribute="top" secondItem="gwf-1p-x1v" secondAttribute="bottom" id="zuN-d8-IJw"/>
