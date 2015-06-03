@@ -31,17 +31,17 @@
     headerSubView.headerTitleLabel.textColor = UIColorMake255(108, 112, 116, 1);
     headerSubView.headerSubtitleTextView.textColor = UIColorMake255(108, 112, 116, 1);
     if ([[[Context sharedContext] BusinessType] isEqualToString:BusinessTypeRepair]) {
-        headerSubView.headerTitleLabel.text = NSLocalizedString(@"选择您设备的维修方案", @"选择您设备的维修方案");
-        headerSubView.headerSubtitleTextView.text = NSLocalizedString(@"123选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案选择您的维修方案", @"");
+        headerSubView.headerTitleLabel.text = NSLocalizedString(@"我们的维修方案", @"我们的维修方案");
+        headerSubView.headerSubtitleTextView.text = NSLocalizedString(@"我们支持的服务方式有上门维修、邮寄维修、到店送修和取回维修。", @"");
         headerSubView.headerImageView.image = [UIImage imageNamed:@"iconRepair.png"];
     }else{
-        headerSubView.headerTitleLabel.text = NSLocalizedString(@"出售我的设备", @"出售我的设备");
-        headerSubView.headerSubtitleTextView.text = NSLocalizedString(@"出售我的设备出售我的设备出售我的设备出售我的设备出售我的设备出售我的设备", @"");
+        headerSubView.headerTitleLabel.text = NSLocalizedString(@"设备回收报价", @"设备回收报价");
+        headerSubView.headerSubtitleTextView.text = NSLocalizedString(@"根据您提供的信息，我们希望通过以下的价格来购买您的设备。", @"");
         headerSubView.headerImageView.image = [UIImage imageNamed:@"iconSell.png"];
     }
     CGSize size = [headerSubView.headerSubtitleTextView.text sizeWithFont:headerSubView.headerSubtitleTextView.font constrainedToSize:CGSizeMake(headerSubView.headerSubtitleTextView.frame.size.width, 2000.0f) lineBreakMode:NSLineBreakByWordWrapping];
     CGFloat headerSubTitleHeight = size.height+40;
-    headerSubView.frame = CGRectMake(0, 0, self.view.frame.size.width, headerSubView.headerTitleLabel.frame.size.height+headerSubView.headerImageView.frame.size.height+headerSubTitleHeight+10+20);
+    headerSubView.frame = CGRectMake(0, 0, self.view.frame.size.width, headerSubView.headerTitleLabel.frame.size.height+headerSubView.headerImageView.frame.size.height+headerSubTitleHeight+10);
     self.tableView.tableHeaderView = headerSubView;
 }
 
@@ -58,7 +58,7 @@
     
     CGSize size = [headerSubView.headerSubtitleTextView.text sizeWithFont:headerSubView.headerSubtitleTextView.font constrainedToSize:CGSizeMake(headerSubView.headerSubtitleTextView.frame.size.width, 2000.0f) lineBreakMode:NSLineBreakByWordWrapping];
     CGFloat headerSubTitleHeight = size.height+40;
-    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, headerSubView.headerTitleLabel.frame.size.height+headerSubView.headerImageView.frame.size.height+headerSubTitleHeight+10+20);
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, headerSubView.headerTitleLabel.frame.size.height+headerSubView.headerImageView.frame.size.height+headerSubTitleHeight+10);
 }
 
 #pragma mark - Table view data source

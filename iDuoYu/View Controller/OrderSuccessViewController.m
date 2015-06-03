@@ -79,14 +79,14 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         if (indexPath.row == 0) {
-            cell.textLabel.text = NSLocalizedString(@"我们将会有工程师联系您，商量并选择地方见面，我们将会有工程师联系您，商量并选择地方见面", nil);
+            cell.textLabel.text = NSLocalizedString(@"您可以在下方看到可以为您提供服务的工程师，他们中的一位会联系您 以确认见面的时间地点", nil);
             cell.textLabel.numberOfLines = 0;
             cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.textColor = [UIColor lightGrayColor];
         }else{
-            cell.textLabel.text = NSLocalizedString(@"文章内容详情", nil);
+            cell.textLabel.text = NSLocalizedString(@"服务支持", nil);
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             cell.textLabel.font = [UIFont systemFontOfSize:14];
             cell.textLabel.textColor = [UIColor lightGrayColor];
@@ -116,11 +116,12 @@
             [tableView deselectRowAtIndexPath:indexPath
                                      animated:YES];
         }else{
-            //TODO:跳转到说明的静态页
+            //跳转到技术支持的静态页
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"WebRelated"
                                                                  bundle:nil];
             WebRelatedViewController *webRelatedViewController = [storyboard instantiateViewControllerWithIdentifier:WebRelatedViewController.storyboardID];
-            [webRelatedViewController setWebPageURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=205203051&idx=1&sn=6af0098e16f8c0b8b567bd44ddeeae32#rd"]];
+            webRelatedViewController.title = NSLocalizedString(@"服务支持", @"服务支持");
+            [webRelatedViewController setWebPageFileName:@"support" ofType:@"html"];
             [self.navigationController pushViewController:webRelatedViewController
                                                  animated:YES];
             
