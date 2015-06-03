@@ -48,6 +48,9 @@ NSString *const GetOrderList = @"getOrderList";
             requestParam.City = [addressInfo objectForKey:@"State"];
         }
     }];
+    if(isStringEmpty(requestParam.City)){
+        requestParam.City = NSLocalizedString(@"北京市", @"北京市");
+    }
     [OrderService getEngineerList:requestParam
                           success:^(Engineers *engineers) {
                               if (success) {
@@ -64,15 +67,15 @@ NSString *const GetOrderList = @"getOrderList";
 + (void)getEngineerList:(RequestParam *)requestParam
                        success:(void (^)(Engineers *engineers))success
                        failure:(void (^)(NSError *error))failure{
-#if kIsSimulationData
-    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonEngineerListTest" ofType:@"json"];
-    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
-    Engineers *engineerList = [[Engineers alloc] initWithJSONData:jsonData];
-    
-    if (success) {
-        success(engineerList);
-    }
-#else
+//#if kIsSimulationData
+//    NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonEngineerListTest" ofType:@"json"];
+//    NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
+//    Engineers *engineerList = [[Engineers alloc] initWithJSONData:jsonData];
+//    
+//    if (success) {
+//        success(engineerList);
+//    }
+//#else
     NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:GetEngineerList];
 #if DBG
     NSLog(@"kGetEngineerList requestStr is %@",requestContent);
@@ -95,7 +98,7 @@ NSString *const GetOrderList = @"getOrderList";
                                 }
                             }];
     
-#endif
+//#endif
 }
 
 + (void)getDeviceParamIds:(RequestParam *)requestParam
@@ -197,10 +200,6 @@ NSString *const GetOrderList = @"getOrderList";
                        success:(void (^)(ResultRespond *resultRespond))success
                        failure:(void (^)(NSError *error))failure{
 #if kIsSimulationData
-    NSString *requestContent = [requestParam getRequestStrByEntity:requestParam action:SubmitOrder];
-#if DBG
-    NSLog(@"kSubmitOrder requestStr is %@",requestContent);
-#endif
     NSString *srcPath = [[NSBundle mainBundle] pathForResource:@"jsonRespondTest" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:srcPath];
     ResultRespond *resultRespond = [[ResultRespond alloc] initWithJSONData:jsonData];
