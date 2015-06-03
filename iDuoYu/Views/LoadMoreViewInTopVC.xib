@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8k-xc-JeZ" userLabel="BlueLineView">
-                    <rect key="frame" x="10" y="42" width="365" height="2"/>
+                    <rect key="frame" x="0.0" y="42" width="375" height="2"/>
                     <color key="backgroundColor" red="0.20784313730000001" green="0.59999999999999998" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="XHt-rE-v1p"/>
@@ -51,7 +51,7 @@
                 <constraint firstAttribute="centerY" secondItem="Zkc-eP-gd6" secondAttribute="centerY" id="4cZ-br-g79"/>
                 <constraint firstAttribute="bottom" secondItem="v8k-xc-JeZ" secondAttribute="bottom" id="7Dy-KQ-vW4"/>
                 <constraint firstAttribute="trailing" secondItem="4w6-3a-b1v" secondAttribute="trailing" id="BxV-Ft-0Vl"/>
-                <constraint firstItem="v8k-xc-JeZ" firstAttribute="leading" secondItem="bQo-75-3Gi" secondAttribute="leading" constant="10" id="gUm-Yw-eZ5"/>
+                <constraint firstItem="v8k-xc-JeZ" firstAttribute="leading" secondItem="bQo-75-3Gi" secondAttribute="leading" id="gUm-Yw-eZ5"/>
                 <constraint firstItem="4w6-3a-b1v" firstAttribute="top" secondItem="bQo-75-3Gi" secondAttribute="top" id="n9C-uC-2VL"/>
                 <constraint firstItem="4w6-3a-b1v" firstAttribute="leading" secondItem="bQo-75-3Gi" secondAttribute="leading" id="rFA-3w-oPI"/>
                 <constraint firstAttribute="trailing" secondItem="v8k-xc-JeZ" secondAttribute="trailing" id="sp7-QK-w37"/>
