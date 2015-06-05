@@ -39,27 +39,31 @@ BOOL engineerListIsShown;
     [super viewDidLoad];
     
     //左侧菜单按钮
-    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [menuButton addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
-    menuButton.frame = CGRectMake(0, 0, 44, 44);
-    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateNormal];
-    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateHighlighted];
-    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
-    self.navigationItem.leftBarButtonItem = menuItem;
+//    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [menuButton addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+//    menuButton.frame = CGRectMake(0, 0, 44, 44);
+//    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateNormal];
+//    [menuButton setImage:[UIImage imageNamed:@"navigation.png"] forState:UIControlStateHighlighted];
+//    UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+//    self.navigationItem.leftBarButtonItem = menuItem;
     
     // Do any additional setup after loading the view.
     self.locationBackgroundView.layer.cornerRadius = 10;
     
-//    if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch ||
-//        [[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
-//        NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner_4s" ofType:@"gif"]];
-//        self.gifImageView.gifData = gifData;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(engineerNearByTouchUpInside:)];
+    [self.locationBackgroundView addGestureRecognizer:gesture];
+    
+    if ([[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone35Inch ||
+        [[GBDeviceInfo deviceInfo] display] == GBDeviceDisplayiPhone4Inch) {
+        NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner_4s" ofType:@"gif"]];
+        self.gifImageView.gifData = gifData;
 //        self.gifImageView.contentMode = UIViewContentModeScaleAspectFill;
-//    }else{
+    }else{
         NSData *gifData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"banner" ofType:@"gif"]];
         self.gifImageView.gifData = gifData;
-//    }
-    
+    }
+
     
     [LocationHelper locateCurrentCity:^(NSDictionary *addressInfo, NSError *error) {
         if (error) {
@@ -102,6 +106,27 @@ BOOL engineerListIsShown;
     
     
     [self.view addSubview:self.loadMoreView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didChangeStatusBarframe:)
+                                                 name:UIApplicationDidChangeStatusBarFrameNotification
+                                               object:nil];
+}
+
+- (void)didChangeStatusBarframe:(id)sender {
+
+    if (engineerListIsShown) {
+        return;
+    }
+
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         self.loadMoreView.frame = CGRectMake(0,
+                                                              [[UIScreen mainScreen] bounds].size.height-[UIApplication sharedApplication].statusBarFrame.size.height-24,
+                                                              self.view.frame.size.width,
+                                                              44);
+                     }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -109,9 +134,10 @@ BOOL engineerListIsShown;
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     [self.gifImageView startGIF];
     self.loadMoreView.frame = CGRectMake(0,
-                                         self.view.frame.size.height-44,
+                                         [[UIScreen mainScreen] bounds].size.height-[UIApplication sharedApplication].statusBarFrame.size.height-24,
                                          self.view.frame.size.width,
                                          44);
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
